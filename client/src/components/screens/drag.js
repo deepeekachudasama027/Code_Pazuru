@@ -64,8 +64,11 @@ class SortableItems extends Component {
         {
           this.logoutHandler()
         }
+        else if(element.data==="Game Over")
+        {
+          window.location.href = "./thank_you";
+        }
         else {
-        console.log(element)
         this.setState({
           level:  element.data.element.level,
           items:  element.data.element.code,
@@ -98,6 +101,10 @@ class SortableItems extends Component {
         {
           this.logoutHandler()
         }
+        else if(element.data==="Game Over")
+        {
+          window.location.href = "./thank_you";
+        }
         else {
         this.setState({
           level: element.data.element.level,
@@ -125,6 +132,10 @@ class SortableItems extends Component {
         if(element.data==="login required")
         {
           this.logoutHandler()
+        }
+        else if(element.data==="Game Over")
+        {
+          window.location.href = "./thank_you";
         }
         else {
         this.setState({
