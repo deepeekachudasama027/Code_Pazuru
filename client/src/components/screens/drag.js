@@ -165,17 +165,17 @@ logoutHandler () {
      )}
       else {
     return (
-      <div class="maincontainer">
-          <nav class="navbar">
-    <div class="logo">
-      <a href="/drag" class="navbar-brand animated flip">Web Pazuru </a>
+          <div className="backgroundset">
+          <nav className="navbar">
+    <div className="logo">
+      <a href="/drag" className="navbar-brand animated flip">Web Pazuru </a>
     </div>
-    <a href="/drag" class="toggle-button">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <a href="/drag" className="toggle-button">
+      <span className="bar"></span>
+      <span className="bar"></span>
+      <span className="bar"></span>
     </a>
-    <div class="navbar-links">
+    <div className="navbar-links">
       <ul>
         <li><a href="/drag" >Rules</a></li>
         <li><h1 id="roll">{username}</h1></li>
@@ -226,6 +226,7 @@ logoutHandler () {
           </button>
         </center>
       </div>
+    
     );
   }
 }}

@@ -1,3 +1,10 @@
+.backgroundset{
+  width: 100%;
+ background-size: cover;
+ height: 100vh;
+  background-image: url("./photo-1482062364825-616fd23b8fc1.jfif");
+  
+}
 .navbar {
     display: flex;
     position: relative;

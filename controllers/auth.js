@@ -67,7 +67,7 @@ exports.getCode = async (req, res, next) => {
           level = user[0].level;
           score = user[0].score;
           username = user[0].username;
-          if (level > "4") {
+          if (level > "5") {
             return res.send("Game Over");
           } else {
             Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -96,6 +96,7 @@ exports.check = async (req, res, next) => {
         level = user[0].level;
         score = user[0].score;
         username = user[0].username;
+        console.log(score);
         Ques.find({ level }, { _id: 0, level: 1, code: 1, order: 1 }).then(
           (elements) => {
             if (
@@ -104,7 +105,7 @@ exports.check = async (req, res, next) => {
             ) {
               level++;
               score = score + 100;
-              if (level > "4") {
+              if (level > "5") {
                 User.findOneAndUpdate(
                   { email },
                   { level: level, score: score },
@@ -164,32 +165,42 @@ exports.skip = async (req, res, next) => {
   try {
     if (!email) return res.send("login required");
     else {
-      level++;
-      score = score - 50;
-      if (level > "4") {
-        User.findOneAndUpdate(
-          { email },
-          { level: level, score: score },
-          { new: true }
-        ).then((user) => {
-          console.log("Game Over");
-          return res.send("Game Over");
-        });
-      } else {
-        User.findOneAndUpdate({ email }, { level: level }, { new: true }).then(
-          Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
-            (element) => {
-              ele = {
-                element: element[0],
-                score: score,
-                username: username,
-              };
+      User.find({ email }, { _id: 0, level: 1, score: 1, username: 1 }).then(
+        (user) => {
+          level = user[0].level;
+          score = user[0].score;
+          username = user[0].username;
+          level++;
+          score = score - 50;
+          if (level > "5") {
+            User.findOneAndUpdate(
+              { email },
+              { level: level, score: score },
+              { new: true }
+            ).then((user) => {
+              return res.send("Game Over");
+            });
+          } else {
+            User.findOneAndUpdate(
+              { email },
+              { level: level, score: score },
+              { new: true }
+            ).then(
+              Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
+                (element) => {
+                  ele = {
+                    element: element[0],
+                    score: score,
+                    username: username,
+                  };
 
-              return res.json(ele);
-            }
-          )
-        );
-      }
+                  return res.json(ele);
+                }
+              )
+            );
+          }
+        }
+      );
     }
   } catch (err) {
     next(err);
