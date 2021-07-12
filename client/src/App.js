@@ -16,10 +16,9 @@ const App = () => {
           <PrivateRoute exact path="/" component={LoginScreen}/>
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
-        </Switch>
-        <Switch>
           <PrivateRoute exact path="/drag" component={SortableItems} />
-          </Switch>
+        </Switch>
+      
       </div>
     </Router>
   );

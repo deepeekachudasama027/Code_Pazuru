@@ -2,7 +2,6 @@ const crypto = require("crypto");
 const ErrorResponse = require("../utils/errorResponse");
 const User = require("../models/User");
 const Ques = require("../models/ques");
-// const sendEmail = require("../utils/sendEmail");
 
 // @desc    Login user
 var email =""

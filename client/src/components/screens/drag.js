@@ -9,6 +9,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
 import axios from "axios";
+require("./navbar.css")
 
 //Drag handler
 const DragHandle = sortableHandle(() => (
@@ -114,14 +115,30 @@ logoutHandler () {
 
     return (
       <div>
+          <nav class="navbar">
+    <div class="logo">
+      <a href="/drag" class="navbar-brand animated flip">Web Pazuru </a>
+    </div>
+    <a href="/drag" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="/drag" >Rules</a></li>
+        <li><h1 id="roll">{username}</h1></li>
+        <li><button onClick={this.logoutHandler}>logout</button></li>
+      </ul>
+    </div>
+  </nav>
         <div>
-          <h2>
-            welcome {username} score:{score}
-          </h2>
-          <button onClick={this.logoutHandler}>logout</button>
+         
+    
         </div>
         <center>
-          <h1> level : {level} </h1>
+          <p > level : {level} </p>
+          <p > score:{score} </p>
         </center>
 
         <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
