@@ -5,13 +5,15 @@ const router = express.Router();
 const {
   login,
   register,
-  getCode,check, getuser
+  getCode,check, skip, getdetails
 } = require("../controllers/auth");
 
 router.route("/register").post(register);
 router.route("/login").post(login);
 router.route("/getCode").post(getCode);
 router.route("/check").post(check);
-// router.route("/getuser").post(getuser);
+router.route("/skip").post(skip);
+router.route("/getdetails").post(getdetails)
+
 
 module.exports = router;

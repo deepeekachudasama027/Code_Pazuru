@@ -42,6 +42,7 @@ class SortableItems extends Component {
     };
     this.check = this.check.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
+    this.skip = this.skip.bind(this);
   }
 
   componentDidMount() {
@@ -59,13 +60,18 @@ class SortableItems extends Component {
       try {
         const element = await axios.post("/api/auth/getCode", config);
 
-        console.log(element);
-        this.setState({
-          level: element.data.element.level,
-          items: element.data.element.code,
-          username: element.data.username,
-          score: element.data.score,
-        });
+        if (element.data === "login required") {
+          this.logoutHandler();
+        } else if (element.data === "Game Over") {
+          window.location.href = "./thank_you";
+        } else {
+          this.setState({
+            level: element.data.element.level,
+            items: element.data.element.code,
+            username: element.data.username,
+            score: element.data.score,
+          });
+        }
       } catch (err) {
         console.log(err);
       }
@@ -89,12 +95,18 @@ class SortableItems extends Component {
       try {
         const element = await axios.post("/api/auth/check", { items }, config);
 
-        this.setState({
-          level: element.data.element.level,
-          items: element.data.element.code,
-          username: element.data.username,
-          score: element.data.score,
-        });
+        if (element.data === "login required") {
+          this.logoutHandler();
+        } else if (element.data === "Game Over") {
+          window.location.href = "./thank_you";
+        } else {
+          this.setState({
+            level: element.data.element.level,
+            items: element.data.element.code,
+            username: element.data.username,
+            score: element.data.score,
+          });
+        }
       } catch (err) {
         console.log(err);
       }
@@ -102,69 +114,119 @@ class SortableItems extends Component {
 
     check_code();
   }
+
+  skip() {
+    const skip_ques = async () => {
+      const config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+      const items = this.state.items;
+      try {
+        const element = await axios.post("/api/auth/skip", { items }, config);
+        if (element.data === "login required") {
+          this.logoutHandler();
+        } else if (element.data === "Game Over") {
+          window.location.href = "./thank_you";
+        } else {
+          this.setState({
+            level: element.data.element.level,
+            items: element.data.element.code,
+            username: element.data.username,
+            score: element.data.score,
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    skip_ques();
+  }
   logoutHandler() {
     localStorage.removeItem("authToken");
     window.location.href = "./login";
   }
+
   render() {
     const { items, level, score, username } = this.state;
-
-    return (
-      <div>
-        <nav className="navbar">
-          <div className="logo">
-            <a href="/drag" class="navbar-brand animated flip">
-              Web Pazuru{" "}
+    if (this.state.level === "") {
+      return (
+        <center>
+          <h1>Loading</h1>
+        </center>
+      );
+    } else {
+      return (
+        <div class="maincontainer">
+          <nav class="navbar">
+            <div class="logo">
+              <a href="/drag" class="navbar-brand animated flip">
+                Web Pazuru{" "}
+              </a>
+            </div>
+            <a href="/drag" class="toggle-button">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
             </a>
-          </div>
-          <a href="/drag" class="toggle-button">
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </a>
-          <div className="navbar-links">
-            <ul>
-              <li>
-                <h1 id="roll">{username}</h1>
-              </li>
-              <li>
-                <a href="/drag">Rules</a>
-              </li>
+            <div class="navbar-links">
+              <ul>
+                <li>
+                  <a href="/drag">Rules</a>
+                </li>
+                <li>
+                  <h1 id="roll">{username}</h1>
+                </li>
+                <li>
+                  <button onClick={this.logoutHandler}>logout</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div></div>
+          <center>
+            <p> Level : {level} </p>
+            <p> Score:{score} </p>
+          </center>
 
-              <li>
-                <button onClick={this.logoutHandler}>logout</button>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div></div>
-        <center>
-          <p> Level : {level} </p>
-          <p> Score:{score} </p>
-        </center>
-
-        <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
-          {items.map((value, index) => (
-            <SortableItem key={`item-${index}`} index={index} value={value} />
-          ))}
-        </SortableContainer>
-        <center>
-          <button
-            onClick={this.check}
-            style={{
-              width: "140px",
-              borderRadius: "3px",
-              letterSpacing: "1.5px",
-              color: "white",
-              background: "black",
-            }}
-            className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
-          >
-            submit
-          </button>
-        </center>
-      </div>
-    );
+          <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
+            {items.map((value, index) => (
+              <SortableItem key={`item-${index}`} index={index} value={value} />
+            ))}
+          </SortableContainer>
+          <center>
+            <button
+              onClick={this.check}
+              style={{
+                width: "140px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                color: "white",
+                background: "black",
+              }}
+              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+            >
+              submit
+            </button>
+            <button
+              onClick={this.skip}
+              style={{
+                width: "140px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                color: "white",
+                background: "black",
+              }}
+              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+            >
+              skip
+            </button>
+          </center>
+        </div>
+      );
+    }
   }
 }
 
