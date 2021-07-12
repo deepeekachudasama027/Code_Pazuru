@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-class thankyou extends Component {
+
+class error_page extends Component {
     constructor(props) {
       super(props);
       this.state = {
-      
-        score: 0,
         username: "",
       };
     
@@ -27,13 +26,14 @@ class thankyou extends Component {
         try {
           const element = await axios.post("/api/auth/getdetails", config);
           if(element.data==="login required")
-          {
-            this.logoutHandler()
-          }
-          else{
+        {
+          this.logoutHandler()
+        }
+        else {
+         
           this.setState({
             username: element.data.username,
-            score: element.data.score,
+    
           });}
         } catch (err) {
           console.log(err);
@@ -49,12 +49,12 @@ class thankyou extends Component {
     }
   
     render() {
-      const {  score, username } = this.state;
+      const {  username } = this.state;
         if(this.state.username===""){return (
-            <center>
-     <h1>Loading</h1>
-            </center>
-         )}
+          <center>
+   <h1>Loading</h1>
+          </center>
+       )}
         else {
       return (
         <div class="maincontainer">
@@ -69,16 +69,30 @@ class thankyou extends Component {
       </a>
       <div class="navbar-links">
         <ul>
-          <li><a href="/thankyou" >Rules</a></li>
+     
           <li><button onClick={this.logoutHandler}>logout</button></li>
         </ul>
       </div>
     </nav>
     <div>
-          <h1>  Thank You {username}! </h1>
-          Hope you have enjoyed the game <br/>
-          Game is Over now! <br/>
-          Your Total Score is {score}
+          <h1>  OOPs {username}! </h1>
+          Seems like you landing on wrong Page  <br/>
+          Here nothing to see! <br/>
+          let's Go back! Press the button
+          <br/>
+          <a
+            href="/drag"
+            style={{
+              width: "140px",
+              borderRadius: "3px",
+              letterSpacing: "1.5px",
+              color: "white",
+              background: "black",
+            }}
+            className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+          >
+            Play
+          </a>
 
              </div>
          </div>
@@ -88,5 +102,5 @@ class thankyou extends Component {
     }
   }}
   
-  export default thankyou;
+  export default error_page;
   
