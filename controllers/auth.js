@@ -4,8 +4,8 @@ const User = require("../models/User");
 const Ques = require("../models/ques");
 
 // @desc    Login user
-var email =""
-var password =""
+var email 
+var password 
 exports.login = async (req, res, next) => {
   
    email =req.body.email;
@@ -59,9 +59,12 @@ const sendToken = (user, statusCode, res) => {
   res.status(statusCode).json({ sucess: true, token });
 };
 
-var level,score,username,element
+var level,score,username
   exports.getCode = async (req, res, next) => {  
     try {
+      if(!email)
+      return res.send("login required")
+      else {
       User.find({email},{ _id:0,level: 1,score:1,username:1}).then(user => {
         level =user[0].level
         score=user[0].score
@@ -75,7 +78,7 @@ var level,score,username,element
       
         return res.json(ele);
        
-        })})
+        })})}
     } catch (err) {
       next(err);
     }
@@ -105,13 +108,43 @@ var level,score,username,element
         )
         }
         else{
-          ele={
-            element:elements[0],
-            score:score,
-            username:username
-          }
-      return res.json(ele);}
-        }) })
+          
+          score=score-10
+          User.findOneAndUpdate({email},{level:level,score:score},{new:true}).then(
+            Ques.find({level},{ _id:0,level: 1, code: 1}).then(element => {
+              ele={
+                element:element[0],
+                score:score,
+                username:username
+              }
+        
+             return res.json(ele);
+            
+            })
+          )}})})
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  exports.skip = async (req, res, next) => {  
+    try {
+      if(!email)
+      return res.send("login required")
+      else {
+        level++;
+        score=score-50;
+        User.findOneAndUpdate({email},{level:level},{new:true}).then(
+          Ques.find({level},{ _id:0,level: 1, code: 1}).then(element => {
+            ele={
+              element:element[0],
+              score:score,
+              username:username
+            }
+      
+           return res.json(ele);
+       
+        }))}
     } catch (err) {
       next(err);
     }

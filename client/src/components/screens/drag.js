@@ -44,9 +44,8 @@ class SortableItems extends Component {
     };
     this.check = this.check.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
+    this.skip = this.skip.bind(this);
   }
-
-
   componentDidMount() {
     this.fetch();
   }
@@ -61,15 +60,18 @@ class SortableItems extends Component {
 
       try {
         const element = await axios.post("/api/auth/getCode", config);
-       
-     
+        if(element.data==="login required")
+        {
+          this.logoutHandler()
+        }
+        else {
         console.log(element)
         this.setState({
           level:  element.data.element.level,
           items:  element.data.element.code,
           username: element.data.username,
           score: element.data.score,
-        });
+        });}
       } catch (err) {
         console.log(err);
       }
@@ -92,13 +94,17 @@ class SortableItems extends Component {
       const items = this.state.items;
       try {
         const element = await axios.post("/api/auth/check", { items }, config);
-       
+        if(element.data==="login required")
+        {
+          this.logoutHandler()
+        }
+        else {
         this.setState({
           level: element.data.element.level,
           items:  element.data.element.code,
           username: element.data.username,
           score: element.data.score,
-        });
+        });}
       } catch (err) {
         console.log(err);
       }
@@ -106,15 +112,49 @@ class SortableItems extends Component {
 
     check_code();
   }
+  skip() {
+    const skip_ques = async () => {
+      const config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+      const items = this.state.items;
+      try {
+        const element = await axios.post("/api/auth/skip", { items }, config);
+        if(element.data==="login required")
+        {
+          this.logoutHandler()
+        }
+        else {
+        this.setState({
+          level: element.data.element.level,
+          items:  element.data.element.code,
+          username: element.data.username,
+          score: element.data.score,
+        });}
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    skip_ques();
+  }
 logoutHandler () {
     localStorage.removeItem("authToken");
     window.location.href = "./login";
   }
+
   render() {
     const { items, level, score, username } = this.state;
-
+      if(this.state.level===""){return (
+        <center>
+ <h1>Loading</h1>
+        </center>
+     )}
+      else {
     return (
-      <div>
+      <div class="maincontainer">
           <nav class="navbar">
     <div class="logo">
       <a href="/drag" class="navbar-brand animated flip">Web Pazuru </a>
@@ -160,10 +200,23 @@ logoutHandler () {
           >
             submit
           </button>
+          <button
+            onClick={this.skip}
+            style={{
+              width: "140px",
+              borderRadius: "3px",
+              letterSpacing: "1.5px",
+              color: "white",
+              background: "black",
+            }}
+            className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+          >
+            skip
+          </button>
         </center>
       </div>
     );
   }
-}
+}}
 
 export default SortableItems;
