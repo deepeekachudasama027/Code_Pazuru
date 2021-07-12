@@ -32,7 +32,7 @@ body {
 }
 
 .form-group input:focus {
-  border-bottom: 3px solid coral;
+  border: 3px solid rgba(189, 79, 183, 0.712);
 }
 
 .btn {
@@ -47,16 +47,11 @@ body {
   opacity: 0.8;
 }
 
-.btn-primary {
-  background-color: coral;
-  color: #fff;
-}
-
 .error-message {
   width: 100%;
   display: inline-block;
   padding: 5px;
-  background: red;
+  background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
   color: #fff;
   text-align: center;
   margin: 0.5rem 0;
