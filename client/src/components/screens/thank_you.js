@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+require("./thankyou.css");
+require("./preloader.css");
+require("./navbar.css");
 class thankyou extends Component {
   constructor(props) {
     super(props);
@@ -50,14 +52,17 @@ class thankyou extends Component {
     const { score, username } = this.state;
     if (this.state.username === "") {
       return (
-        <center>
-          <h1>Loading</h1>
-        </center>
+        <div id="loader-wrapper">
+          <div id="loader"></div>
+
+          <div class="loader-section section-left"></div>
+          <div class="loader-section section-right"></div>
+        </div>
       );
     } else {
       return (
         <div>
-          <div class="maincontainer">
+          <div class="backgroundset">
             <nav class="navbar">
               <div class="logo">
                 <a href="/drag" class="navbar-brand animated flip">
@@ -72,7 +77,7 @@ class thankyou extends Component {
               <div class="navbar-links">
                 <ul>
                   <li>
-                    <a href="/thankyou">Rules</a>
+                    <a href="/rules">Rules</a>
                   </li>
                   <li>
                     <button onClick={this.logoutHandler}>logout</button>
@@ -80,8 +85,7 @@ class thankyou extends Component {
                 </ul>
               </div>
             </nav>
-
-            <div className="container">
+            <div>
               <h1> Thank You {username}! </h1>
               Hope you have enjoyed the game <br />
               Game is Over now! <br />

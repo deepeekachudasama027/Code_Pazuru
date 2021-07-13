@@ -1,6 +1,8 @@
-.bg {
+.backgroundset {
+  width: 100%;
   background-size: cover;
   height: 100vh;
+  background-image: url("./bg.jpg");
 }
 
 .navbar {
