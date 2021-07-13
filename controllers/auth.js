@@ -96,7 +96,7 @@ exports.check = async (req, res, next) => {
         level = user[0].level;
         score = user[0].score;
         username = user[0].username;
-        console.log(score);
+
         Ques.find({ level }, { _id: 0, level: 1, code: 1, order: 1 }).then(
           (elements) => {
             if (
@@ -118,19 +118,19 @@ exports.check = async (req, res, next) => {
                   { email },
                   { level: level, score: score },
                   { new: true }
-                ).then(
+                ).then((user) => {
                   Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
                     (element) => {
                       ele = {
                         element: element[0],
-                        score: score,
-                        username: username,
+                        score: user.score,
+                        username: user.username,
                       };
 
                       return res.json(ele);
                     }
-                  )
-                );
+                  );
+                });
               }
             } else {
               score = score - 10;
@@ -138,19 +138,20 @@ exports.check = async (req, res, next) => {
                 { email },
                 { level: level, score: score },
                 { new: true }
-              ).then(
+              ).then((user) => {
                 Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
                   (element) => {
+                    console.log(user);
                     ele = {
                       element: element[0],
-                      score: score,
-                      username: username,
+                      score: user.score,
+                      username: user.username,
                     };
 
                     return res.json(ele);
                   }
-                )
-              );
+                );
+              });
             }
           }
         );
@@ -185,19 +186,19 @@ exports.skip = async (req, res, next) => {
               { email },
               { level: level, score: score },
               { new: true }
-            ).then(
+            ).then((user) => {
               Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
                 (element) => {
                   ele = {
                     element: element[0],
-                    score: score,
-                    username: username,
+                    score: user.score,
+                    username: user.username,
                   };
 
                   return res.json(ele);
                 }
-              )
-            );
+              );
+            });
           }
         }
       );

@@ -10,6 +10,8 @@ import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
 import axios from "axios";
 require("./navbar.css");
+require("./preloader.css")
+
 
 //Drag handler
 const DragHandle = sortableHandle(() => (
@@ -21,7 +23,8 @@ const DragHandle = sortableHandle(() => (
 //Draggable elements
 const SortableItem = sortableElement(({ value }) => (
   <div className={styles.dragElement}>
-    {value}
+  <p className={styles.Element}> {value}
+    </p> 
     <DragHandle />
   </div>
 ));
@@ -153,14 +156,17 @@ class SortableItems extends Component {
     const { items, level, score, username } = this.state;
     if (this.state.level === "") {
       return (
-        <center>
-          <h1>Loading</h1>
-        </center>
+        <div id="loader-wrapper">
+        <div id="loader"></div>
+  
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>
 
       );
     } else {
       return (
-        <div class="maincontainer">
+        <div class="backgroundset">
           <nav class="navbar">
             <div class="logo">
               <a href="/drag" class="navbar-brand animated flip">
@@ -175,7 +181,7 @@ class SortableItems extends Component {
             <div class="navbar-links">
               <ul>
                 <li>
-                  <a href="/drag">Rules</a>
+                  <a href="/rules">Rules</a>
                 </li>
                 <li>
                   <h1 id="roll">{username}</h1>
@@ -198,19 +204,7 @@ class SortableItems extends Component {
             ))}
           </SortableContainer>
           <center>
-            <button
-              onClick={this.check}
-              style={{
-                width: "140px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                color: "white",
-                background: "black",
-              }}
-              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
-            >
-              submit
-            </button>
+        
             <button
               onClick={this.skip}
               style={{
@@ -223,6 +217,19 @@ class SortableItems extends Component {
               className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
             >
               skip
+            </button>
+            <button
+              onClick={this.check}
+              style={{
+                width: "140px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                color: "white",
+                background: "black",
+              }}
+              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+            >
+              submit
             </button>
           </center>
         </div>

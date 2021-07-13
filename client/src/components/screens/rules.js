@@ -79,10 +79,8 @@ class error_page extends Component {
       </div>
     </nav>
     <div>
-          <h1>  OOPs {username}! </h1>
-          Seems like you landing on wrong Page  <br/>
-          Here nothing to see! <br/>
-          let's Go back! Press the button
+          <h1>  rules, {username}! </h1>
+        
           <br/>
           <a
             href="/drag"
