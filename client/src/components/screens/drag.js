@@ -159,71 +159,77 @@ class SortableItems extends Component {
       );
     } else {
       return (
-        <div class="maincontainer">
-          <nav class="navbar">
-            <div class="logo">
-              <a href="/drag" class="navbar-brand animated flip">
-                Web Pazuru{" "}
+        <div className="bg">
+          <div class="maincontainer">
+            <nav class="navbar">
+              <div class="logo">
+                <a href="/drag" class="navbar-brand animated flip">
+                  Web Pazuru{" "}
+                </a>
+              </div>
+              <a href="/drag" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
               </a>
-            </div>
-            <a href="/drag" class="toggle-button">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-            </a>
-            <div class="navbar-links">
-              <ul>
-                <li>
-                  <a href="/drag">Rules</a>
-                </li>
-                <li>
-                  <h1 id="roll">{username}</h1>
-                </li>
-                <li>
-                  <button onClick={this.logoutHandler}>logout</button>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div></div>
-          <center>
-            <p> Level : {level} </p>
-            <p> Score:{score} </p>
-          </center>
+              <div class="navbar-links">
+                <ul>
+                  <li>
+                    <a href="/drag">Rules</a>
+                  </li>
+                  <li>
+                    <h1 id="roll">{username}</h1>
+                  </li>
+                  <li>
+                    <button onClick={this.logoutHandler}>logout</button>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div></div>
+            <center>
+              <p> Level : {level} </p>
+              <p> Score:{score} </p>
+            </center>
 
-          <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
-            {items.map((value, index) => (
-              <SortableItem key={`item-${index}`} index={index} value={value} />
-            ))}
-          </SortableContainer>
-          <center>
-            <button
-              onClick={this.check}
-              style={{
-                width: "140px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                color: "white",
-                background: "black",
-              }}
-              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
-            >
-              submit
-            </button>
-            <button
-              onClick={this.skip}
-              style={{
-                width: "140px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                color: "white",
-                background: "black",
-              }}
-              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
-            >
-              skip
-            </button>
-          </center>
+            <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
+              {items.map((value, index) => (
+                <SortableItem
+                  key={`item-${index}`}
+                  index={index}
+                  value={value}
+                />
+              ))}
+            </SortableContainer>
+            <center>
+              <button
+                onClick={this.check}
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  color: "white",
+                  background: "black",
+                }}
+                className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+              >
+                submit
+              </button>
+              <button
+                onClick={this.skip}
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  color: "white",
+                  background: "black",
+                }}
+                className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
+              >
+                skip
+              </button>
+            </center>
+          </div>
         </div>
       );
     }
