@@ -5,26 +5,24 @@ import {
   sortableHandle,
 } from "react-sortable-hoc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faSort,faCoins } from "@fortawesome/free-solid-svg-icons";
 import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
 import axios from "axios";
 require("./navbar.css");
-require("./preloader.css")
-
+require("./preloader.css");
 
 //Drag handler
 const DragHandle = sortableHandle(() => (
   <span className={styles.dragHandler}>
-    <FontAwesomeIcon icon={faBars} />
+    <FontAwesomeIcon icon={faSort} />
   </span>
 ));
 
 //Draggable elements
 const SortableItem = sortableElement(({ value }) => (
   <div className={styles.dragElement}>
-  <p className={styles.Element}> {value}
-    </p> 
+    <p className={styles.Element}> {value}</p>
     <DragHandle />
   </div>
 ));
@@ -157,28 +155,27 @@ class SortableItems extends Component {
     if (this.state.level === "") {
       return (
         <div id="loader-wrapper">
-        <div id="loader"></div>
-  
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-      </div>
+          <div id="loader"></div>
 
+          <div className="loader-section section-left"></div>
+          <div className="loader-section section-right"></div>
+        </div>
       );
     } else {
       return (
-        <div class="backgroundset">
-          <nav class="navbar">
-            <div class="logo">
+        <div className="backgroundset">
+          <nav className="navbar">
+            <div className="logo">
               <a href="/drag" class="navbar-brand animated flip">
                 Web Pazuru{" "}
               </a>
             </div>
-            <a href="/drag" class="toggle-button">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
+            <a href="/drag" className="toggle-button">
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
             </a>
-            <div class="navbar-links">
+            <div className="navbar-links">
               <ul>
                 <li>
                   <a href="/rules">Rules</a>
@@ -195,7 +192,7 @@ class SortableItems extends Component {
           <div></div>
           <center>
             <p> Level : {level} </p>
-            <p> Score:{score} </p>
+            <p>   <FontAwesomeIcon icon={faCoins} style={{color:"yellow"}} /> Score:{score} </p>
           </center>
 
           <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
@@ -204,7 +201,6 @@ class SortableItems extends Component {
             ))}
           </SortableContainer>
           <center>
-        
             <button
               onClick={this.skip}
               style={{
@@ -235,7 +231,6 @@ class SortableItems extends Component {
         </div>
       );
     }
-
   }
 }
 

@@ -1,16 +1,17 @@
 
 .dragContainer {
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
 }
 
 .dragHandler {
   padding: 1px 5px;
-  color: purple;
-  background:rgb(238, 201, 238);
+  color: rgb(20, 1, 20);
+  background:rgb(228, 216, 228);
   border-radius: 3px;
   cursor: grab;
   border: 2px solid;
+  font-size: x-large;
 }
 
 .dragElement {
@@ -20,12 +21,14 @@
   white-space: pre-wrap;
   align-items: center;
   padding: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
   box-shadow: 0px 2px 10px black;
-  background: floralwhite;
+  background:rgb(236, 235, 233);
+  border-radius: 5px;
 }
 
 .Element{
   font-weight: 900;
   font-size: larger;
+  color: rgb(44, 3, 44);
 }
