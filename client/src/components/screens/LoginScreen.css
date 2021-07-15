@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("./bg.jpg");
+  background-image: url("./2.jpeg");
   background-size: cover;
+  overflow: scroll;
 }
 
 .form {
@@ -34,7 +35,7 @@
 }
 
 .login-screen__subtext {
-  font-size: 0.9rem;
+  font-size: 1rem;
   display: block;
   margin: 0.5rem 0;
   text-align: center;
@@ -42,7 +43,7 @@
   color: white;
 }
 
-#email {
+#inputbox {
   width: 300px;
   border-radius: 30px;
   font-family: Ubuntu-Bold;
@@ -59,7 +60,7 @@
   text-align: center;
   border-radius: 21px;
   font-family: Ubuntu-Bold;
-  background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
+  background: -webkit-linear-gradient(left, #37d5d6, #36096d, #83eaf1);
 }
 
 .form-group {
@@ -68,4 +69,16 @@
 
 .button {
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .login-screen__form {
+    width: 300px;
+  }
+  #inputbox {
+    width: 220px;
+  }
+  #password {
+    width: 220px;
+  }
 }

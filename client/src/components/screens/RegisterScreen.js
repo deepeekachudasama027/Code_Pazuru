@@ -106,7 +106,10 @@ const RegisterScreen = ({ history }) => {
         </div>
 
         <span className="register-screen__subtext">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account?{" "}
+          <Link style={{ color: "aqua" }} to="/login">
+            Login
+          </Link>
         </span>
       </form>
     </div>

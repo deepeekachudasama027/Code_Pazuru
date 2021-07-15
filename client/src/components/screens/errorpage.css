@@ -1,0 +1,22 @@
+.btn1 {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid plum;
+  outline: none;
+  transition: 1s ease-in-out;
+  background-color: #e6e6fa;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.btn1:hover {
+  transition: 1s ease-in-out;
+  background: plum;
+}
+
+.btn1 span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}

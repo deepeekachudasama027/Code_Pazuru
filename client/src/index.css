@@ -32,7 +32,7 @@ body {
 }
 
 .form-group input:focus {
-  border: 3px solid rgba(189, 79, 183, 0.712);
+  border: 3px solid rgba(78, 112, 185, 0.712);
 }
 
 .btn {
@@ -51,7 +51,7 @@ body {
   width: 100%;
   display: inline-block;
   padding: 5px;
-  background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
+  background: -webkit-linear-gradient(left, #37d5d6, #36096d);
   color: #fff;
   text-align: center;
   margin: 0.5rem 0;

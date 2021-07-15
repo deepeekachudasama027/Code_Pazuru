@@ -55,41 +55,49 @@ class thankyou extends Component {
         <div id="loader-wrapper">
           <div id="loader"></div>
 
-          <div class="loader-section section-left"></div>
-          <div class="loader-section section-right"></div>
+          <div className="loader-section section-left"></div>
+          <div className="loader-section section-right"></div>
         </div>
       );
     } else {
       return (
         <div>
-          <div class="backgroundset">
-            <nav class="navbar">
-              <div class="logo">
+          <div className="backgroundset">
+            <nav className="navbar">
+              <div className="logo">
                 <a href="/drag" class="navbar-brand animated flip">
                   Web Pazuru{" "}
                 </a>
               </div>
-              <a href="/drag" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+              <a href="/drag" className="toggle-button">
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
               </a>
-              <div class="navbar-links">
+              <div className="navbar-links">
                 <ul>
                   <li>
                     <a href="/rules">Rules</a>
                   </li>
                   <li>
-                    <button onClick={this.logoutHandler}>logout</button>
+                    <a href=" " onClick={this.logoutHandler}>
+                      logout
+                    </a>
                   </li>
                 </ul>
               </div>
             </nav>
-            <div>
-              <h1> Thank You {username}! </h1>
-              Hope you have enjoyed the game <br />
-              Game is Over now! <br />
-              Your Total Score is {score}
+            <div className="outercontainer">
+              <div className="container">
+                <h1> Thank You {username}! </h1>
+                <p id="message">
+                  Game is Over now! <br />
+                  Your Total Score is {score}
+                  <br />
+                  Hope you have enjoyed the game <br />
+                </p>
+              </div>
             </div>
           </div>
         </div>

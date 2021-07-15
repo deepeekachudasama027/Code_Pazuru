@@ -52,8 +52,9 @@ const LoginScreen = ({ history }) => {
               <input
                 type="email"
                 required
-                id="email"
+                id="inputbox"
                 placeholder="Email"
+                autoComplete="true"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 tabIndex={1}
@@ -64,7 +65,6 @@ const LoginScreen = ({ history }) => {
                 type="password"
                 required
                 id="password"
-                autoComplete="true"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
@@ -79,7 +79,10 @@ const LoginScreen = ({ history }) => {
           </div>
 
           <span className="login-screen__subtext">
-            Don't have an account? <Link to="/register">Register</Link>
+            Don't have an account?{" "}
+            <Link style={{ color: "aqua" }} to="/register">
+              Register
+            </Link>
           </span>
         </form>
       </div>

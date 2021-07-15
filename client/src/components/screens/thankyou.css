@@ -1,0 +1,26 @@
+.container1 {
+  color: floralwhite;
+  background-color: black;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  height: 300px;
+}
+
+#message {
+  padding: 30px;
+  text-align: center;
+}
+
+.outercontainer {
+  position: absolute;
+  z-index: 15;
+  top: 50%;
+  left: 45%;
+  margin: -100px 0 0 -150px;
+  background-color: black;
+  padding: 30;
+  padding: 30px;
+  color: floralwhite;
+  border-radius: 20px;
+}

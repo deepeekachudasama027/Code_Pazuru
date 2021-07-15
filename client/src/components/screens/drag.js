@@ -5,17 +5,18 @@ import {
   sortableHandle,
 } from "react-sortable-hoc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faSort, faCoins } from "@fortawesome/free-solid-svg-icons";
 import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
 import axios from "axios";
+
 require("./navbar.css");
 require("./preloader.css");
 
 //Drag handler
 const DragHandle = sortableHandle(() => (
   <span className={styles.dragHandler}>
-    <FontAwesomeIcon icon={faBars} />
+    <FontAwesomeIcon icon={faSort} />
   </span>
 ));
 
@@ -156,26 +157,25 @@ class SortableItems extends Component {
       return (
         <div id="loader-wrapper">
           <div id="loader"></div>
-
-          <div class="loader-section section-left"></div>
-          <div class="loader-section section-right"></div>
+          <div className="loader-section section-left"></div>
+          <div className="loader-section section-right"></div>
         </div>
       );
     } else {
       return (
-        <div class="backgroundset">
-          <nav class="navbar">
-            <div class="logo">
+        <div className="backgroundset">
+          <nav className="navbar">
+            <div className="logo">
               <a href="/drag" class="navbar-brand animated flip">
                 Web Pazuru{" "}
               </a>
             </div>
-            <a href="/drag" class="toggle-button">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
+            <a href="/drag" className="toggle-button">
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
             </a>
-            <div class="navbar-links">
+            <div className="navbar-links">
               <ul>
                 <li>
                   <a href="/rules">Rules</a>
@@ -183,17 +183,27 @@ class SortableItems extends Component {
                 <li>
                   <h1 id="roll">{username}</h1>
                 </li>
+
                 <li>
-                  <button onClick={this.logoutHandler}>logout</button>
+                  <a href=" " onClick={this.logoutHandler}>
+                    Logout
+                  </a>
                 </li>
               </ul>
             </div>
           </nav>
           <div></div>
-          <center>
-            <p> Level : {level} </p>
-            <p> Score:{score} </p>
-          </center>
+          <div id="subnav">
+            <span id="level"> Level : {level} </span>
+            <span id="score">
+              {" "}
+              <FontAwesomeIcon
+                icon={faCoins}
+                style={{ color: "yellow", fontSize: "xx-large" }}
+              />{" "}
+              {score}{" "}
+            </span>
+          </div>
 
           <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
             {items.map((value, index) => (
@@ -203,29 +213,17 @@ class SortableItems extends Component {
           <center>
             <button
               onClick={this.skip}
-              style={{
-                width: "140px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                color: "white",
-                background: "black",
-              }}
+              id="skip"
               className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
             >
-              skip
+              Skip
             </button>
             <button
               onClick={this.check}
-              style={{
-                width: "140px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                color: "white",
-                background: "black",
-              }}
+              id="submit"
               className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
             >
-              submit
+              Submit
             </button>
           </center>
         </div>

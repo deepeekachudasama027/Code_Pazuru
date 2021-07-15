@@ -15,7 +15,7 @@ const App = () => {
     <Router>
       <div className="app">
         <Switch>
-          <PrivateRoute exact path="/" component={LoginScreen}/>
+          <PrivateRoute exact path="/" component={LoginScreen} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
           <PrivateRoute exact path="/drag" component={SortableItems} />
@@ -23,7 +23,6 @@ const App = () => {
           <PrivateRoute exact path="/rules" component={rules} />
           <PrivateRoute exact path="/*" component={error_page} />
         </Switch>
-      
       </div>
     </Router>
   );
