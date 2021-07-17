@@ -141,7 +141,6 @@ exports.check = async (req, res, next) => {
               ).then((user) => {
                 Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
                   (element) => {
-                    console.log(user);
                     ele = {
                       element: element[0],
                       score: user.score,
