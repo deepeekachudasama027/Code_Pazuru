@@ -17,7 +17,6 @@ exports.login = async (req, res, next) => {
   try {
     // Check that user exists by email
     const user = await User.findOne({ email }).select("+password");
-
     if (!user) {
       return next(new ErrorResponse("Invalid credentials", 401));
     }
@@ -67,7 +66,7 @@ exports.getCode = async (req, res, next) => {
           level = user[0].level;
           score = user[0].score;
           username = user[0].username;
-          if (level > "5") {
+          if (level > "9") {
             return res.send("Game Over");
           } else {
             Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -105,7 +104,7 @@ exports.check = async (req, res, next) => {
             ) {
               level++;
               score = score + 100;
-              if (level > "5") {
+              if (level > "9") {
                 User.findOneAndUpdate(
                   { email },
                   { level: level, score: score },
@@ -172,7 +171,7 @@ exports.skip = async (req, res, next) => {
           username = user[0].username;
           level++;
           score = score - 50;
-          if (level > "5") {
+          if (level > "9") {
             User.findOneAndUpdate(
               { email },
               { level: level, score: score },
