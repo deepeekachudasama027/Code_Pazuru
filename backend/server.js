@@ -3,14 +3,21 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
-
+const session = require("express-session");
 connectDB();
+
+app.set('trust proxy',1)
+app.use(
+  session({
+    secret: "Keep it secret",
+    name: "uniqueSessionID",
+    resave: true,
+    saveUninitialized: false
+  })
+);
 
 app.use(express.json());
 
-app.get("/", (req, res, next) => {
-  res.send("Api running");
-});
 
 // Connecting Routes
 app.use("/api/auth", require("./routes/auth"));
