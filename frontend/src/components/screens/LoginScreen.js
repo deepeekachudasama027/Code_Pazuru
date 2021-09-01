@@ -35,7 +35,7 @@ const LoginScreen = ({ history }) => {
         history.push("/drag");
       }
     } catch (error) {
-      setError(error.response);
+      setError(error.response.data.error);
       setTimeout(() => {
         setError("");
       }, 5000);
