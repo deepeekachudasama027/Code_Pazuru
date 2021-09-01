@@ -9,7 +9,7 @@ const LoginScreen = ({ history }) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("authToken")) {
+    if (localStorage.getItem("userInfo")) {
       history.push("/");
     }
   }, [history]);
@@ -29,12 +29,13 @@ const LoginScreen = ({ history }) => {
         { email, password },
         config
       );
-
-      localStorage.setItem("authToken", data.token);
-
-      history.push("/drag");
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      const userinfo = localStorage.getItem("userInfo");
+      if (userinfo) {
+        history.push("/drag");
+      }
     } catch (error) {
-      setError(error.response.data.error);
+      setError(error.response);
       setTimeout(() => {
         setError("");
       }, 5000);

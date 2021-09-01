@@ -19,14 +19,16 @@ class error_page extends Component {
 
   fetch() {
     const GetDetails = async () => {
+      const userinfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = {
         header: {
           "Content-Type": "application/json",
         },
+        id: userinfo._id,
       };
 
       try {
-        const element = await axios.post("/api/auth/getdetails", config);
+        const element = await axios.post("/api/auth/getrule_errorpage", config);
         if (element.data === "login required") {
           this.logoutHandler();
         } else {
@@ -43,8 +45,8 @@ class error_page extends Component {
   }
 
   logoutHandler() {
-    localStorage.removeItem("authToken");
-    window.location.href = "./login";
+    localStorage.removeItem("userInfo");
+    this.props.history.push("./login");
   }
 
   render() {
@@ -62,9 +64,18 @@ class error_page extends Component {
       return (
         <div className="backgroundset">
           <nav className="nav">
-            <input type="checkbox" id="nav__checkbox" className="nav__checkbox" />
+            <input
+              type="checkbox"
+              id="nav__checkbox"
+              className="nav__checkbox"
+            />
             <label htmlFor="nav__checkbox" className="nav__toggle">
-              <svg className="menu" viewBox="0 0 448 512" width="100" title="bars">
+              <svg
+                className="menu"
+                viewBox="0 0 448 512"
+                width="100"
+                title="bars"
+              >
                 <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
               </svg>
               <svg

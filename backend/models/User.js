@@ -26,12 +26,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    default:1
-},
-score:{
-  type:Number,
-  default:200
-}
+    default: 1,
+  },
+  score: {
+    type: Number,
+    default: 200,
+  },
 });
 
 UserSchema.pre("save", async function (next) {

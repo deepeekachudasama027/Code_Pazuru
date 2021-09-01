@@ -1,167 +1,117 @@
-const generateToken = require( "../utils/generateToken.js");
+const generateToken = require("../utils/generateToken.js");
 const ErrorResponse = require("../utils/errorResponse");
 const User = require("../models/User");
 const Ques = require("../models/ques");
 
-
-// @desc    Login user
-var email
 exports.login = async (req, res, next) => {
-   email = req.body.email;
+  var email = req.body.email;
   var password = req.body.password;
-  
-  // Check if email and password is provided
+
   if (!email || !password) {
     return next(new ErrorResponse("Please provide an email and password", 400));
   }
 
   try {
-    // Check that user exists by email
-   
     const user = await User.findOne({ email }).select("+password");
-    console.log(email)
     if (!user) {
       return next(new ErrorResponse("Invalid credentials", 401));
     }
-
-
-    // Check that password match
     const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
       return next(new ErrorResponse("Invalid credentials", 401));
     }
-    // user= {
-    //   _id: user._id,
-    //   name: user.name,
-    //   email: user.email
-    // }
-    sendToken(user, 200, res);
-    // res.status(201).json({
-    //   _id: user._id,
-    //   name: user.name,
-    //   email: user.email,
-     
-    //   token: generateToken(user._id),
-    // });
-   
+
+    res.json({
+      _id: user._id,
+      email: user.email,
+      username: user.username,
+      token: generateToken(user._id),
+    });
   } catch (err) {
     next(err);
   }
 };
 
-const sendToken = (user, statusCode, res) => {
-  const token = user.getSignedJwtToken();
-  res.status(statusCode).json({ sucess: true, token });
-};
-
-// @desc    Register user
 exports.register = async (req, res, next) => {
   const { username, email, password } = req.body;
-
   try {
     const user = await User.create({
       username,
       email,
       password,
     });
-
-     sendToken(user, 200, res);
-    // res.status(201).json({
-    //   _id: user._id,
-    //   name: user.name,
-    //   email: user.email,
-    //   token: generateToken(user._id),
-    // });
+    res.status(201).json({
+      _id: user._id,
+      email: user.email,
+      username: user.username,
+      token: generateToken(user._id),
+    });
   } catch (err) {
     next(err);
   }
 };
 
-
-
 var level, score, username;
 exports.getCode = async (req, res, next) => {
   try {
-    console.log(email)
-    if (!email) return res.send("login required");
-    else {
-      console.log(req.params)
-      User.find({ user:req.user._id  }, { _id: 0, level: 1, score: 1, username: 1 }).then(
-        (user) => {
-          level = user[0].level;
-          score = user[0].score;
-          username = user[0].username;
-          if (level > "9") {
-            return res.send("Game Over");
-          } else {
-            Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
-              (element) => {
-                ele = {
-                  element: element[0],
-                  score: score,
-                  username: username,
-                };
+    let id = req.body.id;
 
-                return res.json(ele);
-              }
-            );
-          }
+    if (!id) return res.send("login required");
+    else {
+      User.findById(id).then((user) => {
+        level = user.level;
+        score = user.score;
+        username = user.username;
+
+        if (level > 9) {
+          return res.send("Game Over");
+        } else {
+          Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
+            (element) => {
+              ele = {
+                element: element[0],
+                score: score,
+                username: username,
+              };
+
+              return res.json(ele);
+            }
+          );
         }
-      );
+      });
     }
   } catch (err) {
     next(err);
   }
 };
+
 exports.check = async (req, res, next) => {
   try {
-    
-    User.find({ user:req.user._id  }, { _id: 0, level: 1, score: 1, username: 1 }).then(
-      (user) => {
-        level = user[0].level;
-        score = user[0].score;
-        username = user[0].username;
-
-        Ques.find({ level }, { _id: 0, level: 1, code: 1, order: 1 }).then(
-          (elements) => {
-            if (
-              JSON.stringify(req.body.items) ==
-              JSON.stringify(elements[0].order)
-            ) {
-              level++;
-              score = score + 100;
-              if (level > "9") {
-                User.findOneAndUpdate(
-                  { email },
-                  { level: level, score: score },
-                  { new: true }
-                ).then((user) => {
-                  return res.send("Game Over");
-                });
-              } else {
-                User.findOneAndUpdate(
-                  { email },
-                  { level: level, score: score },
-                  { new: true }
-                ).then((user) => {
-                  Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
-                    (element) => {
-                      ele = {
-                        element: element[0],
-                        score: user.score,
-                        username: user.username,
-                      };
-
-                      return res.json(ele);
-                    }
-                  );
-                });
-              }
+    let id = req.body.data.id;
+    User.findById(id).then((user) => {
+      level = user.level;
+      score = user.score;
+      username = user.username;
+      Ques.find({ level }, { _id: 0, level: 1, code: 1, order: 1 }).then(
+        (elements) => {
+          if (
+            JSON.stringify(req.body.data.items) ==
+            JSON.stringify(elements[0].order)
+          ) {
+            level++;
+            score = score + 100;
+            if (level > 9) {
+              User.findByIdAndUpdate(
+                id,
+                { level: 10, score: score },
+                { new: true }
+              ).then((user) => {
+                return res.send("Game Over");
+              });
             } else {
-              score = score - 10;
-              User.findOneAndUpdate(
-                { email },
+              User.findByIdAndUpdate(
+                id,
                 { level: level, score: score },
                 { new: true }
               ).then((user) => {
@@ -178,38 +128,10 @@ exports.check = async (req, res, next) => {
                 );
               });
             }
-          }
-        );
-      }
-    );
-  } catch (err) {
-    next(err);
-  }
-};
-
-exports.skip = async (req, res, next) => {
-  try {
-    if (!email) return res.send("login required");
-    else {
-     
-      User.find({user:req.user._id  }, { _id: 0, level: 1, score: 1, username: 1 }).then(
-        (user) => {
-          level = user[0].level;
-          score = user[0].score;
-          username = user[0].username;
-          level++;
-          score = score - 50;
-          if (level > "9") {
-            User.findOneAndUpdate(
-              { email },
-              { level: level, score: score },
-              { new: true }
-            ).then((user) => {
-              return res.send("Game Over");
-            });
           } else {
-            User.findOneAndUpdate(
-              { email },
+            score = score - 10;
+            User.findByIdAndUpdate(
+              id,
               { level: level, score: score },
               { new: true }
             ).then((user) => {
@@ -228,27 +150,93 @@ exports.skip = async (req, res, next) => {
           }
         }
       );
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.skip = async (req, res, next) => {
+  try {
+    let id = req.body.data.id;
+    if (!id) return res.send("login required");
+    else {
+      User.findById(id).then((user) => {
+        level = user.level;
+        score = user.score;
+        username = user.username;
+        level++;
+        score = score - 50;
+        if (level > 9) {
+          User.findByIdAndUpdate(
+            id,
+            { level: 10, score: score },
+            { new: true }
+          ).then((user) => {
+            return res.send("Game Over");
+          });
+        } else {
+          User.findByIdAndUpdate(
+            id,
+            { level: level, score: score },
+            { new: true }
+          ).then((user) => {
+            Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
+              (element) => {
+                ele = {
+                  element: element[0],
+                  score: user.score,
+                  username: user.username,
+                };
+
+                return res.json(ele);
+              }
+            );
+          });
+        }
+      });
     }
   } catch (err) {
     next(err);
   }
 };
 
-exports.getdetails = async (req, res, next) => {
+exports.getrule_errorpage = async (req, res, next) => {
   try {
-    if (!email) return res.send("login required");
+    let id = req.body.id;
+
+    if (!id) return res.send("login required");
     else {
-   
-
-      User.find({ user:req.user._id  }, { _id: 0, score: 1, username: 1 }).then((user) => {
-        score = user[0].score;
-        username = user[0].username;
-
+      User.findById(id).then((user) => {
+        score = user.score;
+        username = user.username;
         ele = {
           score: score,
           username: username,
         };
+        return res.json(ele);
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
+exports.getthankyoupage = async (req, res, next) => {
+  try {
+    let id = req.body.id;
+    if (!id) return res.send("login required");
+    else {
+      User.findById(id).then((user) => {
+        level=user.level;
+        if(level<=9)
+         return res.send("Game Not Over yet");
+        score = user.score;
+        username = user.username;
+        ele = {
+          score: score,
+          username: username,
+        };
         return res.json(ele);
       });
     }

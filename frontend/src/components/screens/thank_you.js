@@ -20,17 +20,21 @@ class thankyou extends Component {
 
   fetch() {
     const GetDetails = async () => {
+      const userinfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = {
         header: {
           "Content-Type": "application/json",
         },
+        id: userinfo._id,
       };
 
       try {
-        const element = await axios.post("/api/auth/getdetails", config);
+        const element = await axios.post("/api/auth/getthankyoupage", config);
         if (element.data === "login required") {
           this.logoutHandler();
-        } else {
+        }else if(element.data === "Game Not Over yet")
+          this.logoutHandler();
+         else {
           this.setState({
             username: element.data.username,
             score: element.data.score,
@@ -45,8 +49,8 @@ class thankyou extends Component {
   }
 
   logoutHandler() {
-    localStorage.removeItem("authToken");
-    window.location.href = "./login";
+    localStorage.removeItem("userInfo");
+    this.props.history.push("./login");
   }
 
   render() {
@@ -65,7 +69,11 @@ class thankyou extends Component {
         <div>
           <div className="backgroundset">
             <nav className="nav">
-              <input type="checkbox" id="nav__checkbox" className="nav__checkbox" />
+              <input
+                type="checkbox"
+                id="nav__checkbox"
+                className="nav__checkbox"
+              />
               <label htmlFor="nav__checkbox" className="nav__toggle">
                 <svg
                   className="menu"

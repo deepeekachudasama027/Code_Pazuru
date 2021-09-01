@@ -33,7 +33,7 @@ const SortableContainer = sortableContainer(({ children }) => {
   return <div className={styles.dragContainer}>{children}</div>;
 });
 
-class SortableItems extends Component {
+class draggable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,15 +53,16 @@ class SortableItems extends Component {
 
   fetch() {
     const GetCode = async () => {
+      const userinfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = {
         header: {
           "Content-Type": "application/json",
         },
+        id: userinfo._id,
       };
 
       try {
         const element = await axios.post("/api/auth/getCode", config);
-
         if (element.data === "login required") {
           this.logoutHandler();
         } else if (element.data === "Game Over") {
@@ -88,14 +89,19 @@ class SortableItems extends Component {
   };
   check() {
     const check_code = async () => {
+      const userinfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = {
         header: {
           "Content-Type": "application/json",
         },
       };
-      const items = this.state.items;
+      const data = {
+        items: this.state.items,
+        id: userinfo._id,
+      };
+
       try {
-        const element = await axios.post("/api/auth/check", { items }, config);
+        const element = await axios.post("/api/auth/check", { data }, config);
 
         if (element.data === "login required") {
           this.logoutHandler();
@@ -119,14 +125,18 @@ class SortableItems extends Component {
 
   skip() {
     const skip_ques = async () => {
+      const userinfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = {
         header: {
           "Content-Type": "application/json",
         },
       };
-      const items = this.state.items;
+      const data = {
+        items: this.state.items,
+        id: userinfo._id,
+      };
       try {
-        const element = await axios.post("/api/auth/skip", { items }, config);
+        const element = await axios.post("/api/auth/skip", { data }, config);
         if (element.data === "login required") {
           this.logoutHandler();
         } else if (element.data === "Game Over") {
@@ -146,9 +156,10 @@ class SortableItems extends Component {
 
     skip_ques();
   }
+
   logoutHandler() {
-    localStorage.removeItem("authToken");
-    window.location.href = "./login";
+    localStorage.removeItem("userInfo");
+    this.props.history.push("./login");
   }
 
   render() {
@@ -165,9 +176,18 @@ class SortableItems extends Component {
       return (
         <div className="backgroundset">
           <nav className="nav">
-            <input type="checkbox" id="nav__checkbox" className="nav__checkbox" />
+            <input
+              type="checkbox"
+              id="nav__checkbox"
+              className="nav__checkbox"
+            />
             <label htmlFor="nav__checkbox" className="nav__toggle">
-              <svg className="menu" viewBox="0 0 448 512" width="100" title="bars">
+              <svg
+                className="menu"
+                viewBox="0 0 448 512"
+                width="100"
+                title="bars"
+              >
                 <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
               </svg>
               <svg
@@ -246,4 +266,4 @@ class SortableItems extends Component {
   }
 }
 
-export default SortableItems;
+export default draggable;

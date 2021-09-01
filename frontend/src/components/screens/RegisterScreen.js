@@ -13,10 +13,12 @@ const RegisterScreen = ({ history }) => {
   const registerHandler = async (e) => {
     e.preventDefault();
 
+    const userinfo = JSON.parse(localStorage.getItem("userInfo"));
     const config = {
       header: {
         "Content-Type": "application/json",
       },
+      id: userinfo,
     };
 
     if (password !== confirmpassword) {
@@ -39,9 +41,11 @@ const RegisterScreen = ({ history }) => {
         config
       );
 
-      localStorage.setItem("authToken", data.token);
-
-      history.push("/");
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      const userinfo = localStorage.getItem("userInfo");
+      if (userinfo) {
+        history.push("/");
+      }
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
