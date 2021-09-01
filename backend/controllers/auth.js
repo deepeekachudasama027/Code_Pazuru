@@ -129,7 +129,7 @@ exports.check = async (req, res, next) => {
               });
             }
           } else {
-            score = score - 10;
+           (score<10)?score=0: score = score - 10;
             User.findByIdAndUpdate(
               id,
               { level: level, score: score },
@@ -166,7 +166,7 @@ exports.skip = async (req, res, next) => {
         score = user.score;
         username = user.username;
         level++;
-        score = score - 50;
+        (score<50)?score=0:score = score - 50;
         if (level > 9) {
           User.findByIdAndUpdate(
             id,
