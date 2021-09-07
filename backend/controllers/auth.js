@@ -53,21 +53,22 @@ exports.register = async (req, res, next) => {
 };
 
 var level, score, username;
+const startDate = new Date("Sep 7, 2021 16:40:00").getTime();
+const endDate = new Date("Sep 7, 2021 18:05:00").getTime();
+
+
 exports.getCode = async (req, res, next) => {
   try {
     let id = req.body.id;
-
     if (!id) return res.send("login required");
     else {
       User.findById(id).then((user) => {
         level = user.level;
         score = user.score;
-        username = user.username;
-        var startDate = new Date("Sep 7, 2021 16:40:00").getTime();
-        var endDate = new Date("Sep 7, 2021 16:50:00").getTime();
+        username = user.username; 
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
-        else if (endDate - now < 0) return res.send("Game end");
+        else if (endDate - now <= 0) {console.log(1);return res.send("Game end"); }
         else if (level > 9) {
           return res.send("Game Over");
         } else {
@@ -78,7 +79,7 @@ exports.getCode = async (req, res, next) => {
                 score: score,
                 username: username,
               };
-
+              console.log(2);
               return res.json(ele);
             }
           );
@@ -93,10 +94,14 @@ exports.getCode = async (req, res, next) => {
 exports.check = async (req, res, next) => {
   try {
     let id = req.body.data.id;
+    var now = new Date().getTime();
+    if (!id) return res.send("login required");
     User.findById(id).then((user) => {
       level = user.level;
       score = user.score;
       username = user.username;
+      if (startDate - now > 0) return res.send("Game not started yet");
+      else if (endDate - now < 0) return res.send("Game end");
       Ques.find({ level }, { _id: 0, level: 1, code: 1, order: 1 }).then(
         (elements) => {
           if (
@@ -163,7 +168,10 @@ exports.check = async (req, res, next) => {
 exports.skip = async (req, res, next) => {
   try {
     let id = req.body.data.id;
+    var now = new Date().getTime();
     if (!id) return res.send("login required");
+    else if (startDate - now > 0) return res.send("Game not started yet");
+    else if (endDate - now < 0) return res.send("Game end");
     else {
       User.findById(id).then((user) => {
         level = user.level;
@@ -228,11 +236,10 @@ exports.getrule_errorpage = async (req, res, next) => {
 exports.getstart = async (req, res, next) => {
   try {
     let id = req.body.id;
-    var countDownDate = new Date("Sep 7, 2021 16:40:00").getTime();
     var now = new Date().getTime();
-
     if (!id) return res.send("login required");
-    else if (countDownDate - now <= 0) return res.send("Game Started");
+    else if (startDate - now <= 0) return res.send("Game Started");
+    else if (endDate - now < 0) return res.send("Game end");
     else {
       User.findById(id).then((user) => {
         score = user.score;
@@ -251,11 +258,13 @@ exports.getstart = async (req, res, next) => {
 exports.getthankyoupage = async (req, res, next) => {
   try {
     let id = req.body.id;
+    var now = new Date().getTime();
     if (!id) return res.send("login required");
     else {
       User.findById(id).then((user) => {
         level = user.level;
-        if (level <= 9) return res.send("Game Not Over yet");
+         if (startDate - now > 0) return res.send("Game not started yet");
+       else  if (level <= 9 && endDate-now>0) return res.send("Game Not Over yet");
         score = user.score;
         username = user.username;
         ele = {

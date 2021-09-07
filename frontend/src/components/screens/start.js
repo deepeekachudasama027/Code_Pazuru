@@ -32,6 +32,8 @@ class start_page extends Component {
         if (element.data === "login required") this.logoutHandler();
         else if (element.data === "Game Started")
           window.location.href = "./drag";
+          else if (element.data === "Game end") 
+          window.location.href = "./thank_you";
         else if (element.data === "Game not started yet") {
           this.setState({
             username: element.data.username,
