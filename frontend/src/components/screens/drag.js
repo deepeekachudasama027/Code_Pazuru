@@ -10,6 +10,7 @@ import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
 import axios from "axios";
 
+
 require("./navbar.css");
 require("./preloader.css");
 
@@ -41,15 +42,18 @@ class draggable extends Component {
       items: [],
       score: 0,
       username: "",
+     
     };
     this.check = this.check.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
     this.skip = this.skip.bind(this);
+   
   }
 
   componentDidMount() {
     this.fetch();
   }
+
 
   fetch() {
     const GetCode = async () => {
@@ -60,14 +64,17 @@ class draggable extends Component {
         },
         id: userinfo._id,
       };
-
       try {
         const element = await axios.post("/api/auth/getCode", config);
-        if (element.data === "login required") {
+        if (element.data === "login required") 
           this.logoutHandler();
-        } else if (element.data === "Game Over") {
+        else if(element.data === "Game not started yet") 
+          window.location.href = "./start";
+          else if (element.data === "Game Over") 
           window.location.href = "./thank_you";
-        } else {
+            else if (element.data === "Game end") 
+          window.location.href = "./thank_you";
+       else {
           this.setState({
             level: element.data.element.level,
             items: element.data.element.code,
@@ -103,11 +110,15 @@ class draggable extends Component {
       try {
         const element = await axios.post("/api/auth/check", { data }, config);
 
-        if (element.data === "login required") {
+        if (element.data === "login required") 
           this.logoutHandler();
-        } else if (element.data === "Game Over") {
+        else if(element.data === "Game not started yet") 
+          window.location.href = "./start";
+          else if (element.data === "Game Over") 
           window.location.href = "./thank_you";
-        } else {
+            else if (element.data === "Game end") 
+          window.location.href = "./thank_you";
+           else {
           this.setState({
             level: element.data.element.level,
             items: element.data.element.code,
@@ -137,11 +148,15 @@ class draggable extends Component {
       };
       try {
         const element = await axios.post("/api/auth/skip", { data }, config);
-        if (element.data === "login required") {
-          this.logoutHandler();
-        } else if (element.data === "Game Over") {
-          window.location.href = "./thank_you";
-        } else {
+        if (element.data === "login required") 
+        this.logoutHandler();
+      else if(element.data === "Game not started yet") 
+        window.location.href = "./start";
+        else if (element.data === "Game Over") 
+        window.location.href = "./thank_you";
+          else if (element.data === "Game end") 
+        window.location.href = "./thank_you";
+        else {
           this.setState({
             level: element.data.element.level,
             items: element.data.element.code,
@@ -162,6 +177,7 @@ class draggable extends Component {
     this.props.history.push("./login");
   }
 
+
   render() {
     const { items, level, score, username } = this.state;
     if (this.state.level === "") {
@@ -172,9 +188,12 @@ class draggable extends Component {
           <div className="loader-section section-right"></div>
         </div>
       );
-    } else {
+    } 
+    else {
       return (
+        
         <div className="backgroundset">
+        
           <nav className="nav">
             <input
               type="checkbox"
@@ -226,9 +245,11 @@ class draggable extends Component {
               </li>
             </ul>
           </nav>
-          <div></div>
+         
+           
           <div id="subnav">
             <span id="level"> Level : {level} </span>
+            
             <span id="score">
               {" "}
               <FontAwesomeIcon

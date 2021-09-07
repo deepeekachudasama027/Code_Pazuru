@@ -30,10 +30,12 @@ class thankyou extends Component {
 
       try {
         const element = await axios.post("/api/auth/getthankyoupage", config);
-        if (element.data === "login required") {
+        if (element.data === "login required") 
           this.logoutHandler();
-        }else if(element.data === "Game Not Over yet")
+        else if(element.data === "Game Not Over yet")
           this.logoutHandler();
+          else if(element.data === "Game not started yet")
+          this.logoutHandler(); 
          else {
           this.setState({
             username: element.data.username,

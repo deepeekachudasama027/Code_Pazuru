@@ -9,7 +9,9 @@ import RegisterScreen from "./components/screens/RegisterScreen";
 import draggable from "./components/screens/drag";
 import thankyou from "./components/screens/thank_you";
 import error_page from "./components/screens/error_page";
+import start_page from "./components/screens/start";
 import rules from "./components/screens/rules";
+
 const App = () => {
   return (
     <Router>
@@ -21,6 +23,7 @@ const App = () => {
           <PrivateRoute exact path="/drag" component={draggable} />
           <PrivateRoute exact path="/thank_you" component={thankyou} />
           <PrivateRoute exact path="/rules" component={rules} />
+          <PrivateRoute exact path="/start" component={start_page} />
           <PrivateRoute exact path="/*" component={error_page} />
         </Switch>
       </div>

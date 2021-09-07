@@ -9,6 +9,7 @@ const {
   skip,
   getthankyoupage,
   getrule_errorpage,
+  getstart
 } = require("../controllers/auth");
 const { protect } = require("../middleware/auth");
 
@@ -20,5 +21,6 @@ router.route("/check").post(check);
 router.route("/skip").post(skip);
 router.route("/getrule_errorpage").post(getrule_errorpage);
 router.route("/getthankyoupage").post(getthankyoupage);
+router.route("/getstart").post(getstart);
 
 module.exports = router;

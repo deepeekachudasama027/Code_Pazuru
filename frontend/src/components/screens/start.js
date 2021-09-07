@@ -4,7 +4,7 @@ import axios from "axios";
 require("./preloader.css");
 require("./navbar.css");
 require("./errorpage.css");
-class error_page extends Component {
+class start_page extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,9 +28,11 @@ class error_page extends Component {
       };
 
       try {
-        const element = await axios.post("/api/auth/getrule_errorpage", config);
+        const element = await axios.post("/api/auth/getstart", config);
         if (element.data === "login required") this.logoutHandler();
-        else {
+        else if (element.data === "Game Started")
+          window.location.href = "./drag";
+        else if (element.data === "Game not started yet") {
           this.setState({
             username: element.data.username,
           });
@@ -116,18 +118,10 @@ class error_page extends Component {
           <div></div>
           <div className="outercontainer">
             <div className="container1">
-              <h1 style={{ textTransform: "uppercase" }}> OOPS {username}! </h1>
-              We can't seem to find the page you're looking for <br />
-              Nothing to see here! <br />
-              let's Go back! Press the button
+              <h1 style={{ textTransform: "uppercase" }}> {username}! </h1>
+              You are too Early Game will start at .... Refresh the page after
+              or at ...
               <br />
-              <div>
-                <a href="/drag">
-                  <button className="btn1">
-                    <span>PLAY</span>
-                  </button>
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -136,4 +130,4 @@ class error_page extends Component {
   }
 }
 
-export default error_page;
+export default start_page;

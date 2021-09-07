@@ -63,8 +63,12 @@ exports.getCode = async (req, res, next) => {
         level = user.level;
         score = user.score;
         username = user.username;
-
-        if (level > 9) {
+        var startDate = new Date("Sep 7, 2021 16:40:00").getTime();
+        var endDate = new Date("Sep 7, 2021 16:50:00").getTime();
+        var now = new Date().getTime();
+        if (startDate - now > 0) return res.send("Game not started yet");
+        else if (endDate - now < 0) return res.send("Game end");
+        else if (level > 9) {
           return res.send("Game Over");
         } else {
           Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -129,7 +133,7 @@ exports.check = async (req, res, next) => {
               });
             }
           } else {
-           (score<10)?score=0: score = score - 10;
+            score < 10 ? (score = 0) : (score = score - 10);
             User.findByIdAndUpdate(
               id,
               { level: level, score: score },
@@ -166,7 +170,7 @@ exports.skip = async (req, res, next) => {
         score = user.score;
         username = user.username;
         level++;
-        (score<50)?score=0:score = score - 50;
+        score < 50 ? (score = 0) : (score = score - 50);
         if (level > 9) {
           User.findByIdAndUpdate(
             id,
@@ -204,7 +208,6 @@ exports.skip = async (req, res, next) => {
 exports.getrule_errorpage = async (req, res, next) => {
   try {
     let id = req.body.id;
-
     if (!id) return res.send("login required");
     else {
       User.findById(id).then((user) => {
@@ -222,15 +225,37 @@ exports.getrule_errorpage = async (req, res, next) => {
   }
 };
 
+exports.getstart = async (req, res, next) => {
+  try {
+    let id = req.body.id;
+    var countDownDate = new Date("Sep 7, 2021 16:40:00").getTime();
+    var now = new Date().getTime();
+
+    if (!id) return res.send("login required");
+    else if (countDownDate - now <= 0) return res.send("Game Started");
+    else {
+      User.findById(id).then((user) => {
+        score = user.score;
+        username = user.username;
+        ele = {
+          score: score,
+          username: username,
+        };
+        return res.json(ele);
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 exports.getthankyoupage = async (req, res, next) => {
   try {
     let id = req.body.id;
     if (!id) return res.send("login required");
     else {
       User.findById(id).then((user) => {
-        level=user.level;
-        if(level<=9)
-         return res.send("Game Not Over yet");
+        level = user.level;
+        if (level <= 9) return res.send("Game Not Over yet");
         score = user.score;
         username = user.username;
         ele = {

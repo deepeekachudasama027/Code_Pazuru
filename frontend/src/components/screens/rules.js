@@ -27,9 +27,8 @@ class error_page extends Component {
 
       try {
         const element = await axios.post("/api/auth/getrule_errorpage", config);
-        if (element.data === "login required") {
-          this.logoutHandler();
-        } else {
+        if (element.data === "login required") this.logoutHandler();
+        else {
           this.setState({
             username: element.data.username,
           });
