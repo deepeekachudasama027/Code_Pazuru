@@ -53,9 +53,8 @@ exports.register = async (req, res, next) => {
 };
 
 var level, score, username;
-const startDate = new Date("Sep 7, 2021 16:40:00").getTime();
-const endDate = new Date("Sep 7, 2021 18:05:00").getTime();
-
+const startDate = new Date("Sep 14, 2021 16:40:00").getTime();
+const endDate = new Date("Sep 15, 2021 18:05:00").getTime();
 
 exports.getCode = async (req, res, next) => {
   try {
@@ -65,11 +64,14 @@ exports.getCode = async (req, res, next) => {
       User.findById(id).then((user) => {
         level = user.level;
         score = user.score;
-        username = user.username; 
+        username = user.username;
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
-        else if (endDate - now <= 0) {console.log(1);return res.send("Game end"); }
-        else if (level > 9) {
+        else if (endDate - now <= 0) {
+          return res.send("Game end");}
+        //  else if (level < 3) {
+        //   return res.send("No entry"); }
+         else if (level > 9) {
           return res.send("Game Over");
         } else {
           Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -79,7 +81,6 @@ exports.getCode = async (req, res, next) => {
                 score: score,
                 username: username,
               };
-              console.log(2);
               return res.json(ele);
             }
           );
@@ -110,6 +111,8 @@ exports.check = async (req, res, next) => {
           ) {
             level++;
             score = score + 100;
+            //  if (level < 3) {
+            //   return res.send("No entry"); }
             if (level > 9) {
               User.findByIdAndUpdate(
                 id,
@@ -139,6 +142,17 @@ exports.check = async (req, res, next) => {
             }
           } else {
             score < 10 ? (score = 0) : (score = score - 10);
+            // if (level < 3) {
+            //   return res.send("No entry"); }
+            if (score == 0) {
+              User.findByIdAndUpdate(
+                id,
+                { level: 10, score: score },
+                { new: true }
+              ).then((user) => {
+                return res.send("Game Over");
+              });
+            }
             User.findByIdAndUpdate(
               id,
               { level: level, score: score },
@@ -179,7 +193,18 @@ exports.skip = async (req, res, next) => {
         username = user.username;
         level++;
         score < 50 ? (score = 0) : (score = score - 50);
-        if (level > 9) {
+        // if (level < 3) {
+        //   return res.send("No entry"); }
+        if (score == 0) {
+          User.findByIdAndUpdate(
+            id,
+            { level: 10, score: score },
+            { new: true }
+          ).then((user) => {
+            return res.send("Game Over");
+          });
+        }
+        else if (level > 9) {
           User.findByIdAndUpdate(
             id,
             { level: 10, score: score },
@@ -188,6 +213,7 @@ exports.skip = async (req, res, next) => {
             return res.send("Game Over");
           });
         } else {
+
           User.findByIdAndUpdate(
             id,
             { level: level, score: score },
@@ -263,8 +289,10 @@ exports.getthankyoupage = async (req, res, next) => {
     else {
       User.findById(id).then((user) => {
         level = user.level;
-         if (startDate - now > 0) return res.send("Game not started yet");
-       else  if (level <= 9 && endDate-now>0) return res.send("Game Not Over yet");
+        score = user.score;
+        if (startDate - now > 0) return res.send("Game not started yet");
+        else if (level <= 9 && endDate - now > 0 && score!=0)
+          return res.send("Game Not Over yet");
         score = user.score;
         username = user.username;
         ele = {

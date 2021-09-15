@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
   },
   score: {
     type: Number,
-    default: 200,
+    default: 400,
   },
 });
 

@@ -11,6 +11,7 @@ import thankyou from "./components/screens/thank_you";
 import error_page from "./components/screens/error_page";
 import start_page from "./components/screens/start";
 import rules from "./components/screens/rules";
+import no_entry from "./components/screens/no_entry";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <PrivateRoute exact path="/thank_you" component={thankyou} />
           <PrivateRoute exact path="/rules" component={rules} />
           <PrivateRoute exact path="/start" component={start_page} />
+          <PrivateRoute exact path="/no_entry" component={no_entry} />
           <PrivateRoute exact path="/*" component={error_page} />
         </Switch>
       </div>

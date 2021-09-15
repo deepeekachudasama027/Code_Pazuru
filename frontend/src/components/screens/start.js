@@ -34,7 +34,7 @@ class start_page extends Component {
           window.location.href = "./drag";
           else if (element.data === "Game end") 
           window.location.href = "./thank_you";
-        else if (element.data === "Game not started yet") {
+        else  {
           this.setState({
             username: element.data.username,
           });

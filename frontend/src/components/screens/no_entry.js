@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 require("./preloader.css");
 require("./navbar.css");
-class rules extends Component {
+class no_entry extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -112,22 +112,10 @@ class rules extends Component {
             </ul>
           </nav>
           <div>
-            <h1> rules, {username}! </h1>
+            <h1> no entry for second round , {username}! </h1>
 
             <br />
-            <a
-              href="/drag"
-              style={{
-                width: "140px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                color: "white",
-                background: "black",
-              }}
-              className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
-            >
-              Play
-            </a>
+         
           </div>
         </div>
       );
@@ -135,4 +123,4 @@ class rules extends Component {
   }
 }
 
-export default rules;
+export default no_entry;

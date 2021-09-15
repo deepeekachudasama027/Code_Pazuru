@@ -74,6 +74,8 @@ class draggable extends Component {
           window.location.href = "./thank_you";
             else if (element.data === "Game end") 
           window.location.href = "./thank_you";
+          else if (element.data === "No entry") 
+          window.location.href = "./no_entry";
        else {
           this.setState({
             level: element.data.element.level,
