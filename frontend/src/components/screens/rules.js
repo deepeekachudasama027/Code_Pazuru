@@ -144,7 +144,7 @@ class rules extends Component {
               <br />
               5. The game will be over for the player once he/she has spent all
               the coins i.e. if he/she comes down to 0 coins.
-              <br /> 6. To unlock second round, player must clear 15 levels of
+              <br /> 6. To unlock second round, player must clear 10 levels of
               the first round. <br />
               7. While doing the registration, do remember your password in
               order to login to your account as there is no functionality of
