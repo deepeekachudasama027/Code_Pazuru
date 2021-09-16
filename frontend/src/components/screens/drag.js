@@ -35,7 +35,7 @@ const SortableContainer = sortableContainer(({ children }) => {
   return <div className={styles.dragContainer}>{children}</div>;
 });
 
-class draggable extends Component {
+class Draggable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -84,6 +84,7 @@ class draggable extends Component {
             username: element.data.username,
             score: element.data.score,
           });
+          
         }
       } catch (err) {
         console.log(err);
@@ -128,6 +129,7 @@ class draggable extends Component {
             username: element.data.username,
             score: element.data.score,
           });
+          window.location.reload();
         }
       } catch (err) {
         console.log(err);
@@ -166,6 +168,7 @@ class draggable extends Component {
             username: element.data.username,
             score: element.data.score,
           });
+          window.location.reload();
         }
       } catch (err) {
         console.log(err);
@@ -292,4 +295,4 @@ class draggable extends Component {
   }
 }
 
-export default draggable;
+export default Draggable;
