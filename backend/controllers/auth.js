@@ -3,6 +3,7 @@ const ErrorResponse = require("../utils/errorResponse");
 const User = require("../models/User");
 const Ques = require("../models/ques");
 
+// login
 exports.login = async (req, res, next) => {
   var email = req.body.email;
   var password = req.body.password;
@@ -33,6 +34,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
+// register
 exports.register = async (req, res, next) => {
   const { username, email, password } = req.body;
   try {
@@ -54,8 +56,9 @@ exports.register = async (req, res, next) => {
 
 var level, score, username;
 const startDate = new Date("Sep 14, 2021 16:40:00").getTime();
-const endDate = new Date("Sep 15, 2021 18:05:00").getTime();
+const endDate = new Date("Sep 17, 2021 18:05:00").getTime();
 
+// display code whenever user login or 
 exports.getCode = async (req, res, next) => {
   try {
     let id = req.body.id;
@@ -92,6 +95,7 @@ exports.getCode = async (req, res, next) => {
   }
 };
 
+// submit button 
 exports.check = async (req, res, next) => {
   try {
     let id = req.body.data.id;
@@ -179,6 +183,7 @@ exports.check = async (req, res, next) => {
   }
 };
 
+// skip button
 exports.skip = async (req, res, next) => {
   try {
     let id = req.body.data.id;
@@ -239,6 +244,7 @@ exports.skip = async (req, res, next) => {
   }
 };
 
+// rule and error page
 exports.getrule_errorpage = async (req, res, next) => {
   try {
     let id = req.body.id;
@@ -259,6 +265,7 @@ exports.getrule_errorpage = async (req, res, next) => {
   }
 };
 
+// when game is not started
 exports.getstart = async (req, res, next) => {
   try {
     let id = req.body.id;
@@ -281,6 +288,8 @@ exports.getstart = async (req, res, next) => {
     next(err);
   }
 };
+
+// thank you page 
 exports.getthankyoupage = async (req, res, next) => {
   try {
     let id = req.body.id;

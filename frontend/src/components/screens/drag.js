@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import {
   sortableContainer,
   sortableElement,
@@ -6,9 +7,9 @@ import {
 } from "react-sortable-hoc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort, faCoins } from "@fortawesome/free-solid-svg-icons";
+
 import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
-import axios from "axios";
 
 
 require("./navbar.css");
@@ -195,7 +196,8 @@ class draggable extends Component {
       return (
         
         <div className="backgroundset">
-        
+             <div>
+          </div>
           <nav className="nav">
             <input
               type="checkbox"
@@ -283,6 +285,7 @@ class draggable extends Component {
               Submit
             </button>
           </center>
+     
         </div>
       );
     }

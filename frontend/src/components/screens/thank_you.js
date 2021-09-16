@@ -130,7 +130,7 @@ class thankyou extends Component {
                 <h1> Thank You {username}! </h1>
                 <p id="message">
                   Game is Over now! <br />
-                  Your Total Score is {score}
+                  Total Score : {score}
                   <br />
                   Hope you have enjoyed the game <br />
                 </p>
