@@ -60,7 +60,13 @@
   text-align: center;
   border-radius: 21px;
   font-family: Ubuntu-Bold;
-  background: -webkit-linear-gradient(left, #37d5d6, #36096d, #83eaf1);
+  border: 3px solid #37d5d6;
+  background: whitesmoke;
+}
+
+#btn:hover {
+  transition: 1s ease-in-out;
+  background: #37d5d6;
 }
 
 .form-group {
