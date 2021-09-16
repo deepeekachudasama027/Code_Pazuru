@@ -32,6 +32,14 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 400,
   },
+  creation_date:{
+    type:Date,
+    default:new Date()
+  },
+  updation_date:{
+    type:Date,
+    default:new Date()
+  }
 });
 
 UserSchema.pre("save", async function (next) {

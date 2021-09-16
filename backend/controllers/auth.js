@@ -119,16 +119,14 @@ exports.check = async (req, res, next) => {
             //   return res.send("No entry"); }
             if (level > 9) {
               User.findByIdAndUpdate(
-                id,
-                { level: 10, score: score },
-                { new: true }
+                id,{ level: 10, score: score,updation_date:new Date() },{ new: true }
               ).then((user) => {
                 return res.send("Game Over");
               });
             } else {
               User.findByIdAndUpdate(
                 id,
-                { level: level, score: score },
+                { level: level, score: score,updation_date:new Date() },
                 { new: true }
               ).then((user) => {
                 Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -151,7 +149,7 @@ exports.check = async (req, res, next) => {
             if (score == 0) {
               User.findByIdAndUpdate(
                 id,
-                { level: 10, score: score },
+                { level: 10, score: score,updation_date:new Date() },
                 { new: true }
               ).then((user) => {
                 return res.send("Game Over");
@@ -159,7 +157,7 @@ exports.check = async (req, res, next) => {
             }
             User.findByIdAndUpdate(
               id,
-              { level: level, score: score },
+              { level: level, score: score,updation_date:new Date() },
               { new: true }
             ).then((user) => {
               Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -203,7 +201,7 @@ exports.skip = async (req, res, next) => {
         if (score == 0) {
           User.findByIdAndUpdate(
             id,
-            { level: 10, score: score },
+            { level: 10, score: score,updation_date:new Date() },
             { new: true }
           ).then((user) => {
             return res.send("Game Over");
@@ -212,7 +210,7 @@ exports.skip = async (req, res, next) => {
         else if (level > 9) {
           User.findByIdAndUpdate(
             id,
-            { level: 10, score: score },
+            { level: 10, score: score,updation_date:new Date() },
             { new: true }
           ).then((user) => {
             return res.send("Game Over");
@@ -221,7 +219,7 @@ exports.skip = async (req, res, next) => {
 
           User.findByIdAndUpdate(
             id,
-            { level: level, score: score },
+            { level: level, score: score,updation_date:new Date() },
             { new: true }
           ).then((user) => {
             Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
