@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 
 process.on("unhandledRejection", (err, promise) => {
   console.log(`Logged Error: ${err.message}`);
-  server.close(() => process.exit(1));
+  
 });
 
 const PORT = process.env.PORT || 5000;

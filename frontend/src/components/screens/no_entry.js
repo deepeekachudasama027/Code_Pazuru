@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 require("./preloader.css");
 require("./navbar.css");
-
-require("./rules.css");
-
-class rules extends Component {
+class no_entry extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,54 +111,11 @@ class rules extends Component {
               </li>
             </ul>
           </nav>
-          <div></div>
-          <div className="ocontainer">
-            <div className="container1">
-              RULES
-              <br />
-              <br />
-              There will be two rounds, first round will be held on 9th oct,
-              2021 and second on 10th oct, 2021
-              <br />
-              <br /> 1. Any attempt of attack on-site is intolerable. The player
-              will be blacklisted and will not be able to participate in any
-              other events. <br />
-              2. In this game, the player has to arrange the shuffled code in
-              the correct order. There will be codes belonging to different
-              languages, and by analyzing the code, you have to arrange it in
-              the correct order.
-              <br />
-              3. Each player will be given 400 coins in the beginning; use them
-              wisely.
-              <br />
-              4. For each correct submission, you will be awarded 100 coins.
-              <br />
-              &nbsp; &nbsp; For each wrong submission, 10 coins will be
-              deducted.
-              <br />
-              &nbsp; &nbsp; You can use the skip option but remember it will
-              cost you 50 coins.
-              <br />
-              5. The game will be over for the player once he/she has spent all
-              the coins i.e. if he/she comes down to 0 coins.
-              <br /> 6. To unlock second round, player must clear 15 levels of
-              the first round. <br />
-              7. While doing the registration, do remember your password in
-              order to login to your account as there is no functionality of
-              "forget password".
-              <br />
-              8. It is advisable to play using laptop, to use all the featured
-              effectively.
-              <br /> 9. The winners will be announced at the closing ceremony of
-              version'21.
-              <div>
-                <a href="/drag">
-                  <button className="btn1">
-                    <span>PLAY</span>
-                  </button>
-                </a>
-              </div>
-            </div>
+          <div>
+            <h1> no entry for second round , {username}! </h1>
+
+            <br />
+         
           </div>
         </div>
       );
@@ -169,4 +123,4 @@ class rules extends Component {
   }
 }
 
-export default rules;
+export default no_entry;

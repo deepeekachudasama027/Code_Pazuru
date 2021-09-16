@@ -1,5 +1,5 @@
 .dragContainer {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 10vh;
 }
@@ -16,8 +16,10 @@
 
 .dragElement {
   position: relative;
-  display: flex;
+  display:flex;
   justify-content: space-between;
+  overflow-wrap: break-word;
+  word-break: break-all;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-all;
