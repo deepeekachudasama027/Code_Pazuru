@@ -1,4 +1,4 @@
-.ocontainer {
+.ccontainer {
   position: relative;
   z-index: 15;
   top: 40%;
@@ -6,13 +6,15 @@
   margin: -100px 0 0 -150px;
   color: floralwhite;
   border-radius: 20px;
+  text-align: center;
 }
 
-.container1 {
+.ccontainer1 {
   position: absolute;
-  left: 15%;
+  left: 25%;
   background-color: black;
   padding: 40px;
-  border-radius: 10px;
-  width: 60%;
+  border-radius: 20px;
+
+  width: 40%;
 }

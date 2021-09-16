@@ -3,7 +3,7 @@ import axios from "axios";
 
 require("./preloader.css");
 require("./navbar.css");
-require("./errorpage.css");
+require("./start.css");
 class start_page extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +32,9 @@ class start_page extends Component {
         if (element.data === "login required") this.logoutHandler();
         else if (element.data === "Game Started")
           window.location.href = "./drag";
-          else if (element.data === "Game end") 
+        else if (element.data === "Game end")
           window.location.href = "./thank_you";
-        else if (element.data === "Game not started yet") {
+        else {
           this.setState({
             username: element.data.username,
           });
@@ -118,11 +118,13 @@ class start_page extends Component {
             </ul>
           </nav>
           <div></div>
-          <div className="outercontainer">
-            <div className="container1">
-              <h1 style={{ textTransform: "uppercase" }}> {username}! </h1>
-              You are too Early Game will start at .... Refresh the page after
-              or at ...
+          <div className="ccontainer">
+            <div className="ccontainer1">
+              <h1 style={{ textTransform: "uppercase" }}>
+                {" "}
+                Heyy!! {username}{" "}
+              </h1>
+              This game is locked right now...
               <br />
             </div>
           </div>

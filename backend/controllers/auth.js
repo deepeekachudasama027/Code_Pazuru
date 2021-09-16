@@ -53,9 +53,8 @@ exports.register = async (req, res, next) => {
 };
 
 var level, score, username;
-const startDate = new Date("Sep 7, 2021 16:40:00").getTime();
-const endDate = new Date("Sep 7, 2021 18:05:00").getTime();
-
+const startDate = new Date("Sep 15, 2021 16:40:00").getTime();
+const endDate = new Date("Sep 16, 2021 18:05:00").getTime();
 
 exports.getCode = async (req, res, next) => {
   try {
@@ -65,11 +64,13 @@ exports.getCode = async (req, res, next) => {
       User.findById(id).then((user) => {
         level = user.level;
         score = user.score;
-        username = user.username; 
+        username = user.username;
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
-        else if (endDate - now <= 0) {console.log(1);return res.send("Game end"); }
-        else if (level > 9) {
+        else if (endDate - now <= 0) {
+          // console.log(1);
+          return res.send("Game end");
+        } else if (level > 9) {
           return res.send("Game Over");
         } else {
           Ques.find({ level }, { _id: 0, level: 1, code: 1 }).then(
@@ -79,7 +80,7 @@ exports.getCode = async (req, res, next) => {
                 score: score,
                 username: username,
               };
-              console.log(2);
+              // console.log(2);
               return res.json(ele);
             }
           );
@@ -263,8 +264,9 @@ exports.getthankyoupage = async (req, res, next) => {
     else {
       User.findById(id).then((user) => {
         level = user.level;
-         if (startDate - now > 0) return res.send("Game not started yet");
-       else  if (level <= 9 && endDate-now>0) return res.send("Game Not Over yet");
+        if (startDate - now > 0) return res.send("Game not started yet");
+        else if (level <= 9 && endDate - now > 0)
+          return res.send("Game Not Over yet");
         score = user.score;
         username = user.username;
         ele = {

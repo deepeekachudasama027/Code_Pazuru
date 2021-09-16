@@ -30,16 +30,13 @@ class thankyou extends Component {
 
       try {
         const element = await axios.post("/api/auth/getthankyoupage", config);
-        if (element.data === "login required") 
+        if (element.data === "login required") this.logoutHandler();
+        else if (element.data === "Game Not Over yet") {
+          console.log(5);
           this.logoutHandler();
-        else if(element.data === "Game Not Over yet"){
-          console.log(5)
-          this.logoutHandler();
-        }
-   
-          else if(element.data === "Game not started yet")
+        } else if (element.data === "Game not started yet")
           window.location.href = "./start";
-         else {
+        else {
           this.setState({
             username: element.data.username,
             score: element.data.score,
@@ -128,7 +125,7 @@ class thankyou extends Component {
             <div className="outercontainer">
               <div className="container">
                 <h1> Thank You {username}! </h1>
-                <p id="message">
+                <p className="mess">
                   Game is Over now! <br />
                   Your Total Score is {score}
                   <br />

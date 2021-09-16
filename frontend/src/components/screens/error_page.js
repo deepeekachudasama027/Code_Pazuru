@@ -115,7 +115,7 @@ class error_page extends Component {
           </nav>
           <div></div>
           <div className="outercontainer">
-            <div className="container1">
+            <div className="container">
               <h1 style={{ textTransform: "uppercase" }}> OOPS {username}! </h1>
               We can't seem to find the page you're looking for <br />
               Nothing to see here! <br />
