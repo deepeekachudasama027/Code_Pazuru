@@ -129,7 +129,7 @@ class Draggable extends Component {
             username: element.data.username,
             score: element.data.score,
           });
-          window.location.reload();
+       
         }
       } catch (err) {
         console.log(err);
@@ -168,7 +168,7 @@ class Draggable extends Component {
             username: element.data.username,
             score: element.data.score,
           });
-          window.location.reload();
+         
         }
       } catch (err) {
         console.log(err);
