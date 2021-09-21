@@ -120,7 +120,6 @@ class Draggable extends Component {
         let element = await axios.post("/api/auth/check", { data }, config);
         if (element) {
           window.location.reload();
-          this.getCode();
         }
       } catch (err) {
         console.log(err);
@@ -147,7 +146,6 @@ class Draggable extends Component {
         let element = await axios.post("/api/auth/skip", { data }, config);
         if (element) {
           window.location.reload();
-          this.getCode();
         }
       } catch (err) {
         console.log(err);
