@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const quesSchema = new mongoose.Schema({
   level: {
-    type: String,
+    type: Number,
     required: true,
     trim: true,
   },
@@ -13,7 +13,7 @@ const quesSchema = new mongoose.Schema({
 module.exports = Question = mongoose.model("question", quesSchema);
 // Question.insertMany([
 //   {
-//     level: "1",
+//     level: 1,
 //     order: [
       // "<html>",
       // "<head>",
@@ -57,7 +57,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "2",
+//     level: 2,
 //     order: [
 //       "int t(int x, int y)",
 //       "{ \n int z = 1;",
@@ -87,7 +87,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "3",
+//     level: 3,
 //     order: [
 //       "onMouseMove = (e) => \n {",
 //       "e.preventDefault();",
@@ -95,8 +95,8 @@ module.exports = Question = mongoose.model("question", quesSchema);
 //       "let x = e.pageX - targetRect.left + 10;",
 //       "if (x > targetRect.width) \n { \n x = targetRect.width \n};",
 //       "else  if (x < 0) \n { x = 0 \n};",
-//       "btn.x = x - 10; \n btn.style.left = btn.x + 'px'; \n let percentPosition = (btn.x + 10) / targetRect.width * 100;",
-//       "color.style.width = percentPosition + '%'; \n tooltip.style.left = btn.x - 5 + 'px'; \n tooltip.style.opacity = 1; \n tooltip.textContent = Math.round(percentPosition) + '%';",
+//       "btn.x = x - 10; \n btn.style.left = btn.x ; \n let percentPosition = (btn.x + 10) / targetRect.width * 100;",
+//       "color.style.width = percentPosition ; \n tooltip.style.left = btn.x - 5 ; \n tooltip.style.opacity = 1; \n tooltip.textContent = Math.round(percentPosition);",
 //       " };",
 //     ],
 
@@ -107,8 +107,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 //       "let targetRect = target.getBoundingClientRect();",
 //       "onMouseMove = (e) => \n {",
 //       "e.preventDefault();",
-//       "color.style.width = percentPosition + " %
-//         "; \n tooltip.style.left = btn.x - 5 + 'px'; \n tooltip.style.opacity = 1; \n tooltip.textContent = Math.round(percentPosition) + '%';",
+//"color.style.width = percentPosition ; \n tooltip.style.left = btn.x - 5 ; \n tooltip.style.opacity = 1; \n tooltip.textContent = Math.round(percentPosition);",
 //       "else  if (x < 0) \n { x = 0 \n};",
 //       "let x = e.pageX - targetRect.left + 10;",
 //     ],
@@ -117,7 +116,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "4",
+//     level: 11,
 //     order: [
 //       "try \n {",
 //       "const user = await User.findOne({ email }).select('+password');",
@@ -147,7 +146,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "5",
+//     level: 8,
 //     order: [
 //       "function exportSaveState() \n {",
 //       "var state = { \n };",
@@ -176,7 +175,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "6",
+//     level: 7,
 //     order: [
 //       "namespace draco \n {",
 //       "class KeyframeAnimationEncodingTest : public ::testing::Test \n { \n protected: ",
@@ -210,7 +209,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "7",
+//     level: 13,
 //     order: [
 //       "<head>",
 //       "<meta charset='UTF-8'>",
@@ -269,7 +268,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "8",
+//     level: 14,
 //     order: [
 //       "while(*e != '\0') \n {",
 //       "if(isalnum(*e))",
@@ -303,7 +302,7 @@ module.exports = Question = mongoose.model("question", quesSchema);
 
 // Question.insertMany([
 //   {
-//     level: "9",
+//     level: 16,
 //     order: [
 //       "var hasDuplicate;",
 //       "function sortOrder( a, b ) \n {",
@@ -333,6 +332,320 @@ module.exports = Question = mongoose.model("question", quesSchema);
 //       "hasDuplicate = true;",
 //       "return 0; \n}",
 //       "return a;",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 15,
+//     order: [
+//       "#define F(i, j) f[i * max + j]",
+//       "void function(int *a, int len) {",
+//       " int max = a[0];",
+//       "for (int i = 1; i < len; i++)",
+//       "if (a[i] > max)",
+//       "  max = a[i];",
+//       "unsigned char *f = new unsigned char[max * len];\n memset(f, 0, static_cast<size_t>(max) * len);",
+//       "for (int i = 0; i < len; i++)",
+//       " for (int j = 0; j < a[i]; j++) F(i, j) = 1;",
+//       "for (int j = 0; j < max; j++) { \n int sum = 0;",
+//       "for (int i = 0; i < len; i++) {",
+//       "sum += F(i, j);",
+//       "F(i, j) = 0; \n }",
+//       "for (int i = len - sum; i < len; i++) F(i, j) = 1; \n }",
+//       "for (int i = 0; i < len; i++) {\nint j;",
+//       "for (j = 0; j < max && F(i, j); j++);",
+//       "a[i] = j;\n}",
+//       "delete[] f;\n}",
+//     ],
+//     code: [
+//       "for (int i = 1; i < len; i++)",
+//       "for (int i = len - sum; i < len; i++) F(i, j) = 1; \n }",
+//       "for (j = 0; j < max && F(i, j); j++);",
+//       "F(i, j) = 0; \n }",
+//       "if (a[i] > max)",
+//       "for (int j = 0; j < max; j++) { \n int sum = 0;",
+//       "for (int i = 0; i < len; i++) {",
+//       " for (int j = 0; j < a[i]; j++) F(i, j) = 1;",
+//       " int max = a[0];",
+//       "void function(int *a, int len) {",
+//       "  max = a[i];",
+//       "a[i] = j;\n}",
+//       "#define F(i, j) f[i * max + j]",
+//       "for (int i = 0; i < len; i++) {\nint j;",
+//       "unsigned char *f = new unsigned char[max * len];\n memset(f, 0, static_cast<size_t>(max) * len);",
+//       "sum += F(i, j);",
+//       "delete[] f;\n}",
+//       "for (int i = 0; i < len; i++)",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 10,
+//     order: [
+//       "double function(double x) {",
+//       "double f1 = x;",
+//       "for (int i = x - 1; i > 0; i--) {",
+//       "  f1 *= i;\n }",
+//       "if (f1 <= 0) ",
+//       "  f1 = 1;",
+//       "}",
+//       "return f1;\n}",
+//       "double function1(double expected, double x) {",
+//       "return (std::pow(expected, x) * std::exp(-expected)) / fact(x);\n}",
+//       "double function2(double expected, double lower, double upper) {",
+//       " double f2 = 0;",
+//       "for (int i = lower; i <= upper; i++) {",
+//       "  f2+= function1(expected, i);\n}",
+//       "return f2;\n}",
+//     ],
+//     code: [
+//       " double f2 = 0;",
+//       "}",
+//       "double function2(double expected, double lower, double upper) {",
+//       "return f2;\n}",
+//       "return (std::pow(expected, x) * std::exp(-expected)) / fact(x);\n}",
+//       "double function(double x) {",
+//       "if (f1 <= 0) ",
+//       "double f1 = x;",
+//       "double function1(double expected, double x) {",
+//       "  f1 *= i;\n }",
+//       "for (int i = lower; i <= upper; i++) {",
+//       "  f2+= function1(expected, i);\n}",
+//       "for (int i = x - 1; i > 0; i--) {",
+//       "  f1 = 1;",
+//       "return f1;\n}",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 5,
+//     order: [
+//       "return function (array, cmp) {",
+//       "cmp = cmp || compare;",
+//       "var gap, current;",
+//       "for (var k = 0; k < gaps.length; k += 1) {",
+//       "gap = gaps[k]",
+//       "for (var i = gap; i < array.length; i += gap) {",
+//       "current = array[i];",
+//       "for (var j = i;j >= gap && cmp(array[j - gap], current) > 0; j -= gap) {",
+//       " array[j] = array[j - gap];\n}",
+//       "array[j] = current;\n}",
+//       "}",
+//       "return array;\n};",
+//     ],
+//     code: [
+//       "var gap, current;",
+//       "return function (array, cmp) {",
+//       " array[j] = array[j - gap];\n}",
+//       "gap = gaps[k]",
+//       "current = array[i];",
+//       "array[j] = current;\n}",
+//       "cmp = cmp || compare;",
+//       "for (var i = gap; i < array.length; i += gap) {",
+//       "}",
+//       "for (var k = 0; k < gaps.length; k += 1) {",
+//       "return array;\n};",
+//       "for (var j = i;j >= gap && cmp(array[j - gap], current) > 0; j -= gap) {",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 9,
+//     order: [
+//       "export default function f1(originalMatrix) {",
+//       "const matrix = originalMatrix.slice();",
+//       "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {",
+//       "for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {",
+//       "[ \n matrix[columnIndex][rowIndex],",
+//       "matrix[rowIndex][columnIndex], \n ] = [",
+//       "matrix[rowIndex][columnIndex], \n matrix[columnIndex][rowIndex],",
+//       "];\n } \n }",
+//       "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) { ",
+//       "for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {",
+//       "[ \n matrix[rowIndex][matrix.length - columnIndex - 1],",
+//       "matrix[rowIndex][columnIndex], \n ] = [",
+//       "matrix[rowIndex][columnIndex], \n matrix[rowIndex][matrix.length - columnIndex - 1], \n ];",
+//       " } \n }",
+//       "return matrix;",
+//       "}",
+//     ],
+//     code: [
+//       "export default function f1(originalMatrix) {",
+//       "matrix[rowIndex][columnIndex], \n ] = [",
+//       "const matrix = originalMatrix.slice();",
+//       "matrix[rowIndex][columnIndex], \n ] = [",
+//       "[ \n matrix[columnIndex][rowIndex],",
+//       "matrix[rowIndex][columnIndex], \n matrix[rowIndex][matrix.length - columnIndex - 1], \n ];",
+//       "for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {",
+//       "[ \n matrix[rowIndex][matrix.length - columnIndex - 1],",
+//       "];\n } \n }",
+//       "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {",
+//       "for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {",
+//       "return matrix;",
+//       "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) { ",
+//       "matrix[rowIndex][columnIndex], \n matrix[columnIndex][rowIndex],",
+//       "}",
+//       " } \n }",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 12,
+//     order: [
+//       "void function1(vector<vector<int>> matrix)",
+//       "{",
+//       "int top = 0, \n left = 0, \n right = matrix[0].size()-1,\n bottom = matrix.size()-1;",
+//       "while (top<=bottom && left<=right)",
+//       "{ \n for (int i = left; i <= right; i++){",
+//       "cout<<matrix[top][i]; \n }",
+//       "top++;",
+//       "for (int i = top; i <= bottom; i++) \n cout<<matrix[i][right]; ",
+//       "right--; \n if(top<=bottom)",
+//       "for (int i = right ; i >= left; i--)",
+//       "cout<<matrix[bottom][i]; ",
+//       "bottom--;",
+//       "if(left<=right)",
+//       "for (int i = bottom ; i >= top; i--)",
+//       "cout<<matrix[i][left];",
+//       "left++; \n }",
+//       "}",
+//       "int main() \n { \n int r, c, temp;",
+//       "cin >> r >> c;",
+//       "vector<vector<int>> arr(r);",
+//       "for (int i = 0; i < r; i++) \n {",
+//       "for (int j = 0; j < c; j++) \n {",
+//       "cin >> temp; \n arr[i].push_back(temp); \n } \n }",
+//       "function1(arr);",
+//       "return 0; \n }",
+//     ],
+//     code: [
+//       "int main() \n { \n int r, c, temp;",
+//       "bottom--;",
+//       "cout<<matrix[bottom][i]; ",
+//       "vector<vector<int>> arr(r);",
+//       "function1(arr);",
+//       "while (top<=bottom && left<=right)",
+//       "for (int i = bottom ; i >= top; i--)",
+//       "for (int i = top; i <= bottom; i++) \n cout<<matrix[i][right]; ",
+//       "for (int i = 0; i < r; i++) \n {",
+//       "return 0; \n }",
+//       "right--; \n if(top<=bottom)",
+//       "void function1(vector<vector<int>> matrix)",
+//       "cin >> temp; \n arr[i].push_back(temp); \n } \n }",
+//       "left++; \n }",
+//       "top++;",
+//       "int top = 0, \n left = 0, \n right = matrix[0].size()-1,\n bottom = matrix.size()-1;",
+//       "if(left<=right)",
+//       "{",
+//       "for (int j = 0; j < c; j++) \n {",
+//       "cin >> r >> c;",
+//       "for (int i = right ; i >= left; i--)",
+//       "cout<<matrix[i][left];",
+//       "}",
+//       "cout<<matrix[top][i]; \n }",
+//       "{ \n for (int i = left; i <= right; i++){",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 4,
+//     order: [
+//       "class CodePazuru {",
+//       "public:",
+//       "bool function1(int N, vector<int> adj[]) {",
+//       "queue<int> q; \n vector<int> v(N, 0);",
+//       "for(int i = 0;i<N;i++) { \n for(auto it: adj[i]) { ",
+//       "v[it]++; \n } \n  }",
+//       "for(int i = 0;i<N;i++) {",
+//       "if(v[i] == 0) {",
+//       "q.push(i); \n } \n } \n int cnt = 0;",
+//       "while(!q.empty()) {",
+//       "int node = q.front(); ",
+//       "q.pop(); \n  cnt++; ",
+//       "for(auto it : adj[node]) {",
+//       "v[it]--;",
+//       "if(v[it] == 0) { ",
+//       "q.push(it); \n } \n } \n }",
+//       "if(cnt == N) ",
+//       "return false; ",
+//       "return true; \n }",
+//       "};",
+//     ],
+//     code: [
+//       "for(int i = 0;i<N;i++) {",
+//       "bool function1(int N, vector<int> adj[]) {",
+//       "q.push(i); \n } \n } \n int cnt = 0;",
+//       "while(!q.empty()) {",
+//       "public:",
+//       "class CodePazuru {",
+//       "if(cnt == N) ",
+//       "q.pop(); \n  cnt++; ",
+//       "for(auto it : adj[node]) {",
+//       "q.push(it); \n } \n } \n }",
+//       "for(int i = 0;i<N;i++) { \n for(auto it: adj[i]) { ",
+//       "if(v[i] == 0) {",
+//       "return false; ",
+//       "queue<int> q; \n vector<int> v(N, 0);",
+//       "int node = q.front(); ",
+//       "v[it]++; \n } \n  }",
+//       "};",
+//       "v[it]--;",
+//       "return true; \n }",
+//       "if(v[it] == 0) { ",
+//     ],
+//   },
+// ]);
+
+// Question.insertMany([
+//   {
+//     level: 6,
+//     order: [
+//       "class CodePazuru{",
+//       "public:",
+//       "void function1(long long a[], long long b[], int n, int m){",
+//       "int gap = (n + m + 1) / 2;",
+//       "while (gap) {",
+//       "int i = 0, j = gap;",
+//       "while (j < (n + m)) ",
+//       "{ \n if (i < n && j < n) {",
+//       "if (a[i] > a[j]) swap(a[i], a[j]); \n }",
+//       "else if (i < n && j >= n) {",
+//       "if (a[i] > b[j - n]) swap(a[i], b[j - n]); \n }",
+//       "else{ ",
+//       "if (b[i - n] > b[j - n]) swap(b[i - n], b[j - n]); \n }",
+//       "++i; \n ++j; \n}",
+//       "gap = gap < 2 ? 0 : (gap + 1) / 2; \n } \n } ",
+//       "};",
+//     ],
+//     code: [
+//       "else if (i < n && j >= n) {",
+//       "void function1(long long a[], long long b[], int n, int m){",
+//       "public:",
+//       "int i = 0, j = gap;",
+//       "int gap = (n + m + 1) / 2;",
+//       "if (a[i] > b[j - n]) swap(a[i], b[j - n]); \n }",
+//       "else{ ",
+//       "gap = gap < 2 ? 0 : (gap + 1) / 2; \n } \n } ",
+//       "if (a[i] > a[j]) swap(a[i], a[j]); \n }",
+//       "class CodePazuru{",
+//       "++i; \n ++j; \n}",
+//       "while (gap) {",
+//       "while (j < (n + m)) ",
+//       "};",
+//       "{ \n if (i < n && j < n) {",
+//       "if (b[i - n] > b[j - n]) swap(b[i - n], b[j - n]); \n }",
 //     ],
 //   },
 // ]);

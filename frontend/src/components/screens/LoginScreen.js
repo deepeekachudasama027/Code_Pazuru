@@ -33,7 +33,7 @@ const LoginScreen = ({ history }) => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       const userinfo = localStorage.getItem("userInfo");
       if (userinfo) {
-        history.push("/drag");
+        history.push("/game");
       }
     } catch (error) {
       setError(error.response.data.error);

@@ -32,6 +32,41 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 400,
   },
+  creation_date: {
+    type: Date,
+    default: new Date(),
+  },
+  updation_date: {
+    type: Date,
+    default: new Date(),
+  },
+  correct_count: {
+    type: Number,
+    default: 0,
+  },
+  items: {
+    type: [String],
+    default: [                                         // level 1 
+      "<li>Filter for a city</li>",
+      "<html>",
+      "</ul>",
+      "<form class='search-form'>",
+      "<li>or a state</li>",
+      "<script src='./index.js'>",
+      "<input type='text' class='search' placeholder='City or State'>",
+      "<head>",
+      "</head>",
+      "<title>Type Ahead 👀</title>",
+      "<body>",
+      "<meta charset='UTF-8'>",
+      "</body>",
+      "</script>",
+      "</html>",
+      "</form>",
+      "<link rel='stylesheet' href='style.css'>",
+      "<ul>",
+    ],
+  },
 });
 
 UserSchema.pre("save", async function (next) {

@@ -50,6 +50,7 @@ class rules extends Component {
 
   render() {
     const { username } = this.state;
+    //loader
     if (this.state.username === "") {
       return (
         <div id="loader-wrapper">
@@ -59,7 +60,8 @@ class rules extends Component {
           <div className="loader-section section-right"></div>
         </div>
       );
-    } else {
+    } //rules page 
+    else {
       return (
         <div className="backgroundset">
           <nav className="nav">
@@ -88,7 +90,7 @@ class rules extends Component {
             </label>
             <ul className="nav__menu">
               <li>
-                <a href="./drag">
+                <a href="./game">
                   <svg viewBox="0 0 384 512" width="100" title="chess-rook">
                     <path d="M368 32h-56a16 16 0 0 0-16 16v48h-48V48a16 16 0 0 0-16-16h-80a16 16 0 0 0-16 16v48H88.1V48a16 16 0 0 0-16-16H16A16 16 0 0 0 0 48v176l64 32c0 48.33-1.54 95-13.21 160h282.42C321.54 351 320 303.72 320 256l64-32V48a16 16 0 0 0-16-16zM224 320h-64v-64a32 32 0 0 1 64 0zm144 128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" />
                   </svg>
@@ -113,53 +115,52 @@ class rules extends Component {
               </li>
             </ul>
           </nav>
-          <div id="bottom_container">
-            <div className="ocontainer">
-              <div className="container1">
-                RULES
-                <br />
-                <br />
-                There will be two rounds, first round will be held on 9th oct,
-                2021 and second on 10th oct, 2021
-                <br />
-                <br /> 1. Any attempt of attack on-site is intolerable. The
-                player will be blacklisted and will not be able to participate
-                in any other events. <br />
-                2. In this game, the player has to arrange the shuffled code in
-                the correct order. There will be codes belonging to different
-                languages, and by analyzing the code, you have to arrange it in
-                the correct order.
-                <br />
-                3. Each player will be given 400 coins in the beginning; use
-                them wisely.
-                <br />
-                4. For each correct submission, you will be awarded 100 coins.
-                <br />
-                &nbsp; &nbsp; For each wrong submission, 10 coins will be
-                deducted.
-                <br />
-                &nbsp; &nbsp; You can use the skip option but remember it will
-                cost you 50 coins.
-                <br />
-                5. The game will be over for the player once he/she has spent
-                all the coins i.e. if he/she comes down to 0 coins.
-                <br /> 6. To unlock second round, player must clear 10 levels of
-                the first round. <br />
-                7. While doing the registration, do remember your password in
-                order to login to your account as there is no functionality of
-                "forget password".
-                <br />
-                8. It is advisable to play using laptop, to use all the featured
-                effectively.
-                <br /> 9. The winners will be announced at the closing ceremony
-                of version'21.
-                <div>
-                  <a href="/drag">
-                    <button className="btn1">
-                      <span>PLAY</span>
-                    </button>
-                  </a>
-                </div>
+          <div></div>
+          <div className="ocontainer">
+            <div className="container1">
+              RULES
+              <br />
+              <br />
+              There will be two rounds, first round will be held on 9th oct,
+              2021 and second on 10th oct, 2021
+              <br />
+              <br /> 1. Any attempt of attack on-site is intolerable. The player
+              will be blacklisted and will not be able to participate in any
+              other events. <br />
+              2. In this game, the player has to arrange the shuffled code in
+              the correct order. There will be codes belonging to different
+              languages, and by analyzing the code, you have to arrange it in
+              the correct order.
+              <br />
+              3. Each player will be given 400 coins in the beginning; use them
+              wisely.
+              <br />
+              4. For each correct submission, you will be awarded 100 coins.
+              <br />
+              &nbsp; &nbsp; For each wrong submission, 10 coins will be
+              deducted.
+              <br />
+              &nbsp; &nbsp; You can use the skip option but remember it will
+              cost you 50 coins.
+              <br />
+              5. The game will be over for the player once he/she has spent all
+              the coins i.e. if he/she comes down to 0 coins.
+              <br /> 6. To unlock second round, player must clear 10 levels of
+              the first round. <br />
+              7. While doing the registration, do remember your password in
+              order to login to your account as there is no functionality of
+              "forget password".
+              <br />
+              8. It is advisable to play using laptop, to use all the featured
+              effectively.
+              <br /> 9. The winners will be announced at the closing ceremony of
+              version'21.
+              <div>
+                <a href="/game">
+                  <button className="btn1">
+                    <span>PLAY</span>
+                  </button>
+                </a>
               </div>
             </div>
           </div>
