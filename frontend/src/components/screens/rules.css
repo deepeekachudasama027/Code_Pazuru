@@ -1,18 +1,32 @@
 .ocontainer {
   position: relative;
   z-index: 15;
-  top: 40%;
-  left: 10%;
-  margin: -100px 0 0 -150px;
+  top: 25%;
+  left: 5%;
   color: floralwhite;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .container1 {
   position: absolute;
   left: 15%;
+  top: 20px;
   background-color: black;
-  padding: 40px;
+  padding: 50px;
   border-radius: 10px;
   width: 60%;
+}
+
+#bottom_container {
+  padding-bottom: 20px;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .container1 {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+  }
 }

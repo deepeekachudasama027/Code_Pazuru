@@ -1,0 +1,153 @@
+medium
+
+"export default function f1(originalMatrix) {",
+"const matrix = originalMatrix.slice();",
+"for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {",
+"for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {",
+      "[ \n matrix[columnIndex][rowIndex],",
+
+        "matrix[rowIndex][columnIndex], \n ] = [",
+
+        "matrix[rowIndex][columnIndex], \n matrix[columnIndex][rowIndex],",
+
+      "];\n } \n }"
+
+  
+  "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) { ",
+
+    "for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {",
+      "[ \n matrix[rowIndex][matrix.length - columnIndex - 1],",
+
+        "matrix[rowIndex][columnIndex], \n ] = [",
+
+        "matrix[rowIndex][columnIndex], \n matrix[rowIndex][matrix.length - columnIndex - 1], \n ];",
+
+   " } \n }",
+  "return matrix;",
+"}",
+
+---------------------------------------------
+
+hard
+
+"void function1(vector<vector<int>> matrix)",
+
+"{",
+    "int top = 0, \n left = 0, \n right = matrix[0].size()-1,\n bottom = matrix.size()-1;",
+
+    "while (top<=bottom && left<=right)",
+
+    "{ \n for (int i = left; i <= right; i++){",
+
+            "cout<<matrix[top][i]<<" "; \n }",
+
+        "top++;",
+
+        "for (int i = top; i <= bottom; i++) \n cout<<matrix[i][right]<<" "; ",
+	
+        "right--; \n if(top<=bottom)",
+
+            "for (int i = right ; i >= left; i--)",
+
+                "cout<<matrix[bottom][i]<<" "; ",
+
+        "bottom--;",
+
+        "if(left<=right)",
+
+            "for (int i = bottom ; i >= top; i--)",
+                "cout<<matrix[i][left]<<" ";",
+        "left++; \n }",
+"}",
+
+"int main() \n { \n int r, c, temp;",
+ "cin >> r >> c;",
+
+    "vector<vector<int>> arr(r);",
+
+    "for (int i = 0; i < r; i++) \n {",
+        "for (int j = 0; j < c; j++) \n {"
+            "cin >> temp; \n arr[i].push_back(temp); \n } \n }",
+
+    "function1(arr);",
+    "return 0; \n }",
+
+
+-----------------------------------------------------
+easy
+
+"class CodePazuru {",
+
+"public:",
+
+	"bool function1(int N, vector<int> adj[]) {",
+
+            "queue<int> q; \n vector<int> v(N, 0);",
+ 
+	    "for(int i = 0;i<N;i++) { \n for(auto it: adj[i]) { ",
+
+	            "v[it]++; \n } \n  }",
+	    
+	    "for(int i = 0;i<N;i++) {",
+
+	        "if(v[i] == 0) {",
+	            
+		   "q.push(i); \n } \n } \n int cnt = 0;",
+
+	    "while(!q.empty()) {",
+	        "int node = q.front(); ",
+
+	        "q.pop(); \n  cnt++; ",
+
+	        "for(auto it : adj[node]) {",
+
+	            "v[it]--;",
+
+	            "if(v[it] == 0) { ",
+
+	                "q.push(it); \n } \n } \n }",
+
+	    "if(cnt == N) ",
+		"return false; ",
+	    "return true; \n }",
+"};",
+
+
+-----------------------------------------------------
+medium/easy
+
+"class CodePazuru{",
+
+"public:",
+
+    "void function1(long long a[], long long b[], int n, int m){",
+        
+        "int gap = (n + m + 1) / 2;",
+
+        "while (gap) {",
+            "int i = 0, j = gap;",
+            "while (j < (n + m)) ",
+
+		"{ \n if (i < n && j < n) {",
+
+                    "if (a[i] > a[j]) swap(a[i], a[j]); \n }",
+
+                "else if (i < n && j >= n) {",
+
+                    "if (a[i] > b[j - n]) swap(a[i], b[j - n]); \n }",
+
+                "else{ ",
+                    "if (b[i - n] > b[j - n]) swap(b[i - n], b[j - n]); \n }",
+
+                "++i; \n ++j; \n}",
+
+            "gap = gap < 2 ? 0 : (gap + 1) / 2; \n } \n } ",
+"};",
+
+
+
+
+
+
+
+

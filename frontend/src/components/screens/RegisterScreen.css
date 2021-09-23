@@ -69,12 +69,37 @@
   border-radius: 30px;
   font-family: Ubuntu-Bold;
 }
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 13px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+#img1 {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
 
+#img2 {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+#img22_1 {
+  height: 110px;
+  width: 190px;
+}
+#img11_1 {
+  height: 110px;
+  width: 110px;
+}
 @media (max-width: 800px) {
   .login-screen__form {
     width: 300px;
   }
-
   #email {
     width: 220px;
   }
@@ -84,8 +109,25 @@
   #password {
     width: 220px;
   }
-
   #confirmpassword {
     width: 220px;
+  }
+  #img1 {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  #img2 {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  #img22_1 {
+    height: 40px;
+    width: 100px;
+  }
+  #img11_1 {
+    height: 60px;
+    width: 60px;
   }
 }

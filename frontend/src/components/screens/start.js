@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 require("./preloader.css");
 require("./navbar.css");
 require("./start.css");

@@ -57,7 +57,7 @@ exports.register = async (req, res, next) => {
 var level, score, username;
 
 const startDate = new Date("Sep 14, 2021 16:40:00").getTime();
-const endDate = new Date("Sep 17, 2021 18:05:00").getTime();
+const endDate = new Date("Sep 30, 2021 18:05:00").getTime();
 
 // display code whenever user login or
 exports.getCode = async (req, res, next) => {

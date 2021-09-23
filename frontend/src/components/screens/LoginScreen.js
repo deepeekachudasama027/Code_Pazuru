@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./LoginScreen.css";
-
+import image from "./nit.png";
+import image1 from "./version_logo.png";
 const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,6 +46,9 @@ const LoginScreen = ({ history }) => {
   return (
     <div>
       <div className="login-screen">
+        <div id="img1">
+          <img id="img1_1" src={image} alt="fireSpot" />
+        </div>
         <form onSubmit={loginHandler} className="login-screen__form">
           <h3 className="login-screen__title">LOGIN</h3>
           {error && <span className="error-message">{error}</span>}
@@ -86,6 +90,12 @@ const LoginScreen = ({ history }) => {
             </Link>
           </span>
         </form>
+        <div id="img2">
+          <img id="img2_1" src={image1} alt="fireSpot" />
+        </div>
+      </div>
+      <div>
+        <footer className="footer">&copy; Developed by EEC(Version'21)</footer>
       </div>
     </div>
   );
