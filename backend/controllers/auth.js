@@ -65,19 +65,35 @@ exports.getCode = async (req, res, next) => {
     let id = req.body.id;
     if (!id) return res.send("login required");
     else {
+      
       User.findById(id).then((user) => {
         level = user.level;
         score = user.score;
         username = user.username;
         items = user.items;
         correct_count = user.correct_count;
+
+        // for second day
+
+        //flag=user.flag;
+        // if(flag===0)
+        // {
+        //   score=score+50;
+        //   User.findByIdAndUpdate(
+        //     id,
+        //     { score:score, updation_date: new Date(),flag:1 },
+        //     { new: true }
+        //   ).then((users) => {
+        //     return res.send("updated successfully");
+        //   });
+        // }
+
+
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
         else if (endDate - now <= 0) {
           return res.send("Game end");
         }
-        //  else if ( correct_count< 3) {
-        //   return res.send("No entry"); }
         else if (level > 16) {
           return res.send("Game Over");
         } else {
@@ -173,11 +189,10 @@ exports.skip = async (req, res, next) => {
     else {
       User.findById(id).then((user) => {
         level = user.level;
-        score = user.score;
+        // score = user.score;
         username = user.username;
         level++;
-        score < 50 ? (score = 0) : (score = score - 50);
-
+        score < 20 ? (score = 0) : (score = score - 20);
         Ques.find({ level }, { _id: 0, code: 1 }).then((element) => {
           var items = element[0].code;
           User.findByIdAndUpdate(
