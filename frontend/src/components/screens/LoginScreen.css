@@ -77,6 +77,36 @@
   text-align: center;
 }
 
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 13px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+#img1 {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+#img2 {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+#img2_1 {
+  height: 110px;
+  width: 190px;
+}
+#img1_1 {
+  height: 110px;
+  width: 110px;
+}
+
 @media (max-width: 800px) {
   .login-screen__form {
     width: 300px;
@@ -86,5 +116,18 @@
   }
   #password {
     width: 220px;
+  }
+  #img1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  #img1_1 {
+    height: 80px;
+    width: 80px;
+  }
+  #img2_1 {
+    height: 80px;
+    width: 110px;
   }
 }

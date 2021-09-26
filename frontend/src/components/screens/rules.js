@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 require("./preloader.css");
 require("./navbar.css");
-
 require("./rules.css");
 
 class rules extends Component {

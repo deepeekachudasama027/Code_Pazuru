@@ -18,3 +18,11 @@
 
   width: 40%;
 }
+
+@media (max-width: 700px) {
+  .ccontainer1 {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+  }
+}

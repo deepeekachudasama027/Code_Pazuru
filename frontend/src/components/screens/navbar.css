@@ -4,7 +4,7 @@
   background-image: url("./2.jpeg");
   background-size: cover;
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 .nav {
@@ -87,6 +87,7 @@
   color: white;
   background: black;
   margin-right: 11.25em;
+  margin-bottom: 30px;
 }
 
 #submit {
