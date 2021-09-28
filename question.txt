@@ -1327,3 +1327,54 @@ easy 38
 "};"
 ------------------------------------------------------------------
 
+easy 39
+
+"def loginView(request):"
+	"if request.method == 'POST':"
+		"username = request.POST['username']
+		password = request.POST['password']"
+		"user = authenticate(request, username=username, password=password)"
+		"if user is not None and user.is_active:"
+			"auth.login(request, user)"
+			"if user.is_admin or user.is_superuser:"
+				"return redirect('dashboard')"
+			"elif user.is_librarian:"
+				"return redirect('librarian')"
+			"else:"
+			    "return redirect('publisher')"
+		"else:"
+		    "messages.info(request, "Invalid username or password")"
+		    "return redirect('home')"
+--------------------------------------------------------------------------
+easy 40
+
+	"function func ( that, fn, init, start, end, inc )"
+	"{
+		
+			"var i = start,
+			value,
+			isSet = false;"
+	
+		"if ( init !== undefined ) 
+        "{
+			"value = init;
+			isSet = true;
+		}"
+	
+		"while ( i !== end ) {"
+			"if ( ! that.hasOwnProperty(i) ) "
+				"continue;"
+			
+	
+			"value = isSet "
+				"? fn( value, that[i], i, that ) "
+				":that[i];
+	
+			isSet = true;
+			i += inc;"
+		"}
+	
+		return value;"
+	"}"
+
+    -----------------------------------------------------------
