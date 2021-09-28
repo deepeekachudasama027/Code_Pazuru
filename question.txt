@@ -1,217 +1,211 @@
 ----------------------------------
 medium 1
 
-//function exportSaveState() {
-	//var state = {};
-	/*if(gameState == 1 || gameState == -1 || (gameState === 0 && localStorage.getItem('saveState') !== undefined)) {
-		 state = {*/
-		/*	hex: $.extend(true, {}, MainHex),
+"function exportSaveState() {"
+	"var state = {};"
+	"if(gameState == 1 || gameState == -1 || (gameState === 0 && localStorage.getItem('saveState') !== undefined)) {
+		 state = {"
+		"	hex: $.extend(true, {}, MainHex),
 			blocks: $.extend(true, [], blocks),
 			score: score,
 			wavegen: waveone,
 			gdx: gdx,
-			gdy: gdy,*/
-			/*comboTime:settings.comboTime
+			gdy: gdy,"
+			"comboTime:settings.comboTime
 		};
 		state.hex.blocks.map(function(a){
-			for (var i = 0; i < a.length; i++) {*/
-		/*		a[i] = $.extend(true, {}, a[i]);
+			for (var i = 0; i < a.length; i++) {"
+		"		a[i] = $.extend(true, {}, a[i]);
 			}
 			a.map(descaleBlock);
-		});*/
-	//	for (var i = 0; i < state.blocks.length; i++) {
-		//	state.blocks[i] = $.extend(true, {}, state.blocks[i]);
-	/*	}
+		});"
+	"	for (var i = 0; i < state.blocks.length; i++) {"
+		"	state.blocks[i] = $.extend(true, {}, state.blocks[i]);"
+	"	}
 		state.blocks.map(descaleBlock);
-	} }*/
+	} }"
 
 ------------------------
 easy 2
 
-// onMouseMove = (e) => {
-  //    e.preventDefault();
-    //  let targetRect = target.getBoundingClientRect();
-     // let x = e.pageX - targetRect.left + 10;
-     // if (x > targetRect.width) { x = targetRect.width};
-   // else  if (x < 0){ x = 0};
-  /*   btn.x = x - 10;
+" onMouseMove = (e) => {"
+  "    e.preventDefault();"
+    "  let targetRect = target.getBoundingClientRect();"
+     " let x = e.pageX - targetRect.left + 10;"
+     " if (x > targetRect.width) { x = targetRect.width};"
+   " else  if (x < 0){ x = 0};"
+  "   btn.x = x - 10;
       btn.style.left = btn.x + 'px';
-      let percentPosition = (btn.x + 10) / targetRect.width * 100;*/
-/*     color.style.width = percentPosition + '%';
+      let percentPosition = (btn.x + 10) / targetRect.width * 100;"
+"     color.style.width = percentPosition + '%';
        tooltip.style.left = btn.x - 5 + 'px';
       tooltip.style.opacity = 1;
-      tooltip.textContent = Math.round(percentPosition) + '%';*/
-//  };
+      tooltip.textContent = Math.round(percentPosition) + '%';"
+"  };"
 
 ---------------------------
 m 3
 
 
-//namespace draco {
-/*class KeyframeAnimationEncodingTest : public ::testing::Test {
-protected:*/
-// KeyframeAnimationEncodingTest() {}
-// bool CreateAndAddTimestamps(int32_t num_frames) {
- // timestamps_.resize(num_frames);
-   //for (int i = 0; i < timestamps_.size(); ++i)
-    // timestamps_[i] = static_cast<draco::KeyframeAnimation::TimestampType>(i);
- /*  return keyframe_animation_.SetTimestamps(timestamps_);
+"namespace draco {"
+"class KeyframeAnimationEncodingTest : public ::testing::Test {
+protected:"
+" KeyframeAnimationEncodingTest() {}"
+" bool CreateAndAddTimestamps(int32_t num_frames) {"
+ " timestamps_.resize(num_frames);"
+   "for (int i = 0; i < timestamps_.size(); ++i)"
+    " timestamps_[i] = static_cast<draco::KeyframeAnimation::TimestampType>(i);"
+ "  return keyframe_animation_.SetTimestamps(timestamps_);
  }
  int32_t CreateAndAddAnimationData(int32_t num_frames,
-                                   uint32_t num_components) {*/
-  // animation_data_.resize(num_frames * num_components);
-  // for (int i = 0; i < animation_data_.size(); ++i)
-   //  animation_data_[i] = static_cast<float>(i);
-/*   return keyframe_animation_.AddKeyframes(draco::DT_FLOAT32, num_components,
+                                   uint32_t num_components) {"
+  " animation_data_.resize(num_frames * num_components);"
+  " for (int i = 0; i < animation_data_.size(); ++i)"
+   "  animation_data_[i] = static_cast<float>(i);:
+"   return keyframe_animation_.AddKeyframes(draco::DT_FLOAT32, num_components,
                                            animation_data_);
- }*/
+ }"
 
 -------------------------
 hard 4
 
-//var hasDuplicate;
-//function sortOrder( a, b ) {
-//	if ( a === b ) {
-	//	hasDuplicate = true;
-	//	return 'yes';
-	// } var compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
-		//a.compareDocumentPosition( b ) :1;
-	// if ( compare & 1 ) 
-		//{ if ( a == document || a.ownerDocument == document &&	jQuery.contains( document, a ) )
-		     // 	return a;
-		//else if ( b == document || b.ownerDocument == document && jQuery.contains( document, b ) ) {*/
-		//	return b;}
-	//	return 0;}
+"var hasDuplicate;"
+"function sortOrder( a, b ) {"
+"	if ( a === b ) {"
+	"	hasDuplicate = true;"
+	"	return 'yes';"
+	" } var compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?"
+		"a.compareDocumentPosition( b ) :1;"
+	" if ( compare & 1 ) "
+		"{ if ( a == document || a.ownerDocument == document &&	jQuery.contains( document, a ) )"
+		     " 	return a;"
+		"else if ( b == document || b.ownerDocument == document && jQuery.contains( document, b ) ) {"
+		"	return b;}"
+	"	return 0;}"
 
 ------------------------
 e 5
 
-//int t(int x, int y)
-/*{
-    int z = 1;*/
-  //  while (y > 0) 
-  //{ if (y % 2 == 0) 
-       // { x = x * x;
-         //  y = y / 2;}
-       // else {
-         // z = z * x;
-           // y = y - 1;}}
-   // return z;}
+"int t(int x, int y)"
+"{
+    int z = 1;"
+  "  while (y > 0) "
+  "{ if (y % 2 == 0)" 
+       " { x = x * x;"
+         "  y = y / 2;}"
+       " else {"
+         " z = z * x;"
+           " y = y - 1;}}"
+   " return z;}"
 ----------------------
 e 6
 
-//<html lang='en'>
-//<head>
-  //<meta charset='UTF-8'>
-  //<title>Type Ahead 👀</title>
-  //<link rel='stylesheet' href='style.css'>
-//</head>
-//<body>
+"<html lang='en'>"
+"<head>"
+  "<meta charset='UTF-8'>"
+  "<title>👀</title>"
+  "<link rel='stylesheet' href='style.css'>"
+"</head>"
+"<body>"
 
-  //<form class='search-form'>
-    //<input type='text' class='search' placeholder='City or State'>
-   // <ul class='suggestions'>
-     // <li>Filter for a city</li>
-     // <li>or a state</li>
-    //</ul>
-  //</form>
-//<script src='./index.js'>
+  "<form class='search-form'>"
+    "<input type='text' class='search' placeholder='City or State'>"
+   " <ul class='suggestions'>"
+     " <li>Filter for a city</li>"
+     " <li>or a state</li>"
+    "</ul>"
+  "</form>"
+"<script src='./index.js'>"
 
-//</script>
-//</body>
-//</html>
+"</script>"
+"</body>"
+"</html>"
 
 --------------------------------
 h 7
 
- //while(*e != '\0') {
-       // if(isalnum(*e))
-         /*  printf('%c',*e);
-        else if(*e == '(')*/
-         //   push(*e);
-       // else if(*e == ')') {
-           // while((x = pop()) != '(')
-             //   printf('%c', x);}
-        //else{
-           // while(priority(stack[top]) >= priority(*e))
-              //  printf('%c',pop());
-           // push(*e);}
-        //e++;}
+ "while(*e != '\0') {"
+       " if(isalnum(*e))"
+         "  printf('%c',*e);
+        else if(*e == '(')"
+         "   push(*e);"
+       " else if(*e == ')') {"
+           " while((x = pop()) != '(')"
+             "   printf('%c', x);}"
+        "else{"
+           " while(priority(stack[top]) >= priority(*e))"
+              "  printf('%c',pop());"
+           " push(*e);}"
+        "e++;}"
 
 --------------------------------------
 m 8
 
- //try{
-  //  const user = await User.findOne({ email }).select('+password');
-    //if (!user) 
-      //return next(new ErrorResponse('user doesn't exist', 401));
-   // const isMatch = await user.matchPassword(password);
-    //if (!isMatch) 
-    //  return next(new ErrorResponse('Invalid credentials', 401));
-    //sendToken(user, 200, res);
-  //} catch (err) {
-   // next(err);}
+ "try{"
+  "  const user = await User.findOne({ email }).select('+password');"
+    "if (!user) "
+      "return next(new ErrorResponse('user doesn't exist', 401));"
+   " const isMatch = await user.matchPassword(password);"
+    "if (!isMatch) "
+    "  return next(new ErrorResponse('Invalid credentials', 401));"
+    "sendToken(user, 200, res);"
+  "} catch (err) {"
+   " next(err);}"
 
   --------------------------------------
 
   h 9
 
-//<head>
-  //<meta charset='UTF-8'>
-  //<title>BlogIN</title>
- // <link rel='icon' href='logo.png' type='image/png' />
-  //<link rel='stylesheet' href='../css/main.css'>
-//</head>
-//<body>
- //<nav class='navbar'>
-  //  <div class='navbar-brand'>
-    //  <img src='logo.png' alt='' style='width: 120px;height: 120px'> </div>
-  //  <div class='navbar-links'>
-     // <ul>
-       /* <div class='navbar-links'>
-        <li><a href='/logout'>Logout</a></li>*/
-    //  </ul> </div>
- // </nav>
-  //<div class='main'>
-  //  <div class='container'>
-    //  <center> <img src='logo.png' alt=' ' width='200px' height='200px'>
-     //   <p style='font-size:50px;padding-top:40px;font-weight:bold'>Publish your Passions, your way <br> Let's started   Blogging !</p>
-     // </center>
-     // </div> </div>
-//<script src='./index.js'>
-//</script>
-//</body>
+"<head>"
+  "<meta charset='UTF-8'>"
+  "<title>BlogIN</title>"
+ " <link rel='icon' href='logo.png' type='image/png' />"
+  "<link rel='stylesheet' href='../css/main.css'>"
+"</head>"
+"<body>"
+ "<nav class='navbar'>"
+  "  <div class='navbar-brand'>"
+    "  <img src='logo.png' alt='' style='width: 120px;height: 120px'> </div>"
+  "  <div class='navbar-links'>"
+     " <ul>"
+       " <div class='navbar-links'>
+        <li><a href='/logout'>Logout</a></li>"
+    "  </ul> </div>"
+ " </nav>"
+  "<div class='main'>"
+  "  <div class='container'>"
+    "  <center> <img src='logo.png' alt=' ' width='200px' height='200px'>"
+     "   <p style='font-size:50px;padding-top:40px;font-weight:bold'>Publish your Passions, your way <br> Let's started   Blogging !</p>"
+     " </center>"
+     " </div> </div>"
+"<script src='./index.js'>"
+"</script>"
+"</body>"
 
 --------------------------------------
 h 10
-void beadSort(int *a, int len) {
-    // Find the maximum element
-    int max = a[0];
-    for (int i = 1; i < len; i++)
-        if (a[i] > max)
-            max = a[i];
-
-    // allocating memory
+"void function(int *a, int len) {"
+    "int max = a[0];"
+    "for (int i = 1; i < len; i++)"
+        "if (a[i] > max)"
+           " max = a[i];"
     unsigned char *beads = new unsigned char[max * len];
     memset(beads, 0, static_cast<size_t>(max) * len);
 
-    // mark the beads
     for (int i = 0; i < len; i++)
         for (int j = 0; j < a[i]; j++) BEAD(i, j) = 1;
 
     for (int j = 0; j < max; j++) {
-        // count how many beads are on each post
+
         int sum = 0;
         for (int i = 0; i < len; i++) {
             sum += BEAD(i, j);
             BEAD(i, j) = 0;
         }
 
-        // Move beads down
         for (int i = len - sum; i < len; i++) BEAD(i, j) = 1;
     }
 
-    // Put sorted values in array using beads
     for (int i = 0; i < len; i++) {
         int j;
         for (j = 0; j < max && BEAD(i, j); j++) {
@@ -271,200 +265,200 @@ e 12
 -----------------------------------------------
 m 13
 
-//export default function f1(originalMatrix) {
+"export default function f1(originalMatrix) {
 
-  //const matrix = originalMatrix.slice();
+  "const matrix = originalMatrix.slice();
 
-  //for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
+  "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
 
-    //for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {
-      /*[
-        matrix[columnIndex][rowIndex],*/
+    "for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {
+      "[
+        matrix[columnIndex][rowIndex],"
 
-        /*matrix[rowIndex][columnIndex],
-      ] = [*/
+        "matrix[rowIndex][columnIndex],
+      ] = ["
 
-        /*matrix[rowIndex][columnIndex],
-        matrix[columnIndex][rowIndex],*/
+        "matrix[rowIndex][columnIndex],
+        matrix[columnIndex][rowIndex],"
 
-      /*];
+      "];
     }
-  }*/
+  }"
 
   
-  // for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
+  " for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
 
-    //for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {
-      /*[
-        matrix[rowIndex][matrix.length - columnIndex - 1],*/
+    "for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {
+      "[
+        matrix[rowIndex][matrix.length - columnIndex - 1],"
 
-        /*matrix[rowIndex][columnIndex],
-      ] = [*/
+        "matrix[rowIndex][columnIndex],
+      ] = ["
 
-        /*matrix[rowIndex][columnIndex],
+        "matrix[rowIndex][columnIndex],
         matrix[rowIndex][matrix.length - columnIndex - 1],
-      ];*/
+      ];"
 
-   /* }
-  }*/
+   " }
+  }"
 
-  //return matrix;
-// }
+  "return matrix;
+" }
 
 ---------------------------------------------
 
 h 14
 
-//void function1(vector<vector<int>> matrix)
+"void function1(vector<vector<int>> matrix)
 
-//{
-    /*int top = 0;
+"{
+    "int top = 0;
     int left = 0;
     int right = matrix[0].size()-1;
-    int bottom = matrix.size()-1;*/
+    int bottom = matrix.size()-1;"
 
-    /*while (top<=bottom && left<=right)*/
+    "while (top<=bottom && left<=right)"
 
-    /*{
-        for (int i = left; i <= right; i++){*/
+    "{
+        for (int i = left; i <= right; i++){"
 
-            /*cout<<matrix[top][i]<<" ";
-	}*/
+            "cout<<matrix[top][i]<<" ";
+	}"
 
-        //top++;
+        "top++;
 
-        /*for (int i = top; i <= bottom; i++)
-            cout<<matrix[i][right]<<" ";*/
+        "for (int i = top; i <= bottom; i++)
+            cout<<matrix[i][right]<<" ";"
 	
-        /*right--;
-	if(top<=bottom)*/
+        "right--;
+	if(top<=bottom)"
 
-            //for (int i = right ; i >= left; i--)
+            "for (int i = right ; i >= left; i--)
 
-                //cout<<matrix[bottom][i]<<" ";
+                "cout<<matrix[bottom][i]<<" ";
 
-        //bottom--;
+        "bottom--;
 
-        //if(left<=right)
+        "if(left<=right)
 
-            //for (int i = bottom ; i >= top; i--)
-                //cout<<matrix[i][left]<<" ";
-        /*left++;            
-    }*/
-//}
+            "for (int i = bottom ; i >= top; i--)
+                "cout<<matrix[i][left]<<" ";
+        "left++;            
+    }"
+"}
 
-/*int main()
+"int main()
 {
-    int r, c, temp;*/
+    int r, c, temp;"
 
-    //cin >> r >> c;
+    "cin >> r >> c;
 
-    //vector<vector<int>> arr(r);
+    "vector<vector<int>> arr(r);
 
-    /*for (int i = 0; i < r; i++)
-    {*/
-        /*for (int j = 0; j < c; j++)
-        {*/
-            /*cin >> temp;
+    "for (int i = 0; i < r; i++)
+    {"
+        "for (int j = 0; j < c; j++)
+        {"
+            "cin >> temp;
             arr[i].push_back(temp);
         }
-    }*/
+    }"
 
-    // function1(arr);
-    /*return 0;
-}*/
+    " function1(arr);
+    "return 0;
+}"
 
 
 -----------------------------------------------------
 e 15
 
-//class CodePazuru {
+"class CodePazuru {",
 
-//public:
+"public:
 
-	//bool function1(int N, vector<int> adj[]) {
+	"bool function1(int N, vector<int> adj[]) {
 
-            /*queue<int> q; 
-	    vector<int> v(N, 0);*/
+            "queue<int> q; 
+	    vector<int> v(N, 0);"
  
-	    /*for(int i = 0;i<N;i++) {
-	        for(auto it: adj[i]) {*/
+	    "for(int i = 0;i<N;i++) {
+	        for(auto it: adj[i]) {"
 
-	            /*v[it]++; 
+	            "v[it]++; 
 	        }
-	    }*/
+	    }"
 	    
-	    //for(int i = 0;i<N;i++) {
+	    "for(int i = 0;i<N;i++) {
 
-	        //if(v[i] == 0) {
+	        "if(v[i] == 0) {
 	            
-		   /*q.push(i); 
+		   "q.push(i); 
 	        }
 	    }
-	    int cnt = 0;*/
+	    int cnt = 0;"
 
-	    //while(!q.empty()) {
-	        //int node = q.front(); 
+	    "while(!q.empty()) {
+	        "int node = q.front(); 
 
-	        /*q.pop(); 
-	        cnt++; */
+	        "q.pop(); 
+	        cnt++; "
 
-	        //for(auto it : adj[node]) {
+	        "for(auto it : adj[node]) {
 
-	            //v[it]--;
+	            "v[it]--;
 
-	            //if(v[it] == 0) {
+	            "if(v[it] == 0) {
 
-	                /*q.push(it); 
+	                "q.push(it); 
 	            }
 	        }
-	    }*/
+	    }"
 
-	    //if(cnt == N) 
-		//return false; 
-	    /*return true; 
-	}*/
-//};
+	    "if(cnt == N) 
+		"return false; 
+	    "return true; 
+	}"
+"};
 
 
 -----------------------------------------------------
 e 16
 
-//class CodePazuru{
+"class CodePazuru{
 
-//public:
+"public:
 
-    //void function1(long long a[], long long b[], int n, int m){
+    "void function1(long long a[], long long b[], int n, int m){
         
-        //int gap = (n + m + 1) / 2;
+        "int gap = (n + m + 1) / 2;
 
-        //while (gap) {
-            //int i = 0, j = gap;
-            //while (j < (n + m)) 
+        "while (gap) {
+            "int i = 0, j = gap;
+            "while (j < (n + m)) 
 
-		/*{
-                if (i < n && j < n) {*/
+		"{
+                if (i < n && j < n) {"
 
-                    /*if (a[i] > a[j]) swap(a[i], a[j]);
-                }*/
+                    "if (a[i] > a[j]) swap(a[i], a[j]);
+                }"
 
-                //else if (i < n && j >= n) {
+                "else if (i < n && j >= n) {
 
-                    /*if (a[i] > b[j - n]) swap(a[i], b[j - n]);
-                }*/
+                    "if (a[i] > b[j - n]) swap(a[i], b[j - n]);
+                }"
 
-                //else{
-                    /*if (b[i - n] > b[j - n]) swap(b[i - n], b[j - n]);
-                }*/
+                "else{
+                    "if (b[i - n] > b[j - n]) swap(b[i - n], b[j - n]);
+                }"
 
-                /*++i; 
+                "++i; 
 		++j;
-            }*/
+            }"
 
-            /*gap = gap < 2 ? 0 : (gap + 1) / 2;
+            "gap = gap < 2 ? 0 : (gap + 1) / 2;
         }
-    }*/
-//};
+    }"
+"};
 
 -----------------------------------------------------------------------------
 m 17
@@ -521,7 +515,7 @@ m 17
 
 ----------------------------------------------------------------------------
 
-easy 18
+medium 18
 
 "void function(vector<vector<int>> &mat)
 {"
@@ -896,7 +890,7 @@ easy 24
 }"
 --------------------------------------------
 
-easy 25
+medium 25
 
 "Node* function_1(bool mat[][N])
 {"
@@ -1378,3 +1372,63 @@ easy 40
 	"}"
 
     -----------------------------------------------------------
+
+    medium 41
+
+"struct Job {",
+    "int deadline, duration, idx;",
+
+    "bool operator<(Job o) const",
+        "return deadline < o.deadline;",  
+"};",
+
+
+"vector<int> function(vector<Job> jobs) {",
+    "sort(jobs.begin(), jobs.end()); \n set<pair<int,int>> s; \n vector<int> schedule;",
+
+    "for (int i = jobs.size()-1; i >= 0; i--) {",
+
+        "int t = jobs[i].deadline - (i ? jobs[i-1].deadline : 0); \n s.insert(make_pair(jobs[i].duration, jobs[i].idx));",
+
+        "while (t && !s.empty()) { ",
+
+            "auto it = s.begin();",
+
+            "if (it->first <= t) {",
+
+                "t -= it->first; \n schedule.push_back(it->second);" \n }",
+
+             "else {",
+
+                "s.insert(make_pair(it->first - t, it->second)); \n t = 0; \n }",
+
+            "s.erase(it); \n } \n }",
+        
+    "return schedule;",
+"}",
+
+-------------------------------------------------------
+ 
+easy 42
+
+"SELECT",
+    "d.Name AS 'Department', e1.Name AS 'Employee', e1.Salary",
+"FROM",
+    "Employee e1",
+        "JOIN",
+    "Department d ON e1.DepartmentId = d.Id",
+"WHERE",
+    "3 > (SELECT",
+            "COUNT(DISTINCT e2.Salary)",
+        "FROM",
+            "Employee e2",
+        "WHERE",
+            "e2.Salary > e1.Salary",
+                "AND e1.DepartmentId = e2.DepartmentId",
+        ")",
+";",
+
+---------------------------------------------------------
+
+
+
