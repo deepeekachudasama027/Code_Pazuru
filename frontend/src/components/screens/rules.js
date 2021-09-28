@@ -60,7 +60,7 @@ class rules extends Component {
           <div className="loader-section section-right"></div>
         </div>
       );
-    } //rules page 
+    } //rules page
     else {
       return (
         <div className="backgroundset">
@@ -132,21 +132,24 @@ class rules extends Component {
               languages, and by analyzing the code, you have to arrange it in
               the correct order.
               <br />
-              3. Each player will be given 400 coins in the beginning; use them
+              3. To drag an element, use the top-down icon that's there on
+              rightmost side of each element.
+              <br />
+              4. Each player will be given 400 coins in the beginning; use them
               wisely.
               <br />
-              4. For each correct submission, you will be awarded 100 coins.
+              5. For each correct submission, you will be awarded 100 coins.
               <br />
               &nbsp; &nbsp; For each wrong submission, 10 coins will be
               deducted.
               <br />
               &nbsp; &nbsp; You can use the skip option but remember it will
-              cost you 50 coins.
+              cost you 20 coins.
               <br />
-              5. The game will be over for the player once he/she has spent all
-              the coins i.e. if he/she comes down to 0 coins.
-              <br /> 6. To unlock second round, player must clear 10 levels of
-              the first round. <br />
+              6. If you loose all your coins on the first day, then you can come
+              again to play on the second day as every player will get a daily
+              streak of 50 coins.
+              <br />
               7. While doing the registration, do remember your password in
               order to login to your account as there is no functionality of
               "forget password".
