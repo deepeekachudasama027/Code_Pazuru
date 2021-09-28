@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import  event_logo from "./event_logo.png";
+
 require("./preloader.css");
 require("./navbar.css");
 require("./errorpage.css");
