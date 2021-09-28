@@ -44,6 +44,10 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  flag:{
+    type: Number,
+    default:0,
+  },
   items: {
     type: [String],
     default: [                                         // level 1 

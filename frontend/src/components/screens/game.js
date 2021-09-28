@@ -10,6 +10,7 @@ import { faSort, faCoins } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./index.module.css";
 import arrayMove from "./arrayMove";
+import  event_logo from "./event_logo.png";
 
 require("./navbar.css");
 require("./preloader.css");
@@ -73,8 +74,6 @@ class Draggable extends Component {
           window.location.href = "./thank_you";
         else if (element.data === "Game end")
           window.location.href = "./thank_you";
-        else if (element.data === "No entry")
-          window.location.href = "./no_entry";
         else {
           this.setState({
             level: element.data.level,
@@ -119,7 +118,9 @@ class Draggable extends Component {
       try {
         let element = await axios.post("/api/auth/check", { data }, config);
         if (element) {
-          window.location.reload();
+          // window.location.reload();
+          document.getElementById('top').scrollIntoView();
+          this.getCode();
         }
       } catch (err) {
         console.log(err);
@@ -145,7 +146,8 @@ class Draggable extends Component {
       try {
         let element = await axios.post("/api/auth/skip", { data }, config);
         if (element) {
-          window.location.reload();
+          document.getElementById('top').scrollIntoView();
+          this.getCode();
         }
       } catch (err) {
         console.log(err);
@@ -176,8 +178,9 @@ class Draggable extends Component {
     } else {
       // game page 
       return (
-        <div>
+        <div >
           <div className="backgroundset">
+            <div id="top"></div>
             <nav className="nav">
               <input
                 type="checkbox"
@@ -205,9 +208,7 @@ class Draggable extends Component {
               <ul className="nav__menu">
                 <li>
                   <a href="./game">
-                    <svg viewBox="0 0 384 512" width="100" title="chess-rook">
-                      <path d="M368 32h-56a16 16 0 0 0-16 16v48h-48V48a16 16 0 0 0-16-16h-80a16 16 0 0 0-16 16v48H88.1V48a16 16 0 0 0-16-16H16A16 16 0 0 0 0 48v176l64 32c0 48.33-1.54 95-13.21 160h282.42C321.54 351 320 303.72 320 256l64-32V48a16 16 0 0 0-16-16zM224 320h-64v-64a32 32 0 0 1 64 0zm144 128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" />
-                    </svg>
+                    <img src={event_logo} alt="" width="70" height="70"/> 
                   </a>
                 </li>
                 <li>
@@ -261,7 +262,7 @@ class Draggable extends Component {
                 Skip
               </button>
               <button
-                onClick={this.check}
+                onClick={this.check} 
                 id="submit"
                 className="btn btn-large wa ves-effect waves-light hoverable blue accent-3"
               >

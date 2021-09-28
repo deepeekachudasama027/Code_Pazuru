@@ -1,0 +1,1434 @@
+----------------------------------
+medium 1
+
+"function exportSaveState() {"
+	"var state = {};"
+	"if(gameState == 1 || gameState == -1 || (gameState === 0 && localStorage.getItem('saveState') !== undefined)) {
+		 state = {"
+		"	hex: $.extend(true, {}, MainHex),
+			blocks: $.extend(true, [], blocks),
+			score: score,
+			wavegen: waveone,
+			gdx: gdx,
+			gdy: gdy,"
+			"comboTime:settings.comboTime
+		};
+		state.hex.blocks.map(function(a){
+			for (var i = 0; i < a.length; i++) {"
+		"		a[i] = $.extend(true, {}, a[i]);
+			}
+			a.map(descaleBlock);
+		});"
+	"	for (var i = 0; i < state.blocks.length; i++) {"
+		"	state.blocks[i] = $.extend(true, {}, state.blocks[i]);"
+	"	}
+		state.blocks.map(descaleBlock);
+	} }"
+
+------------------------
+easy 2
+
+" onMouseMove = (e) => {"
+  "    e.preventDefault();"
+    "  let targetRect = target.getBoundingClientRect();"
+     " let x = e.pageX - targetRect.left + 10;"
+     " if (x > targetRect.width) { x = targetRect.width};"
+   " else  if (x < 0){ x = 0};"
+  "   btn.x = x - 10;
+      btn.style.left = btn.x + 'px';
+      let percentPosition = (btn.x + 10) / targetRect.width * 100;"
+"     color.style.width = percentPosition + '%';
+       tooltip.style.left = btn.x - 5 + 'px';
+      tooltip.style.opacity = 1;
+      tooltip.textContent = Math.round(percentPosition) + '%';"
+"  };"
+
+---------------------------
+m 3
+
+
+"namespace draco {"
+"class KeyframeAnimationEncodingTest : public ::testing::Test {
+protected:"
+" KeyframeAnimationEncodingTest() {}"
+" bool CreateAndAddTimestamps(int32_t num_frames) {"
+ " timestamps_.resize(num_frames);"
+   "for (int i = 0; i < timestamps_.size(); ++i)"
+    " timestamps_[i] = static_cast<draco::KeyframeAnimation::TimestampType>(i);"
+ "  return keyframe_animation_.SetTimestamps(timestamps_);
+ }
+ int32_t CreateAndAddAnimationData(int32_t num_frames,
+                                   uint32_t num_components) {"
+  " animation_data_.resize(num_frames * num_components);"
+  " for (int i = 0; i < animation_data_.size(); ++i)"
+   "  animation_data_[i] = static_cast<float>(i);:
+"   return keyframe_animation_.AddKeyframes(draco::DT_FLOAT32, num_components,
+                                           animation_data_);
+ }"
+
+-------------------------
+hard 4
+
+"var hasDuplicate;"
+"function sortOrder( a, b ) {"
+"	if ( a === b ) {"
+	"	hasDuplicate = true;"
+	"	return 'yes';"
+	" } var compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?"
+		"a.compareDocumentPosition( b ) :1;"
+	" if ( compare & 1 ) "
+		"{ if ( a == document || a.ownerDocument == document &&	jQuery.contains( document, a ) )"
+		     " 	return a;"
+		"else if ( b == document || b.ownerDocument == document && jQuery.contains( document, b ) ) {"
+		"	return b;}"
+	"	return 0;}"
+
+------------------------
+e 5
+
+"int t(int x, int y)"
+"{
+    int z = 1;"
+  "  while (y > 0) "
+  "{ if (y % 2 == 0)" 
+       " { x = x * x;"
+         "  y = y / 2;}"
+       " else {"
+         " z = z * x;"
+           " y = y - 1;}}"
+   " return z;}"
+----------------------
+e 6
+
+"<html lang='en'>"
+"<head>"
+  "<meta charset='UTF-8'>"
+  "<title>👀</title>"
+  "<link rel='stylesheet' href='style.css'>"
+"</head>"
+"<body>"
+
+  "<form class='search-form'>"
+    "<input type='text' class='search' placeholder='City or State'>"
+   " <ul class='suggestions'>"
+     " <li>Filter for a city</li>"
+     " <li>or a state</li>"
+    "</ul>"
+  "</form>"
+"<script src='./index.js'>"
+
+"</script>"
+"</body>"
+"</html>"
+
+--------------------------------
+h 7
+
+ "while(*e != '\0') {"
+       " if(isalnum(*e))"
+         "  printf('%c',*e);
+        else if(*e == '(')"
+         "   push(*e);"
+       " else if(*e == ')') {"
+           " while((x = pop()) != '(')"
+             "   printf('%c', x);}"
+        "else{"
+           " while(priority(stack[top]) >= priority(*e))"
+              "  printf('%c',pop());"
+           " push(*e);}"
+        "e++;}"
+
+--------------------------------------
+m 8
+
+ "try{"
+  "  const user = await User.findOne({ email }).select('+password');"
+    "if (!user) "
+      "return next(new ErrorResponse('user doesn't exist', 401));"
+   " const isMatch = await user.matchPassword(password);"
+    "if (!isMatch) "
+    "  return next(new ErrorResponse('Invalid credentials', 401));"
+    "sendToken(user, 200, res);"
+  "} catch (err) {"
+   " next(err);}"
+
+  --------------------------------------
+
+  h 9
+
+"<head>"
+  "<meta charset='UTF-8'>"
+  "<title>BlogIN</title>"
+ " <link rel='icon' href='logo.png' type='image/png' />"
+  "<link rel='stylesheet' href='../css/main.css'>"
+"</head>"
+"<body>"
+ "<nav class='navbar'>"
+  "  <div class='navbar-brand'>"
+    "  <img src='logo.png' alt='' style='width: 120px;height: 120px'> </div>"
+  "  <div class='navbar-links'>"
+     " <ul>"
+       " <div class='navbar-links'>
+        <li><a href='/logout'>Logout</a></li>"
+    "  </ul> </div>"
+ " </nav>"
+  "<div class='main'>"
+  "  <div class='container'>"
+    "  <center> <img src='logo.png' alt=' ' width='200px' height='200px'>"
+     "   <p style='font-size:50px;padding-top:40px;font-weight:bold'>Publish your Passions, your way <br> Let's started   Blogging !</p>"
+     " </center>"
+     " </div> </div>"
+"<script src='./index.js'>"
+"</script>"
+"</body>"
+
+--------------------------------------
+h 10
+"void function(int *a, int len) {"
+    "int max = a[0];"
+    "for (int i = 1; i < len; i++)"
+        "if (a[i] > max)"
+           " max = a[i];"
+    unsigned char *beads = new unsigned char[max * len];
+    memset(beads, 0, static_cast<size_t>(max) * len);
+
+    for (int i = 0; i < len; i++)
+        for (int j = 0; j < a[i]; j++) BEAD(i, j) = 1;
+
+    for (int j = 0; j < max; j++) {
+
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            sum += BEAD(i, j);
+            BEAD(i, j) = 0;
+        }
+
+        for (int i = len - sum; i < len; i++) BEAD(i, j) = 1;
+    }
+
+    for (int i = 0; i < len; i++) {
+        int j;
+        for (j = 0; j < max && BEAD(i, j); j++) {
+        }
+
+        a[i] = j;
+    }
+    delete[] beads;
+}
+
+-------------------------------------------
+m 11
+double fact(double x) {
+    double x_fact = x;
+    for (int i = x - 1; i > 0; i--) {
+        x_fact *= i;
+    }
+
+    if (x_fact <= 0) {
+        x_fact = 1;
+    }
+    return x_fact;
+}
+
+double poisson_x_successes(double expected, double x) {
+    return (std::pow(expected, x) * std::exp(-expected)) / fact(x);
+}
+
+double poisson_range_successes(double expected, double lower, double upper) {
+    double probability = 0;
+    for (int i = lower; i <= upper; i++) {
+        probability += poisson_x_successes(expected, i);
+    }
+    return probability;
+}
+
+------------------------------------------------
+e 12
+   return function (array, cmp) {
+      cmp = cmp || compare;
+      var gap;
+      var current;
+      for (var k = 0; k < gaps.length; k += 1) {
+        gap = gaps[k];
+        for (var i = gap; i < array.length; i += gap) {
+          current = array[i];
+          for (var j = i;
+              j >= gap && cmp(array[j - gap], current) > 0; j -= gap) {
+            array[j] = array[j - gap];
+          }
+          array[j] = current;
+        }
+      }
+      return array;
+    };
+
+-----------------------------------------------
+m 13
+
+"export default function f1(originalMatrix) {
+
+  "const matrix = originalMatrix.slice();
+
+  "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
+
+    "for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {
+      "[
+        matrix[columnIndex][rowIndex],"
+
+        "matrix[rowIndex][columnIndex],
+      ] = ["
+
+        "matrix[rowIndex][columnIndex],
+        matrix[columnIndex][rowIndex],"
+
+      "];
+    }
+  }"
+
+  
+  " for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
+
+    "for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {
+      "[
+        matrix[rowIndex][matrix.length - columnIndex - 1],"
+
+        "matrix[rowIndex][columnIndex],
+      ] = ["
+
+        "matrix[rowIndex][columnIndex],
+        matrix[rowIndex][matrix.length - columnIndex - 1],
+      ];"
+
+   " }
+  }"
+
+  "return matrix;
+" }
+
+---------------------------------------------
+
+h 14
+
+"void function1(vector<vector<int>> matrix)
+
+"{
+    "int top = 0;
+    int left = 0;
+    int right = matrix[0].size()-1;
+    int bottom = matrix.size()-1;"
+
+    "while (top<=bottom && left<=right)"
+
+    "{
+        for (int i = left; i <= right; i++){"
+
+            "cout<<matrix[top][i]<<" ";
+	}"
+
+        "top++;
+
+        "for (int i = top; i <= bottom; i++)
+            cout<<matrix[i][right]<<" ";"
+	
+        "right--;
+	if(top<=bottom)"
+
+            "for (int i = right ; i >= left; i--)
+
+                "cout<<matrix[bottom][i]<<" ";
+
+        "bottom--;
+
+        "if(left<=right)
+
+            "for (int i = bottom ; i >= top; i--)
+                "cout<<matrix[i][left]<<" ";
+        "left++;            
+    }"
+"}
+
+"int main()
+{
+    int r, c, temp;"
+
+    "cin >> r >> c;
+
+    "vector<vector<int>> arr(r);
+
+    "for (int i = 0; i < r; i++)
+    {"
+        "for (int j = 0; j < c; j++)
+        {"
+            "cin >> temp;
+            arr[i].push_back(temp);
+        }
+    }"
+
+    " function1(arr);
+    "return 0;
+}"
+
+
+-----------------------------------------------------
+e 15
+
+"class CodePazuru {",
+
+"public:
+
+	"bool function1(int N, vector<int> adj[]) {
+
+            "queue<int> q; 
+	    vector<int> v(N, 0);"
+ 
+	    "for(int i = 0;i<N;i++) {
+	        for(auto it: adj[i]) {"
+
+	            "v[it]++; 
+	        }
+	    }"
+	    
+	    "for(int i = 0;i<N;i++) {
+
+	        "if(v[i] == 0) {
+	            
+		   "q.push(i); 
+	        }
+	    }
+	    int cnt = 0;"
+
+	    "while(!q.empty()) {
+	        "int node = q.front(); 
+
+	        "q.pop(); 
+	        cnt++; "
+
+	        "for(auto it : adj[node]) {
+
+	            "v[it]--;
+
+	            "if(v[it] == 0) {
+
+	                "q.push(it); 
+	            }
+	        }
+	    }"
+
+	    "if(cnt == N) 
+		"return false; 
+	    "return true; 
+	}"
+"};
+
+
+-----------------------------------------------------
+e 16
+
+"class CodePazuru{
+
+"public:
+
+    "void function1(long long a[], long long b[], int n, int m){
+        
+        "int gap = (n + m + 1) / 2;
+
+        "while (gap) {
+            "int i = 0, j = gap;
+            "while (j < (n + m)) 
+
+		"{
+                if (i < n && j < n) {"
+
+                    "if (a[i] > a[j]) swap(a[i], a[j]);
+                }"
+
+                "else if (i < n && j >= n) {
+
+                    "if (a[i] > b[j - n]) swap(a[i], b[j - n]);
+                }"
+
+                "else{
+                    "if (b[i - n] > b[j - n]) swap(b[i - n], b[j - n]);
+                }"
+
+                "++i; 
+		++j;
+            }"
+
+            "gap = gap < 2 ? 0 : (gap + 1) / 2;
+        }
+    }"
+"};
+
+-----------------------------------------------------------------------------
+m 17
+
+"void deleteNode(Node* &root, int key) \n {"
+    "if (root == nullptr) {
+        return;
+    }"
+ 
+   " if (key < root->data) {
+        deleteNode(root->left, key);
+    }"
+ 
+    "else if (key > root->data) {
+        deleteNode(root->right, key);
+    }"
+ 
+
+    "else {"
+       " if (root->left == nullptr && root->right == nullptr)
+        {
+            delete root;
+            root = nullptr;
+        }"
+       " else if (root->left && root->right)
+        {"
+            "if (root->left->priority < root->right->priority)
+            {
+                rotateLeft(root);
+ 
+   
+                deleteNode(root->left, key);
+            }"
+           " else {
+              
+                rotateRight(root);
+ 
+                deleteNode(root->right, key);
+            }
+        }"
+ 
+        "else {
+
+            Node* child = (root->left)? root->left: root->right;"
+          " Node* curr = root;
+ 
+            root = child;"
+
+          "  delete curr;
+        }
+    }"
+"}"
+
+
+----------------------------------------------------------------------------
+
+medium 18
+
+"void function(vector<vector<int>> &mat)
+{"
+
+   " if (mat.size() == 0) 
+        return;"
+ 
+    "int top = 0, bottom = mat.size() - 1;
+    int left = 0, right = mat[0].size() - 1;
+    int prev = mat[0][0];"
+ 
+    "while (true)
+    {"
+       " if (left > right) 
+            break;"
+
+       " for (int i = left; i <= right; i++) 
+            swap(mat[top][i], prev);"
+        
+ 
+        "top++;"
+ 
+        "if (top > bottom) 
+            break;"
+
+       " for (int i = top; i <= bottom; i++) 
+            swap(mat[i][right], prev);"
+
+ 
+        "right--;"
+ 
+        "if (left > right) 
+            break;"
+
+        "for (int i = right; i >= left; i--) 
+            swap(mat[bottom][i], prev);"
+
+ 
+        "bottom--;"
+ 
+        "if (top > bottom) 
+            break;"
+
+       " for (int i = bottom; i >= top; i--) 
+            swap(mat[i][left], prev);"
+
+        "left++;"
+    "}"
+
+    "mat[0][0] = prev;
+}"
+
+---------------------------------------------------------------------------
+easy 19
+
+"bool isSpace(char c) {"
+    "return c == ' ';
+}"
+
+"void function(string &s, int n)
+{"
+
+   " bool space = false;
+
+    int k = 0;"
+
+    "for (int i = 0; i < n; i++)
+    {"
+        "while (k == 0 && i < n && isSpace(s[i])) {
+            i++;
+        }"
+
+        "if (isSpace(s[i]))
+        {"
+
+            "if (!space)
+            {"
+                "s[k++] = s[i];
+                space = true;
+            }"
+        "}
+       
+        else if (ispunct(s[i]))
+        {"
+
+           " if (k > 0 && isSpace(s[k-1])) {"
+               " s[k-1] = s[i];
+            }"
+            "else {"
+                "s[k++] = s[i];
+            }"
+            "space = false;
+        }"
+        "else {"
+            "s[k++] = s[i];
+            space = false;"
+       " }
+    }
+ 
+
+    s.erase(s.begin() + k - 1, s.end());"
+"}"
+
+------------------------------------------------------------------------------
+
+hard 20
+
+"void function_1(int a[], int low, int high)
+{"
+    "for (int i = low + 1; i <= high; i++)
+    {
+        int value = a[i];
+        int j = i;"
+
+        "while (j > low && a[j - 1] > value)
+        {"
+           " a[j] = a[j - 1];"
+            "j--;
+        }"
+
+ 
+        "a[j] = value;
+    }"
+"}"
+
+"int function_2(int a[], int low, int high)
+{"
+    "int pivot = a[high];
+ 
+  
+    int pIndex = low;"
+ 
+  
+   " for (int i = low; i < high; i++)
+    {"
+      "  if (a[i] <= pivot)
+        {"
+          "  swap(a[i], a[pIndex]);"
+           " pIndex++;"
+        "}
+    }"
+
+   " swap (a[pIndex], a[high]);"
+ 
+ 
+   " return pIndex;
+}"
+"int function_3(int a[], int low, int high) {"
+
+    "int pivotIndex = rand() % (high - low + 1) + low;"
+ 
+
+    "swap(a[pivotIndex], a[high]);
+ 
+
+    return function_2(a, low, high);"
+"}"
+ 
+
+"void function_4(int *begin, int *end)
+{"
+   " make_heap(begin, end);"
+   " sort_heap(begin, end);
+}"
+ 
+
+"void function_5(int a[], int *begin, int *end, int maxdepth)
+{"
+ 
+ "   if ((end - begin) < 16) {
+        function_1(a, begin - a, end - a);
+    }"
+
+   " else if (maxdepth == 0) {
+        function_4(begin, end + 1);
+    }"
+    "else {"
+       
+       " int pivot = function_3(a, begin - a, end - a);"
+        "function_5(a, begin, a + pivot - 1, maxdepth - 1);
+        function_5(a, a + pivot + 1, end, maxdepth - 1);"
+   " }
+}"
+
+--------------------------------------------------------------------
+
+m 21
+
+"int function(int p[], int n, int fr)
+{"
+  "unordered_set<int> s;
+  unordered_map<int, int> id;
+  int f = 0;"
+  "for (int i = 0; i < n; i++)
+  {"
+    "if (s.size() < fr)
+    {"
+      "if (s.find(p[i]) == s.end())
+      {"
+        "s.insert(p[i]);
+        f++;"
+      "}
+      id[p[i]] = i;
+    }"
+    "else
+    {"
+      "if (s.find(p[i]) == s.end())
+      {"
+        "int m = INT_MIN, val;
+        for (auto it = s.begin(); it != s.end(); it++)
+        {"
+          "if (id[*it] > m) 
+          {"
+            "m = id[*it];
+            val = *it;
+          }"
+        "}
+        "s.erase(val);"
+        "s.insert(p[i]);
+
+        f++;"
+     " }
+      id[p[i]] = i;"
+    "}
+  }"
+  "return f;
+}"
+
+---------------------------------------------------------------------
+
+hard 22
+
+ " public static void function_1(int[][] mat)
+    {"
+      "  for (int i = 0; i < mat.length; i++)
+        {"
+           " for (int j = 0; j < mat[0].length; j++)
+            {"
+                "if (mat[i][j] != 0) {
+                    mat[i][j] = 1;
+                }"
+            "}
+        }
+    }"
+
+   " public static int function_2(int[][] mat)
+    {"
+        "if (mat == null || mat.length == 0) "
+          "  return 0;
+        
+
+        int M = mat.length;
+        int N = mat[0].length;
+	  int maxArea = 0;"
+       " for (int j = 0; j < N; j++)
+        {"
+            "for (int i = M - 2; i >= 0; i--)
+            {"
+                "if (mat[i][j] == 1) 
+                    mat[i][j] = mat[i+1][j] + 1;"
+                
+           " }
+        }"
+      
+       " for (int i = 0; i < M; i++)
+        {"
+    
+           " int[] count = new int[M + 1];
+
+            for (int j = 0; j < N; j++)
+            {"
+                "if (mat[i][j] > 0)
+                {"
+
+ 
+                    "count[mat[i][j]] += 1;
+ 
+                    maxArea = Integer.max(maxArea, mat[i][j] * count[mat[i][j]]);
+                }
+            }
+        }"
+ 
+        "function_2(mat);"
+ 
+        "return maxArea;"
+    "}"
+
+------------------------------------------------------------------------
+
+medium 23
+
+"bool function_1(Node* node) {"
+   " return node->left == nullptr && node->right == nullptr;
+}"
+ 
+"void function_2(Node* root, Node* &head, Node* &prev)
+{"
+
+    "if (root == nullptr) 
+        return;"
+    
+ 
+   " if (function_!(root))
+    {"
+        "if (prev == nullptr) 
+            head = root;"
+        "else 
+            prev->right = root;"
+        
+        "prev = root;
+    }"
+ 
+    "function_2(root->left, head, prev);"
+   " function_2(root->right, head, prev);
+}"
+ 
+
+"bool function_3(Node* x, Node* y)
+{"
+    
+   " Node* first = nullptr;"
+    "Node* prev = nullptr;"
+    "function_2(x, first, prev);"
+ 
+    "Node* second = nullptr;"
+    "prev = nullptr;"
+   " function_3(y, second, prev);"
+ 
+   " while (first && second && first->key == second->key)
+    {"
+        "first = first->right;
+        second = second->right;
+    }"
+
+    "return !first && !second;"
+"}"
+ 
+-----------------------------------------------------------------
+
+easy 24
+
+"int function(vector<int> &p, int k)
+{"
+
+    "int n = p.size();
+    int pr[k+1][n];"
+ 
+    "for (int i = 0; i <= k; i++)
+    {"
+        "for (int j = 0; j < n; j++)
+        {"
+ 
+            "if (i == 0 || j == 0) 
+                pr[i][j] = 0;"
+            
+            "else {"
+                "int max = 0;
+                for (int k = 0; k < j; k++)
+                {"
+                    "int curr = p[j] - p[k] + pr[i-1][k];
+                    if (max < curr) {"
+                       " max = curr;
+                    }"
+                "}
+ 
+                pr[i][j] = max(pr[i][j-1], max_so_far);"
+            "}
+        }
+    }"
+ 
+    "return pr[k][n-1];
+}"
+--------------------------------------------
+
+medium 25
+
+"Node* function_1(bool mat[][N])
+{"
+   " multimap<int, int> multimap;
+ Node* node[N];
+    int row;
+    bool parent[N];"
+   " for (int i = 0; i < N; i++)
+    {"
+       " int sum = 0;"
+       " for (int j = 0; j < N; j++) {
+            sum += (int)mat[i][j];
+        }"
+
+       " multimap.insert({ sum, i });
+    }"
+ 
+    "for (int i = 0; i < N; i++) {
+        parent[i] = false;
+    }"
+
+   " for (auto it: multimap)
+    {"
+        "row = it.second;
+ 
+        node[row] = new Node(row);"
+ 
+       
+       " if (it.first == 0) 
+            continue;"
+
+        "for (int i = 0; i < N; i++)
+        {"
+ 
+            "if (parent[i] == false && mat[row][i])
+            {"
+      
+                "if (node[row]->left == nullptr) 
+                    node[row]->left = node[i];"
+                
+                "else 
+                    node[row]->right = node[i];
+                
+ 
+             
+                parent[i] = true;"
+            "}
+        }
+    }"
+
+    "return node[row];
+}"
+
+-----------------------------------------------------
+
+easy 26 
+
+"def func(A):"
+ 
+    "if len(A) == 0:"
+        "return"
+    "I = [1] * len(A)
+ 	D = [1] * len(A)
+lbs_len = 1
+    beg = end = 0"
+        "if A[i - 1] < A[i]:
+            "I[i] = I[i - 1] + 1"
+   
+ 
+   " for i in reversed(range(len(A) - 1)):"
+       " if A[i] > A[i + 1]:
+            D[i] = D[i + 1] + 1"
+
+    
+ 
+   " for i in range(len(A)):
+        if lbs_len < I[i] + D[i] - 1:"
+            "lbs_len = (I[i] + D[i] - 1)
+            beg = i - I[i] + 1
+            end = i + D[i] - 1"
+
+---------------------------------------------------------------
+easy 27
+
+"def func(A, k):"
+ 
+    "output = [0] * len(A)
+ 
+    freq = [0] * (k + 1)
+    total = 0"
+    "for i in A:"
+      "  freq[i] = freq[i] + 1"
+
+
+    "for i in range(k + 1):"
+       " oldCount = freq[i]"
+        "freq[i] = total"
+        "total += oldCount"
+   " for i in A:"
+       output[freq[i]] = i"
+        "freq[i] = freq[i] + 1"
+    "for i in range(len(A)):
+        A[i] = output[i]"
+
+-------------------------------------------------------------------
+
+easy 28
+
+"def func(X, Y):"
+
+    "if len(X) != len(Y):"
+        "return False"
+ 
+
+    "dict = {}
+
+    s = set()"
+ 
+    "for i in range(len(X)):"
+        "x = X[i]
+        y = Y[i]"
+        "if x in dict:"
+            "if dict[x] != y:"
+                "return False"
+        "else:"
+            "if y in s:"
+                "return False"
+
+            "dict[x] = y
+            s.add(y)"
+    "return True"
+
+-----------------------------------------------------------------------
+hard 29
+
+"int findMax(vector<vector<int>> const &M) \n {",
+    "if (M.size() == 0)",
+        "return 0;",
+    "int n = M.size(); \n int K[n][n]; \n int max = M[n-1][n-1];",
+    "K[n-1][n-1] = M[n-1][n-1];",
+    "for (int j = n-2; j >= 0; j--) \n {",
+        "if (M[n-1][j] > max) { \n max = M[n-1][j]; \n }",
+        "K[n-1][j] = max; \n }",
+    "max = M[n-1][n-1];",   
+    "for (int i = n-2; i >= 0; i--) \n {",
+        "if (M[i][n-1] > max) { \n max = M[i][n-1]; \n }",
+        "K[i][n-1] = max; \n }",
+    "max = INT_MIN;",           
+    "for (int a = n-2; a >= 0; a--) \n {",
+        "for (int b = n-2; b >= 0; b--) \n {",
+            "if (K[a+1][b+1] - M[a][b] > max)",
+                "max = K[a+1][b+1] - M[a][b];",
+            "K[a][b] = std::max(M[a][b], std::max(K[a][b+1], K[a+1][b])); \n } \n }",
+    "return max; \n }",
+-----------------------------------------------------
+
+hard 30
+
+"pair<int, int> findMinimumRange(vector<vector<int>> lists) \n {",
+   
+    "if (lists.size() == 0)", 
+        "return {-1, -1};",
+    
+ 
+    "int M = lists.size(); \n int high = INT_MIN; \n pair<int, int> p = { 0, INT_MAX };" \n priority_queue<Node, vector<Node>, comp> pq;",
+ 
+    "for (int i = 0; i < M; i++)\n {",
+        
+        "if (lists[i].size() == 0)", 
+            "return {-1, -1};",
+ 
+        "pq.push({lists[i][0], i, 0});",
+        "high = max(high, lists[i][0]); \n }",
+ 
+    "while (true) \n {",
+ 
+        "int low = pq.top().value; \n int i = pq.top().list_num; \n int j = pq.top().index;",
+        "pq.pop();",
+ 
+        "if (high - low < p.second - p.first) ",
+            "p = {low, high};",
+ 
+    
+        "if (j == lists[i].size() - 1)",
+            "return p;",
+        
+        "pq.push({lists[i][j + 1], i, j + 1});",
+        "high = max(high, lists[i][j + 1]); \n } \n }",
+
+-------------------------------------------------------
+
+
+hard 31
+
+"int findMax(vector<vector<int>> const &M) \n {",
+    "if (M.size() == 0)",
+        "return 0;",
+    "int n = M.size(); \n int K[n][n]; \n int max = M[n-1][n-1];",
+    "K[n-1][n-1] = M[n-1][n-1];",
+    "for (int j = n-2; j >= 0; j--) \n {",
+        "if (M[n-1][j] > max) { \n max = M[n-1][j]; \n }",
+        "K[n-1][j] = max; \n }",
+    "max = M[n-1][n-1];",   
+    "for (int i = n-2; i >= 0; i--) \n {",
+        "if (M[i][n-1] > max) { \n max = M[i][n-1]; \n }",
+        "K[i][n-1] = max; \n }",
+    "max = INT_MIN;",           
+    "for (int a = n-2; a >= 0; a--) \n {",
+        "for (int b = n-2; b >= 0; b--) \n {",
+            "if (K[a+1][b+1] - M[a][b] > max)",
+                "max = K[a+1][b+1] - M[a][b];",
+            "K[a][b] = std::max(M[a][b], std::max(K[a][b+1], K[a+1][b])); \n } \n }",
+    "return max; \n }",
+-----------------------------------------------------
+
+hard 32
+
+"pair<int, int> findMinimumRange(vector<vector<int>> lists) \n {",
+   
+    "if (lists.size() == 0)", 
+        "return {-1, -1};",
+    
+ 
+    "int M = lists.size(); \n int high = INT_MIN; \n pair<int, int> p = { 0, INT_MAX };" \n priority_queue<Node, vector<Node>, comp> pq;",
+ 
+    "for (int i = 0; i < M; i++)\n {",
+        
+        "if (lists[i].size() == 0)", 
+            "return {-1, -1};",
+ 
+        "pq.push({lists[i][0], i, 0});",
+        "high = max(high, lists[i][0]); \n }",
+ 
+    "while (true) \n {",
+ 
+        "int low = pq.top().value; \n int i = pq.top().list_num; \n int j = pq.top().index;",
+        "pq.pop();",
+ 
+        "if (high - low < p.second - p.first) ",
+            "p = {low, high};",
+ 
+    
+        "if (j == lists[i].size() - 1)",
+            "return p;",
+        
+        "pq.push({lists[i][j + 1], i, j + 1});",
+        "high = max(high, lists[i][j + 1]); \n } \n }",
+
+-------------------------------------------------------
+
+easy 33
+
+"router.post('/add', function(req, res, next) {"
+  "var name = req.body.name; \n var errors = req.validationErrors();"
+	"req.checkBody('name','Name field is required').notEmpty();"
+	"if(errors)"
+		"res.render('addpost',{
+			"errors": errors
+		});"
+	" else {
+		var categories = db.get('categories');"
+		"categories.insert({
+			"name": name,
+		}, function(err, post){"
+			"if(err)"
+				"res.send(err);"
+			"else {"
+				"req.flash('success','Category Added');"
+				"res.location('/');"
+			
+			"}
+		});
+	}"
+"});"
+
+------------------------------------------------------------------------------------
+
+easy 34
+
+"<div id='container'>"
+		"<div id='namesWrapper'>"
+			"<h2>ChatIO</h2>"
+			"<p>Create Username:</p>
+			<div id='error'></div>"
+			"<form id='usernameForm'>"
+				"<input type='text' size='35' id='username'>"
+				"<input type='submit' value='Submit'>"
+			"</form>
+		</div>"
+
+		
+			"<div id="chatWrapper">"
+				"<div id="chatWindow"></div>
+				<form id="messageForm">"
+					"<input type="text" size="35" id="message" placeholder="Say Something...">"
+					"<input type="submit" value="Submit">
+				</form>"
+			"</div>
+
+		
+	</div>"
+---------------------------------------------------------------------
+easy 35
+
+"echo 'Total marks : $sum '"
+"echo 'Grade : '"
+"if [ $sum -gt 200 ]; then"
+	"if [ $sum -gt 250 ]; then"
+		"if [ $sum -gt 300 ]; then"
+			"if [ $sum -gt 350 ]; then"
+				"if [ $sum -gt 400 ]; then"
+					"if [ $sum -gt 450 ]; then"
+						"echo 'S'"
+					"else"
+						"echo 'A'
+					fi"
+				"else
+					echo 'B'"
+				"fi
+			else"
+				"echo 'C'"
+			"fi
+		else
+			echo 'D'"
+		"fi
+	else
+		echo 'E'"
+	"fi
+else
+	echo 'F'"
+"fi"
+
+
+-----------------------------------------------------------------------
+medium 36
+
+"router.post('/add_new_post', (req, res) => {"
+  "msg = '';
+  if (req.session.loggedIn) {"
+    "var title = req.body.title;
+    var content = req.body.content;
+    var publish = req.body.publish;"
+    "db.query("
+      "'select id from users where email = ?  ',"
+      "[req.session.email],
+      (error, results, fields) => {"
+        "if (error) "
+          "res.render('challenges/error');"
+        "else {
+          var user_id = results[0].id;
+          var published;"
+          "if (publish == "true") published = 1;"
+          "else published = 0;"
+          "db.query(
+            'insert into posts (title,content,user_id,published) values (?,?,?,?)  ',"
+            "[title, content, user_id, published],
+            (err, results, fields) => {"
+              "if (err) 
+                res.render('challenges/error');"
+               "else {
+                msg = "Blog Created Successfully";"
+                "res.redirect("/");"
+              "}
+            }
+          );
+        }"
+      "}
+    );
+  } else "
+    "res.redirect("login");"
+"});"
+
+
+------------------------------------------------------------------------
+
+easy 37
+
+"exports.leaderboard = (callback) => {"
+  "return pool.query("
+    "'WITH Ranking AS ("
+"SELECT *,"
+" ROW_NUMBER()"
+" OVER( "
+"ORDER BY Score desc)"
+" AS Ranks"
+" FROM game )"
+" SELECT rollno , score ,ranks"
+" FROM Ranking"
+" WHERE Ranks >= 1 and Ranks <=10"
+"  ORDER BY Ranks ',"
+    "callback
+  );"
+"};"
+
+----------------------------------------------
+
+easy 38
+
+"exports.protect = async (req, res, next) => {"
+  "let token;"
+
+  "if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  )" 
+    "token = req.headers.authorization.split(" ")[1];"
+  
+
+  "if (!token) "
+    "return next(new ErrorResponse("Not authorized to access this route", 401));"
+  
+
+ " try {"
+   " const decoded = jwt.verify(token, process.env.JWT_SECRET);"
+
+    "const user = await User.findById(decoded.id);"
+
+    "if (!user) 
+      return next(new ErrorResponse("No user found with this id", 404));"
+    
+
+    "req.user = user;
+
+    next();"
+ " } catch (err) {"
+   : return next(new ErrorResponse("Not authorized to access this router", 401));
+  }"
+"};"
+------------------------------------------------------------------
+
+easy 39
+
+"def loginView(request):"
+	"if request.method == 'POST':"
+		"username = request.POST['username']
+		password = request.POST['password']"
+		"user = authenticate(request, username=username, password=password)"
+		"if user is not None and user.is_active:"
+			"auth.login(request, user)"
+			"if user.is_admin or user.is_superuser:"
+				"return redirect('dashboard')"
+			"elif user.is_librarian:"
+				"return redirect('librarian')"
+			"else:"
+			    "return redirect('publisher')"
+		"else:"
+		    "messages.info(request, "Invalid username or password")"
+		    "return redirect('home')"
+--------------------------------------------------------------------------
+easy 40
+
+	"function func ( that, fn, init, start, end, inc )"
+	"{
+		
+			"var i = start,
+			value,
+			isSet = false;"
+	
+		"if ( init !== undefined ) 
+        "{
+			"value = init;
+			isSet = true;
+		}"
+	
+		"while ( i !== end ) {"
+			"if ( ! that.hasOwnProperty(i) ) "
+				"continue;"
+			
+	
+			"value = isSet "
+				"? fn( value, that[i], i, that ) "
+				":that[i];
+	
+			isSet = true;
+			i += inc;"
+		"}
+	
+		return value;"
+	"}"
+
+    -----------------------------------------------------------
+
+    medium 41
+
+"struct Job {",
+    "int deadline, duration, idx;",
+
+    "bool operator<(Job o) const",
+        "return deadline < o.deadline;",  
+"};",
+
+
+"vector<int> function(vector<Job> jobs) {",
+    "sort(jobs.begin(), jobs.end()); \n set<pair<int,int>> s; \n vector<int> schedule;",
+
+    "for (int i = jobs.size()-1; i >= 0; i--) {",
+
+        "int t = jobs[i].deadline - (i ? jobs[i-1].deadline : 0); \n s.insert(make_pair(jobs[i].duration, jobs[i].idx));",
+
+        "while (t && !s.empty()) { ",
+
+            "auto it = s.begin();",
+
+            "if (it->first <= t) {",
+
+                "t -= it->first; \n schedule.push_back(it->second);" \n }",
+
+             "else {",
+
+                "s.insert(make_pair(it->first - t, it->second)); \n t = 0; \n }",
+
+            "s.erase(it); \n } \n }",
+        
+    "return schedule;",
+"}",
+
+-------------------------------------------------------
+ 
+easy 42
+
+"SELECT",
+    "d.Name AS 'Department', e1.Name AS 'Employee', e1.Salary",
+"FROM",
+    "Employee e1",
+        "JOIN",
+    "Department d ON e1.DepartmentId = d.Id",
+"WHERE",
+    "3 > (SELECT",
+            "COUNT(DISTINCT e2.Salary)",
+        "FROM",
+            "Employee e2",
+        "WHERE",
+            "e2.Salary > e1.Salary",
+                "AND e1.DepartmentId = e2.DepartmentId",
+        ")",
+";",
+
+---------------------------------------------------------
+
+
+
