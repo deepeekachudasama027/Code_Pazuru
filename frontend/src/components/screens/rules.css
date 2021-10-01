@@ -31,3 +31,35 @@
     width: 60%;
   }
 }
+
+@media screen and (width: 600px) and (height: 1024px) {
+  .container1 {
+    position: absolute;
+    left: 22%;
+    top: 50%;
+  }
+}
+
+@media screen and (width: 768px) and (height: 1024px) {
+  .container1 {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+  }
+}
+
+@media screen and (width: 540px) and (height: 720px) {
+  .container1 {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+  }
+}
+
+@media screen and (width: 768px) and (height: 1024px) {
+  .container1 {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+  }
+}

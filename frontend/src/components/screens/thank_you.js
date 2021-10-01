@@ -67,7 +67,7 @@ class thankyou extends Component {
           <div className="loader-section section-right"></div>
         </div>
       );
-    } // Game over page 
+    } // Game over page
     else {
       return (
         <div>

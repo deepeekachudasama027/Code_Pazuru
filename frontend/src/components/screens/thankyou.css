@@ -25,9 +25,9 @@
 }
 
 @media (max-width: 700px) {
-  .container {
-    position: absolute;
-    left: 15%;
-    top: 50%;
+  .outercontainer {
+    position: relative;
+    left: 17%;
+    top: 30%;
   }
 }
