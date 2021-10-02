@@ -118,9 +118,8 @@ class Draggable extends Component {
       try {
         let element = await axios.post("/api/auth/check", { data }, config);
         if (element) {
-          // window.location.reload();
-          document.getElementById('top').scrollIntoView();
           this.getCode();
+          document.getElementById('top').scrollIntoView();
         }
       } catch (err) {
         console.log(err);
@@ -146,8 +145,8 @@ class Draggable extends Component {
       try {
         let element = await axios.post("/api/auth/skip", { data }, config);
         if (element) {
-          document.getElementById('top').scrollIntoView();
           this.getCode();
+          document.getElementById('top').scrollIntoView();
         }
       } catch (err) {
         console.log(err);

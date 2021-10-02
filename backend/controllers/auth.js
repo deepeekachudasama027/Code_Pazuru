@@ -56,8 +56,8 @@ exports.register = async (req, res, next) => {
 
 var level, score, username;
 
-const startDate = new Date("Sep 14, 2021 16:40:00").getTime();
-const endDate = new Date("Sep 30, 2021 18:05:00").getTime();
+const startDate = new Date("oct 2, 2021 16:50:00").getTime();
+const endDate = new Date("oct 4, 2021 16:49:00").getTime();
 
 // display code whenever user login or
 exports.getCode = async (req, res, next) => {
@@ -65,7 +65,6 @@ exports.getCode = async (req, res, next) => {
     let id = req.body.id;
     if (!id) return res.send("login required");
     else {
-      
       User.findById(id).then((user) => {
         level = user.level;
         score = user.score;
@@ -73,28 +72,52 @@ exports.getCode = async (req, res, next) => {
         items = user.items;
         correct_count = user.correct_count;
 
-        // for second day
+        // //for second day
 
-        //flag=user.flag;
-        // if(flag===0)
-        // {
-        //   score=score+50;
-        //   User.findByIdAndUpdate(
-        //     id,
-        //     { score:score, updation_date: new Date(),flag:1 },
-        //     { new: true }
-        //   ).then((users) => {
-        //     return res.send("updated successfully");
-        //   });
+        // flag = user.flag;
+        // if (flag === 0) {
+        //   score = score + 50;
+        //   level = 1;
+        //   (items = [
+        //     "fi",
+        //     "if [ $sum -gt 400 ]; then",
+        //     "else\necho 'B'",
+        //     "echo 'Total marks : $sum '",
+        //     "if [ $sum -gt 300 ]; then",
+        //     "fi\nelse\necho 'F'",
+        //     "if [ $sum -gt 350 ]; then",
+        //     "if [ $sum -gt 200 ]; then",
+        //     "if [ $sum -gt 250 ]; then",
+        //     "echo 'Grade : '",
+        //     "echo 'S'",
+        //     "fi\nelse\necho 'D'",
+        //     "if [ $sum -gt 450 ]; then",
+        //     "echo 'A'\nfi",
+        //     "echo 'C'",
+        //     "fi\nelse",
+        //     "fi\nelse\necho 'E'",
+        //     "else",
+        //   ]),
+        //     User.findByIdAndUpdate(
+        //       id,
+        //       {
+        //         score: score,
+        //         level: level,
+        //         items: items,
+        //         updation_date: new Date(),
+        //         flag: 1,
+        //       },
+        //       { new: true }
+        //     ).then((users) => {
+        //       return res.send("updated successfully");
+        //     });
         // }
-
 
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
         else if (endDate - now <= 0) {
           return res.send("Game end");
-        }
-        else if (level > 16) {
+        } else if (level > 30) {
           return res.send("Game Over");
         } else {
           if (score == 0) return res.send("Game Over");
@@ -125,53 +148,60 @@ exports.check = async (req, res, next) => {
       score = user.score;
       correct_count = user.correct_count;
       username = user.username;
+      day = 1;
       if (startDate - now > 0) return res.send("Game not started yet");
       else if (endDate - now < 0) return res.send("Game end");
-      Ques.find({ level }, { _id: 0, code: 1, order: 1 }).then((elements) => {
-        if (                               // if user has ordered code correctly
-          JSON.stringify(req.body.data.items) ==
-          JSON.stringify(elements[0].order)
-        ) {
-          level++;
-          correct_count++;
-          score = score + 100;
-          User.findByIdAndUpdate(
-            id,
-            {
-              level: level,
-              score: score,
-              correct_count: correct_count,
-              updation_date: new Date(),
-            },
-            { new: true }
-          ).then((user) => {
-            level = user.level;
-            if (level > 16) {
-              return res.send("Game Over");
-            } else {
-              Ques.find({ level }, { _id: 0, code: 1 }).then((element) => {
-                var items = element[0].code;
-                User.findByIdAndUpdate(
-                  id,
-                  { items: items, updation_date: new Date() },
-                  { new: true }
-                ).then((users) => {
-                  return res.send("updated successfully");
-                });
-              });
-            }
-          });
-        } else {                                                   // else user has ordered code wrongly
-          score < 10 ? (score = 0) : (score = score - 10);
-          User.findByIdAndUpdate(
-            id,
-            { score: score, updation_date: new Date(), items: items },
-            { new: true }
-          ).then((user) => {
-            return res.send("updated successfully");
-          });
+      Ques.find({ level, day }, { _id: 0, code: 1, order: 1 }).then(
+        (elements) => {
+          if (
+            // if user has ordered code correctly
+            JSON.stringify(req.body.data.items) ==
+            JSON.stringify(elements[0].order)
+          ) {
+            level++;
+            correct_count++;
+            score = score + 100;
+            User.findByIdAndUpdate(
+              id,
+              {
+                level: level,
+                score: score,
+                correct_count: correct_count,
+                updation_date: new Date(),
+              },
+              { new: true }
+            ).then((user) => {
+              level = user.level;
+              if (level > 30) {
+                return res.send("Game Over");
+              } else {
+                Ques.find({ level, day }, { _id: 0, code: 1 }).then(
+                  (element) => {
+                    var items = element[0].code;
+                    User.findByIdAndUpdate(
+                      id,
+                      { items: items, updation_date: new Date() },
+                      { new: true }
+                    ).then((users) => {
+                      return res.send("updated successfully");
+                    });
+                  }
+                );
+              }
+            });
+          } else {
+            // else user has ordered code wrongly
+            score < 10 ? (score = 0) : (score = score - 10);
+            User.findByIdAndUpdate(
+              id,
+              { score: score, updation_date: new Date(), items: items },
+              { new: true }
+            ).then((user) => {
+              return res.send("updated successfully");
+            });
+          }
         }
-      });
+      );
     });
   } catch (err) {
     next(err);
@@ -187,13 +217,14 @@ exports.skip = async (req, res, next) => {
     else if (startDate - now > 0) return res.send("Game not started yet");
     else if (endDate - now < 0) return res.send("Game end");
     else {
+      day = 1;
       User.findById(id).then((user) => {
         level = user.level;
         // score = user.score;
         username = user.username;
         level++;
         score < 20 ? (score = 0) : (score = score - 20);
-        Ques.find({ level }, { _id: 0, code: 1 }).then((element) => {
+        Ques.find({ level, day }, { _id: 0, code: 1 }).then((element) => {
           var items = element[0].code;
           User.findByIdAndUpdate(
             id,
@@ -272,7 +303,7 @@ exports.getthankyoupage = async (req, res, next) => {
 
         score = user.score;
         if (startDate - now > 0) return res.send("Game not started yet");
-        else if (level <= 16 && endDate - now > 0 && score != 0)
+        else if (level <= 30 && endDate - now > 0 && score != 0)
           return res.send("Game Not Over yet");
         score = user.score;
         username = user.username;

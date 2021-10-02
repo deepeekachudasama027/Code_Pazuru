@@ -1,5 +1,9 @@
+11 17 42 48 50 53
 ----------------------------------
-medium 1
+
+medium 1 
+ q 13 
+ 1
 
       "function exportSaveState() \n {",
        "var state = { \n };",
@@ -13,7 +17,8 @@ medium 1
 
 ------------------------
 easy 2
-
+ q 10
+2
        "onMouseMove = (e) => \n {",
        "e.preventDefault();",
        "let targetRect = target.getBoundingClientRect();",
@@ -21,11 +26,12 @@ easy 2
        "if (x > targetRect.width) \n { \n x = targetRect.width \n};",
        "else  if (x < 0) \n { x = 0 \n};",
        "btn.x = x - 10; \n btn.style.left = btn.x ; \n let percentPosition = (btn.x + 10) / targetRect.width * 100;",
-       "color.style.width = percentPosition ; \n tooltip.style.left = btn.x - 5 ; \n tooltip.style.opacity = 1; \n tooltip.textContent = Math.round(percentPosition);",
-       " };",
+       "color.style.width = percentPosition ; \n tooltip.style.left = btn.x - 5 ; \n tooltip.style.opacity = 1; \n tooltip.textContent = Math.round(percentPosition);\n}",
+       
 ---------------------------
-m 3
-
+e 3
+ q 5 
+3
 
        "namespace draco \n {",
        "class KeyframeAnimationEncodingTest : public ::testing::Test \n { \n protected: ",
@@ -34,20 +40,17 @@ m 3
        "timestamps_.resize(num_frames);",
        "for (int i = 0; i < timestamps_.size(); ++i)",
        "timestamps_[i] = static_cast<draco::KeyframeAnimation::TimestampType>(i);",
-       "return keyframe_animation_.SetTimestamps(timestamps_); \n } \n int32_t CreateAndAddAnimationData(int32_t num_frames, \n uint32_t num_components) \n { \n",
-       "animation_data_.resize(num_frames * num_components);",
-       "for (int i = 0; i < animation_data_.size(); ++i)",
-       "animation_data_[i] = static_cast<float>(i);",
-       " return keyframe_animation_.AddKeyframes(draco::DT_FLOAT32, num_components, \n animation_data_); \n }",
- }",
+       "return keyframe_animation_.SetTimestamps(timestamps_); \n }\n}",
+
 
 -------------------------
-hard 4
-
-       "var hasDuplicate;",
+m 4
+ q 15 
+4
+      
        "function sortOrder( a, b ) \n {",
        "if ( a === b ) \n {",
-       "hasDuplicate = true;",
+       "var hasDuplicate = true;",
        "return 'yes';",
        "} \n var compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?",
        "a.compareDocumentPosition( b ) :1;",
@@ -60,7 +63,8 @@ hard 4
 
 ------------------------
 e 5
-
+ q 4
+5
        "int t(int x, int y)",
        "{ \n int z = 1;",
        "while (y > 0) ",
@@ -71,9 +75,11 @@ e 5
        "z = z * x;",
        " y = y - 1;    \n } \n }",
        "return z; \n }",
+
 ----------------------
 e 6
-
+ q 1
+6
        "<html>",
        "<head>",
        "<meta charset='UTF-8'>",
@@ -94,7 +100,8 @@ e 6
 
 --------------------------------
 h 7
-
+ q 22
+ 7
        "while(*e != '\0') \n {",
        "if(isalnum(*e))",
        "printf('%c',*e); \n else if(*e == '(')",
@@ -110,7 +117,8 @@ h 7
 
 --------------------------------------
 m 8
-
+ q 12
+8
        "try \n {",
        "const user = await User.findOne({ email }).select('+password');",
        "if (!user)",
@@ -124,12 +132,12 @@ m 8
 
   --------------------------------------
 
-  h 9
-
+  m 9
+  q 14
+9
        "<head>",
        "<meta charset='UTF-8'>",
-       "<title> BlogIN </title>",
-       "<link rel='icon' href='logo.png' type='image/png' />",
+       "<title> BlogIN </title>\n<link rel='icon' href='logo.png' type='image/png' />",
        "<link rel='stylesheet' href='../css/main.css'>",
       "</head>",
        "<body>",
@@ -138,42 +146,23 @@ m 8
        "<img src='logo.png' alt='' style='width: 120px;height: 120px'> \n </div>",
        "<div class='navbar-links'>",
        "<ul>",
-       "<div class='navbar-links'> \n <li><a href='/logout'>Logout</a></li>",
+       "<li><a href='/logout'>Logout</a></li>",
        "</ul>\n </div>",
        "</nav>",
-       "<div class='main'>",
        "<div class='container'>",
-       "<p style='font-size:50px;padding-top:40px;font-weight:bold'>Publish your Passions, your way <br> Let's started   Blogging !</p>",
+       "<center>",
        "<p style='font-size:50px;padding-top:40px;font-weight:bold'>Publish your Passions, your way <br> Let's started   Blogging !</p>",
        "</center>",
-       "</div> \n </div>",
+       "</div>",
        "<script src='./index.js'>",
        "</script>",
        "</body>",
 
---------------------------------------
-h 10
- "#define F(i, j) f[i * max + j]",
-       "void function(int *a, int len) {",
-       " int max = a[0];",
-       "for (int i = 1; i < len; i++)",
-       "if (a[i] > max)",
-       "  max = a[i];",
-      "unsigned char *f = new unsigned char[max * len];\n memset(f, 0, static_cast<size_t>(max) * len);",
-       "for (int i = 0; i < len; i++)",
-       " for (int j = 0; j < a[i]; j++) F(i, j) = 1;",
-       "for (int j = 0; j < max; j++) { \n int sum = 0;",
-       "for (int i = 0; i < len; i++) {",
-       "sum += F(i, j);",
-       "F(i, j) = 0; \n }",
-      "for (int i = len - sum; i < len; i++) F(i, j) = 1; \n }",
-       "for (int i = 0; i < len; i++) {\nint j;",
-       "for (j = 0; j < max && F(i, j); j++);",
-       "a[i] = j;\n}",
-   "delete[] f;\n}",
 
 -------------------------------------------
 m 11
+ q 16
+ 10
 "double function(double x) {",
        "double f1 = x;",
        "for (int i = x - 1; i > 0; i--) {",
@@ -192,6 +181,8 @@ m 11
 
 ------------------------------------------------
 m 12
+ q 41
+ 11
        "return function (array, cmp) {",
         "var gap, current;",
        "cmp = cmp || compare;",
@@ -206,29 +197,28 @@ m 12
        "return array;\n};",
 
 -----------------------------------------------
-m 13
+e 13 
+ q 37
+12
+    "int max = n - 1;\nint min = 0;\nint i;\nint* s = new int[n];\n  int* g = new int[n];",
+   " s[0] = -1;\n  g[n - 1] = -1;",
+    "for (i = 1; i < n; i++) {\nif (arr[i] <= arr[min]) {",
+            "min = i;\ns[i] = -1;",
+        "}\nelse\ns[i] = min;",
+    "}\nfor (i = n - 2; i >= 0; i--) {\nif (arr[i] >= arr[max]) {",
+           " max = i;\ng[i] = -1;\n}",
+        "else\ng[i] = max;\n}",
+    "for (i = 0; i < n; i++) {",
+        "if (s[i] != -1 && g[i] != -1) {",
+            "cout << arr[s[i]]<< endl << arr[i] << endl<< arr[g[i]];\nreturn;\n}\n}",
+ 
 
-       "export default function f1(originalMatrix) {",
-       "const matrix = originalMatrix.slice();",
-       "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {",
-       "for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {",
-       "[ \n matrix[columnIndex][rowIndex],",
-       "matrix[rowIndex][columnIndex], \n ] = [",
-       "matrix[rowIndex][columnIndex], \n matrix[columnIndex][rowIndex],",
-       "];\n } \n }",
-       "for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) { ",
-       "for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {",
-       "[ \n matrix[rowIndex][matrix.length - columnIndex - 1],",
-       "matrix[rowIndex][columnIndex], \n ] = [",
-       "matrix[rowIndex][columnIndex], \n matrix[rowIndex][matrix.length - columnIndex - 1], \n ];",
-       " } \n }",
-      "return matrix;",
-       "}",
 
 ---------------------------------------------
 
-h 14
-
+h 14 
+ q 55
+13
        "void function1(vector<vector<int>> matrix)",
        "{",
        "int top = 0, \n left = 0, \n right = matrix[0].size()-1,\n bottom = matrix.size()-1;",
@@ -257,33 +247,34 @@ h 14
 
 
 -----------------------------------------------------
-m 15
-
- "class CodePazuru {",
-       "public:",
-       "bool function1(int N, vector<int> adj[]) {",
-       "queue<int> q; \n vector<int> v(N, 0);",
-       "for(int i = 0;i<N;i++) { \n for(auto it: adj[i]) { ",
-       "v[it]++; \n } \n  }",
-       "for(int i = 0;i<N;i++) {",
-       "if(v[i] == 0) {",
-       "q.push(i); \n } \n } \n int cnt = 0;",
-       "while(!q.empty()) {",
-       "int node = q.front(); ",
-       "q.pop(); \n  cnt++; ",
-       "for(auto it : adj[node]) {",
-       "v[it]--;",
-      "if(v[it] == 0) { ",
+m 15 
+ q 17
+14
+       "q.push(i); \n } \n }",
        "q.push(it); \n } \n } \n }",
        "if(cnt == N) ",
+       "public:",
+       "int node = q.front(); ",
        "return false; ",
+       "q.pop(); \n  cnt++; ",
+      "if(v[it] == 0) { ",
+       "queue<int> q; \n vector<int> v(N, 0); \n int cnt = 0;",
+       "for(int i = 0;i<N;i++) { \n if(v[i] == 0) {",
+       "v[it]++; \n } \n  }",
+ "class CodePazuru {",
+       "while(!q.empty()) {",
+       "bool function1(int N, vector<int> adj[]) {",
        "return true; \n }",
+       "v[it]--;",
+       "for(auto it : adj[node]) {",
+       "for(int i = 0;i<N;i++) { \n for(auto it: adj[i]) { ",
        "};",
 
 
 -----------------------------------------------------
 m 16
-
+ q 43
+15
  "class CodePazuru{",
        "public:",
        "void function1(long long a[], long long b[], int n, int m){",
@@ -302,7 +293,9 @@ m 16
        "};",
 
 -----------------------------------------------------------------------------
-m 17
+hard 17 
+ q 21
+ 16
 
 "void deleteNode(Node* &root, int key) \n {",
     "if (root == nullptr) { \n return; \n }",
@@ -322,7 +315,8 @@ m 17
 ----------------------------------------------------------------------------
 
 medium 18
-
+ q 44
+ 17
 "void function(vector<vector<int>> &mat)\n{",
    " if (mat.size() == 0)\nreturn;",
     "int top = 0, bottom = mat.size() - 1;\nint left = 0, right = mat[0].size() - 1;\nint prev = mat[0][0];",
@@ -343,8 +337,9 @@ medium 18
     "mat[0][0] = prev;\n}",
 
 ---------------------------------------------------------------------------
-m 19
-
+h 19 
+ q 60
+ 18
 "bool isSpace(char c) {"
     "return c == ' ';\n}",
 "void function(string &s, int n)\n{",
@@ -367,90 +362,55 @@ m 19
 
 ------------------------------------------------------------------------------
 
-hard 20
-
-"void function_1(int a[], int low, int high)\n{",
-    "for (int i = low + 1; i <= high; i++)\n{\nint value = a[i];\nint j = i;",
-        "while (j > low && a[j - 1] > value)\n{",
-           " a[j] = a[j - 1];",
-            "j--;\n}",
-        "a[j] = value;\n}",
-"}",
-"int function_2(int a[], int low, int high)\n{",
-    "int pivot = a[high];\nint pIndex = low;",
-   " for (int i = low; i < high; i++)\n{",
-      "  if (a[i] <= pivot)\n{",
-          "  swap(a[i], a[pIndex]);",
-           " pIndex++;",
-        "}\n}",
-   " swap (a[pIndex], a[high]);",
-   " return pIndex;\n}",
-"int function_3(int a[], int low, int high) {",
-    "int pivotIndex = rand() % (high - low + 1) + low;",
-    "swap(a[pivotIndex], a[high]);\nreturn function_2(a, low, high);",
-"}",
-"void function_4(int *begin, int *end)\n{",
-   " make_heap(begin, end);",
-   " sort_heap(begin, end);\n}",
-"void function_5(int a[], int *begin, int *end, int maxdepth)\n{",
- "   if ((end - begin) < 16) {\nfunction_1(a, begin - a, end - a);\n}",
-   " else if (maxdepth == 0) {\nfunction_4(begin, end + 1);\n}",
-    "else {",
-       " int pivot = function_3(a, begin - a, end - a);",
-        "function_5(a, begin, a + pivot - 1, maxdepth - 1);\nfunction_5(a, a + pivot + 1, end, maxdepth - 1);",
-   " }\n}",
+hard 20 
+ q 23
+19
+"node* function1(node* root)\n{",
+    "if (root == NULL)",
+        "return root;",
+    "if (root->left != NULL) {",
+        "node* left = function1(root->left);",
+        "for (; left->right != NULL; left = left->right);",       
+        "left->right = root;",
+       " root->left = left;",
+    "}\nif (root->right != NULL) {",
+        "node* right = function1(root->right);",
+        "for (; right->left != NULL; right = right->left);",
+        "right->left = root;",
+        "root->right = right;",
+    "}\nreturn root;\n}",
+"node* function(node* root)",
+"{\nif (root == NULL)\nreturn root;",
+    "root = function1(root);",
+    "while (root->left != NULL)",
+       " root = root->left;",
+    "return (root);\n}",
 
 --------------------------------------------------------------------
 
-m 21
-
-    "int function(int p[], int n, int fr)\n{",
-      "unordered_set<int> s;\nunordered_map<int, int> id;\nint f = 0;",
-      "for (int i = 0; i < n; i++)\n{",
-        "if (s.size() < fr)\n{",
-          "if (s.find(p[i]) == s.end())\n{",
-            "s.insert(p[i]);\nf++;",
-          "}\nid[p[i]] = i;\n}",
-        "else\n{",
-          "if (s.find(p[i]) == s.end())\n{",
-            "int m = INT_MIN, val;\nfor (auto it = s.begin(); it != s.end(); it++)\n{",
-              "if (id[*it] > m) \n{",
-                "m = id[*it];\nval = *it;\n}",
-            "}\ns.erase(val);",
-            "s.insert(p[i]);\nf++;",
-         " }\nid[p[i]] = i;",
-        "}\n}",
-      "return f;\n}",
-
----------------------------------------------------------------------
-
-hard 22
-
-    " public static void function_1(int[][] mat)\n{",
-      "  for (int i = 0; i < mat.length; i++)\n{",
-           " for (int j = 0; j < mat[0].length; j++)\n{",
-                "if (mat[i][j] != 0) {\nmat[i][j] = 1;\n}",
-            "}\n}\n}",
-   " public static int function_2(int[][] mat)\n{",
-        "if (mat == null || mat.length == 0) ",
-          "  return 0;\nint M = mat.length;\nint N = mat[0].length;\nint maxArea = 0;",
-       " for (int j = 0; j < N; j++)\n{",
-       "for (int i = M - 2; i >= 0; i--)\n{",
-                "if (mat[i][j] == 1) \nmat[i][j] = mat[i+1][j] + 1;",
-                " }\n}",
-       " for (int i = 0; i < M; i++)\n{",
-           " int[] count = new int[M + 1];\nfor (int j = 0; j < N; j++)\n{",
-                "if (mat[i][j] > 0)\n{",
-                    "count[mat[i][j]] += 1;\nmaxArea = Integer.max(maxArea, mat[i][j] * count[mat[i][j]]);\n}\n}\n}",
-        "function_2(mat);",
-        "return maxArea;",
-    "}",
+m 21 
+ q 18
+20
+    "int function(int p[], int n, int fr) {",
+  "unordered_set<int> s; \n unordered_map<int, int> id; \n int f = 0, m = INT_MIN, val;",
+  "for (int i = 0; i < n; i++){",
+    "if (s.size() < fr){",
+      "if (s.find(p[i]) == s.end()){ \n s.insert(p[i]); \n f++; \n }",
+      "id[p[i]] = i; \n }",
+    "else{",
+    "if (s.find(p[i]) == s.end()){ \n for (auto it = s.begin(); it != s.end(); it++) \n {",
+          "if (id[*it] > m) \n {"
+            "m = id[*it]; \n val = *it; \n } \n }",   
+        "s.erase(val); \n s.insert(p[i]); \n f++;",
+    "} \n id[p[i]] = i; \n } \n }",
+  "return f; \n }",
 
 
 ------------------------------------------------------------------------
 
-medium 23
-
+hard 23 
+ q 45
+21
 "bool function_1(Node* node) {",
    " return node->left == nullptr && node->right == nullptr;\n}",
 "void function_2(Node* root, Node* &head, Node* &prev)\n{",
@@ -476,93 +436,110 @@ medium 23
 -----------------------------------------------------------------
 
 easy 24
-
-"int function(vector<int> &p, int k)\n{",
-    "int n = p.size();\nint pr[k+1][n];",
-    "for (int i = 0; i <= k; i++)\n{",
-        "for (int j = 0; j < n; j++)\n{",
-            "if (i == 0 || j == 0) \npr[i][j] = 0;",
+ q 11
+ 22
+"int function(vector<int> &p, int k) \n {",
+    "int n = p.size(), pr[k+1][n];",
+    "for (int i = 0; i <= k; i++) \n {",
+        "for (int j = 0; j < n; j++){",
+            "if (i == 0 || j == 0)",
+                "pr[i][j] = 0;",
             "else {",
-                "int max = 0;\nfor (int k = 0; k < j; k++)\n{",
-                    "int curr = p[j] - p[k] + pr[i-1][k];\nif (max < curr) {",
-                       " max = curr;\n}",
-                "}\npr[i][j] = max(pr[i][j-1], max_so_far);",
-            "}\n}\n}",
-    "return pr[k][n-1];\n}",
+                "int max = 0; \nfor (int k = 0; k < j; k++) \n {",
+                    "int curr = p[j] - p[k] + pr[i-1][k];",
+                    "if (max < curr)",
+                       "max = curr; \n }",
+ 
+                "pr[i][j] = max(pr[i][j-1], max); \n }",
+        "} \n } \n return pr[k][n-1]; \n }",
 
 --------------------------------------------
 
-medium 25
-
-"Node* function_1(bool mat[][N])\n{",
-   " multimap<int, int> multimap;\nNode* node[N];\nint row;\nbool parent[N];",
-   " for (int i = 0; i < N; i++)\n{",
-       " int sum = 0;",
-       " for (int j = 0; j < N; j++) {\nsum += (int)mat[i][j];\n}",
-       " multimap.insert({ sum, i });\n}",
-    "for (int i = 0; i < N; i++) {\nparent[i] = false;\n}",
-   " for (auto it: multimap)\n{",
-        "row = it.second;\nnode[row] = new Node(row);",
-       " if (it.first == 0) \ncontinue;",
-        "for (int i = 0; i < N; i++)\n{",
-            "if (parent[i] == false && mat[row][i])\n{",
-                "if (node[row]->left == nullptr) \nnode[row]->left = node[i];",
-                "else \nnode[row]->right = node[i];\nparent[i] = true;",
-            "}\n}\n}",
-    "return node[row];\n}",
+hard 25 
+ q 46
+23
+"Node* function_1(bool mat[][N]){",
+   "multimap<int, int> multimap; \n Node* node[N]; \n int row; \n bool parent[N] = false;",
+   "for (int i = 0; i < N; i++) \n { \n int sum = 0;",
+       "for (int j = 0; j < N; j++)",
+            "sum += (int)mat[i][j];",
+       "multimap.insert({ sum, i }); \n } \n for (int i = 0; i < N; i++) {",
+        "parent[i] = false; \n }",
+   "for (auto it: multimap){",
+        "row = it.second;",
+        "node[row] = new Node(row);",
+       " if (it.first == 0) \n continue;",
+        "for (int i = 0; i < N; i++){",
+            "if (parent[i] == false && mat[row][i]){",
+                "if (node[row]->left == nullptr) \n node[row]->left = node[i];",    
+                "else \n node[row]->right = node[i];",
+                "parent[i] = true; \n }",
+        "} \n } \n return node[row]; \n }",
 
 -----------------------------------------------------
 
 easy 26 
+ q 6
+24
 
 "def func(A):",
     "if len(A) == 0:",
         "return",
-    "I = [1] * len(A)\nD = [1] * len(A)\nlbs_len = 1\nbeg = end = 0",
+    "I = [1] * len(A) \n D = [1] * len(A) \n lbs_len = 1 \n beg = end = 0",
         "if A[i - 1] < A[i]:",
             "I[i] = I[i - 1] + 1",
    " for i in reversed(range(len(A) - 1)):",
-       " if A[i] > A[i + 1]:\nD[i] = D[i + 1] + 1",
-   " for i in range(len(A)):\nif lbs_len < I[i] + D[i] - 1:",
-            "lbs_len = (I[i] + D[i] - 1)\nbeg = i - I[i] + 1\nend = i + D[i] - 1",
+       "if A[i] > A[i + 1]:",
+            "D[i] = D[i + 1] + 1",
+   " for i in range(len(A)):",
+        "if lbs_len < I[i] + D[i] - 1:",
+            "lbs_len = (I[i] + D[i] - 1)",
+            "beg = i - I[i] + 1 \n end = i + D[i] - 1",
 
 ---------------------------------------------------------------
 easy 27
-
+ q 7 
+ 25
 "def func(A, k):",
-    "output = [0] * len(A)\nfreq = [0] * (k + 1)\ntotal = 0",
+ 
+    "output = [0] * len(A) \n freq = [0] * (k + 1) \n total = 0",
     "for i in A:",
-      "  freq[i] = freq[i] + 1",
-    "for i in range(k + 1):",
-       " oldCount = freq[i]",
-        "freq[i] = total",
-        "total += oldCount",
-   " for i in A:\noutput[freq[i]] = i",
-"freq[i] = freq[i] + 1",
-    "for i in range(len(A)):\nA[i] = output[i]",
+      "freq[i] = freq[i] + 1",
+
+    "for j in range(k + 1):",
+       "oldCount = freq[j]",
+        "freq[j] = total \n total += oldCount",
+
+   " for it in A:",
+       "output[freq[it]] = it \n freq[it] = freq[it] + 1",
+
+    "for a in range(len(A)):",
+        "A[a] = output[a]",
 
 -------------------------------------------------------------------
 
-easy 28
-
+easy 28 
+ q 32
+26
 "def func(X, Y):",
     "if len(X) != len(Y):",
         "return False",
-    "dict = {}\ns = set()",
+    "dict = {} \n s = set()",
     "for i in range(len(X)):",
-        "x = X[i]\ny = Y[i]",
+        "x = X[i] \n y = Y[i]",
         "if x in dict:",
             "if dict[x] != y:",
                 "return False",
         "else:",
             "if y in s:",
                 "return False",
-            "dict[x] = y\ns.add(y)",
+            "dict[x] = y \n s.add(y)",
     "return True",
 
 -----------------------------------------------------------------------
 hard 29
-
+ q 24
+27
 "int findMax(vector<vector<int>> const &M) \n {",
     "if (M.size() == 0)",
         "return 0;",
@@ -586,7 +563,8 @@ hard 29
 -----------------------------------------------------
 
 hard 30
-
+ q 28
+28
  "pair<int, int> findMinimumRange(vector<vector<int>> lists) \n {",
       "if (lists.size() == 0)", 
           "return {-1, -1};",
@@ -610,7 +588,8 @@ hard 30
 
 
 hard 31
-
+ q 54
+29
 "int findMax(vector<vector<int>> const &M) \n {",
     "if (M.size() == 0)",
         "return 0;",
@@ -632,55 +611,10 @@ hard 31
     "return max; \n }",
 -----------------------------------------------------
 
-hard 32
-"class Solution {",
-      "public:",
-          "int md=1e9+7;",
-          "int function(string s) {",
-              "int n=s.size();",
-              "vector<vector<long long int>>dp(n,vector<long long int>(n)); \n vector<int>prev(n),next(n); \n unordered_map<char,int>mp; ",
-      
-              "for(int i=0;i<n;i++){",
-                  "if(mp.count(s[i]))",
-           "prev[i]=mp[s[i]];",
-      
-                  "else",
-           "prev[i]=-1;",
-                  "mp[s[i]]=i; \n }",
-              
-              "mp.clear();",
-      
-              "for(int i=n-1;i>=0;i--){",
-      
-                  "if(mp.count(s[i])) \n next[i]=mp[s[i]];",
-      
-                  "else \n next[i]=-1; \n mp[s[i]]=i; \n }",
-              
-              "for(int g=0;g<n;g++){",
-                  "for(int i=0,j=g;j<n;j++,i++){",
-                      "if(g==0) \n dp[i][j]=1;",
-      
-                      "else if(g==1) \n dp[i][j]=2;",
-      
-                      "else{",
-                          "if(s[i]==s[j]){",
-      
-                              "if(next[i]>prev[j])", "dp[i][j]=(2*dp[i+1][j-1]+2)%md;",
-      
-                              "else if(next[i]==prev[j])", "dp[i][j]=(2*dp[i+1][j-1]+1)%md;",
-      
-                              "else dp[i][j]=((2*dp[i+1][j-1])%md-(dp[next[i]+1][prev[j]-1])%md)%md; \n }",
-                          
-                          "else dp[i][j]=(dp[i+1][j]%md+dp[i][j-1]%md-dp[i+1][j-1]%md)%md; \n }",
-                      
-                      "if(dp[i][j]<0)",
-                              "dp[i][j]+=md; \n } \n }",
-               
-              "return dp[0][n-1]; \n }",
-      "};",
--------------------------------------------------------
 
 easy 33
+ q 38
+ 30
 
 "router.post('/add', function(req, res, next) {",
   "var name = req.body.name; \n var errors = req.validationErrors();",
@@ -700,24 +634,25 @@ easy 33
 ------------------------------------------------------------------------------------
 
 easy 34
+ q 17
+ 31
 
   "<div id='container'>",
-      "<div id='namesWrapper'>",
+      "<div id='namesWrapper#1'>",
         "<h2>ChatIO</h2>",
-        "<p>Create Username:</p>",
-        "<div id='error'></div>",
         "<form id='usernameForm'>",
           "<input type='text' size='35' id='username'>",
           "<input type='submit' value='Submit'>",
         "</form>\n</div>",
-        "<div id='chatWrapper'>",
+        "<div id='chatWrapper#2'>",
           "<div id='chatWindow'></div>\n<form id='messageForm'>",
             "<input type='text' size='35' id='message' placeholder='Say Something...'>",
             "<input type='submit' value='Submit'>\n</form>",
         "</div>\n</div>",
 ---------------------------------------------------------------------
 easy 35
-
+ q 31  
+32
 "echo 'Total marks : $sum '",
 "echo 'Grade : '",
 "if [ $sum -gt 200 ]; then",
@@ -740,7 +675,8 @@ easy 35
 
 -----------------------------------------------------------------------
 medium 36
-
+ q 19
+33
       "router.post('/add_new_post', (req, res) => {",
       "msg = '';\nif (req.session.loggedIn) {",
         "var title = req.body.title;\nvar content = req.body.content;\nvar publish = req.body.publish;",
@@ -766,6 +702,8 @@ medium 36
 ------------------------------------------------------------------------
 
 easy 37
+ q 9 
+ 34
 
       "exports.leaderboard = (callback) => {",
       "return pool.query(",
@@ -786,6 +724,8 @@ easy 37
 ----------------------------------------------
 
 easy 38
+ q 35
+ 35
 
 "exports.protect = async (req, res, next) => {",
   "let token;",
@@ -805,7 +745,8 @@ easy 38
 ------------------------------------------------------------------
 
 easy 39
-
+ q 39 
+ 36
 "def loginView(request):",
 	"if request.method == 'POST':",
 		"username = request.POST['username']\npassword = request.POST['password']",
@@ -813,17 +754,17 @@ easy 39
 		"if user is not None and user.is_active:",
 			"auth.login(request, user)",
 			"if user.is_admin or user.is_superuser:",
-				"return redirect('dashboard')",
+				"return redirect(' Admin dashboard')",
 			"elif user.is_librarian:",
 				"return redirect('librarian')",
 			"else:",
 			    "return redirect('publisher')",
-		"else:",
-		    "messages.info(request, 'Invalid username or password')",
+		"else:\nmessages.info(request, 'Invalid username or password')",
 		    "return redirect('home')",
 --------------------------------------------------------------------------
-easy 40
-
+m 40
+ q 2
+37
    "function func ( that, fn, init, start, end, inc )",
       "{	\nvar i = start,\nvalue,\nisSet = false;",
         "if ( init !== undefined )", 
@@ -840,7 +781,9 @@ easy 40
 
     -----------------------------------------------------------
 
-    medium 41
+    h 41
+     q 58
+38
       "struct Job {",
       "int deadline, duration, idx;",
       "bool operator<(Job o) const",
@@ -862,7 +805,8 @@ easy 40
 -------------------------------------------------------
  
 easy 42
-
+ q 34 
+39
 "SELECT",
     "d.Name AS 'Department', e1.Name AS 'Employee', e1.Salary",
 "FROM",
@@ -882,7 +826,8 @@ easy 42
 
 ---------------------------------------------------------
 easy 43
-
+ q 36
+40
 "const AuthState = props => {",
  " const initialState = {\ntoken: localStorage.getItem('token'),\nisAuthenticated: null,\nloading: true,\nuser: null,\nerror: null\n};",
   "const [state, dispatch] = useReducer(authReducer, initialState);",
@@ -899,24 +844,24 @@ easy 43
 -------------------------------------------------------------------
 
 easy 44
-
+ q  q 33
+41
       "export default function App() {",
       "const { register, errors, handleSubmit } = useForm();",
       "const onSubmit = (data) => {",
         "alert(JSON.stringify(data));",
       "};",
-      "console.log(errors);",
       "return (",
        " <form onSubmit={handleSubmit(onSubmit)}>",
           "<FormSection1 register={register} />",
-         " <FormSection2 register={register} />",
          " <input type='submit' />",
       "  </form>",
     " );\n }",
 
 ----------------------------------------------------------------------- 
 m 45
-
+ q 20
+42
       "useEffect(() => {",
       "if (localStorage.getItem('userInfo')) {\nhistory.push('/');",
       "}\n}, [history]);",
@@ -939,58 +884,70 @@ m 45
 
 ----------------------------------------------------------------------------------------------
 easy 46
-
-  "class error_page extends Component {",
-      " constructor(props) {",
-         "super(props);",
-         "this.state = {\nusername: '',\n};",
-         "this.logoutHandler = this.logoutHandler.bind(this);",
-      " }",
-      " componentDidMount() {",
-         "this.fetch();",
-       "}\n logoutHandler() {",
-         "localStorage.removeItem('userInfo');",
-        " this.props.history.push('./login');\n}\n}",
+ q 40
+43
+"int function(int l, int r, int key, int ar[])\n{",
+    "if (r >= l) {",
+        "int mid1 = l + (r - l) /3 \n ;int mid2 = r - (r - l) / 3;",
+ 
+        "if (ar[mid1] == key) ",
+        " return mid1;",
+        
+        "if (ar[mid2] == key) ",
+        "return mid2;",
+        
+ 
+        "if (key < ar[mid1]) ",
+            "return function(l, mid1 - 1, key, ar);",
+        
+        "else if (key > ar[mid2]) ",
+            "return function(mid2 + 1, r, key, ar);",
+        
+        "else ",
+           " return function(mid1 + 1, mid2 - 1, key, ar);",
+        
+   " }\nreturn -1;\n}",
 --------------------------------------------------------------------------------------
 
 easy 47
-
-  "submitBtn.addEventListener('click', () => {",
-      "const answer = getSelected()",   
-      "if(answer) {",
-          "if(answer === quizData[currentQuiz].correct) {",
-              "score++\n}",
-         " currentQuiz++",
-          "if(currentQuiz < quizData.length) {",
-             " loadQuiz()",
-         " } else {",
-         "\n' quiz.innerHTML = `\n<h2>You answered ${score}/${quizData.length} questions correctly</h2>\n<button onclick='location.reload()'>Reload</button>`",
-        "  }\n}\n})",
+ q 8
+44
+"void function(int a[], int n)\n{",
+    "int i, k, j;",
+    "for (i = 1; i < n; i++)",
+    "{\nk = a[i];\nj = i - 1;",
+    "while (j >= 0 && a[j] > k)",
+        {\n a[j + 1] = a[j];\nj = j - 1;\n}",
+        "a[j + 1] = k;\n}",
 
 ---------------------------------------------------------------------------------------
 medium 48
-
-"class DetailViewController: UIViewController {",
-  "@IBOutlet var titleLabel: UILabel!\n@IBOutlet var mapView: MKMapView!\n@IBOutlet var locationLabel: UILabel!",
-  "var item: ToDoItem?",
-  "override func viewDidLoad() {",
-   " super.viewDidLoad()",
-    "guard let item = item else {\nreturn\n}",
-    "titleLabel.text = item.title\nif let location = item.location {",
-     " locationLabel.text = location.name",
-      "if let cooridnate = location.coordinate {",
-       " centerMapOnLocation(with: cooridnate)",
-      "}\n}\n}",
-  "private func centerMapOnLocation(with coordinate: CLLocationCoordinate2D) {",
-   " let regionRadius: CLLocationDistance = 1000",
-    "let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)",
-    "mapView.setRegion(coordinateRegion, animated: true)\n}\n}",
+ q 49 
+45
+"class Solution {",
+"public:",
+   " double myPow(double x, int n) {",
+        "double cur = x, res = 1;\nunsigned int pow;",
+        "if(x == 0)", 
+        "return 0;",
+        "if(n < 0){",
+            "cur = 1 / x;\npow = (unsigned int)(-(n + 1)) + 1;"
+        "}else if(n == 0)",
+            "return 1;",
+        "else",
+           " pow = n;",
+        "while(pow != 0){",
+            "if(1&pow) res *= cur;",
+            "pow = pow >> 1;\ncur = cur * cur;",
+            "}\nreturn res;\n",
+    "}",
+"};",
 
 -------------------------------------------------------------------------------------------------------
 hard 49
-
-"class Ques {",
-"int INF=1e9+5;",
+ q 57 
+46
+"class Ques {\nint INF=1e9+5;",
 "public:",
     "int function(int maxTime, vector<vector<int>>& edges, vector<int>& passingFees) {",
         "int n=passingFees.size(); \n vector<vector<pair<int,int>>>g(n); \n  int ans=INF;",
@@ -1018,7 +975,8 @@ hard 49
 
 ------------------------------------------------------------------------
 hard 50
-
+ q 29
+47
       "class Ques {",
       "public:",
       "vector<vector> dir={{-1,0},{1,0},{0,1},{0,-1}};",
@@ -1040,7 +998,8 @@ hard 50
 ---------------------------------------------------------------------------
 
 hard 51
-
+ q 30 
+48
 "class Ques {",
 "public:",
     "int mind(vector<vector<int>> &mat, int target){",
@@ -1060,8 +1019,7 @@ hard 51
             "if(nums[mid][target]>nums[mid+1][target] && nums[mid-1][target]< nums[mid][target]) \n return 0;",
             "else if(nums[mid+1][target]>nums[mid-1][target]) \n return 1;",
             "else \n return -1; \n } \n }",
-    "vector<int> function(vector<vector<int>>& mat) {",
-        "int l = 0, h = mat.size(), ind = 0;",
+    "vector<int> function(vector<vector<int>>& mat) {\nint l = 0, h = mat.size(), ind = 0;",
         "while(l<h){",
             "int mid = (l+h)/2;",
             "ind = mind(mat, mid);",
@@ -1075,10 +1033,11 @@ hard 51
 
 ---------------------------------------------------------------------------------
 medium 52
-
+ q 47
+49
 "class Ques {",
 "public:",
-    "int twoEggDrop(int n) {",
+    "int function(int n) {",
         "vector<vector<int>> dp(3,vector<int>(n+1,0));",
         "for(int i=1;i<=2;i++){",
             "for(int j=1;j<=n;j++){",
@@ -1095,36 +1054,37 @@ medium 52
 
 --------------------------------------------------------------------------------
 hard 53
-
+ q 25
+50
 "class Ques {",
 "public:",
     "bool function(string s) {",
-        "vector<vector<int>>isPallin(2001, vector<int>(2001,0));",
+        "vector<vector<int>>p(2001, vector<int>(2001,0));",
         "for(int i=0;i<s.size();i++){",
-            "string s1 = s.substr(i,1); \n isPallin[i][i] = 1; \n int l=i-1, r = i+1;",
+            "string s1 = s.substr(i,1); \n p[i][i] = 1; \n int l=i-1, r = i+1;",
             "while(l>=0 &&  r<s.size() && s[l]==s[r]){",
-                "isPallin[l][r] = 1;",
+                "p[l][r] = 1;",
                 "l--; \n r++; \n }",
             "int left = i, right = i+1;\n while(left>=0 && right<s.size() && s[left]==s[right]){",
-                "isPallin[left][right] = 1;",
+                "p[left][right] = 1;",
                 "left--; right++; \n } \n }",
         "int n = s.size(); \n for(int i=0;i<n-2;i++){",
             "for(int j=i+1;j<n-1;j++)",
-                "if(isPallin[0][i]==1 && isPallin[i+1][j]==1 && isPallin[j+1][n-1]==1) ",
+                "if(p[0][i]==1 && p[i+1][j]==1 && p[j+1][n-1]==1) ",
 			"return true; \n }",
         "return false; \n }",
 "};",
 
 ----------------------------------------------------------------------------
-easy 54
-
+medium 54
+ q 27
+51
 "class Ques {",
 "public:",
-    "std::vector<int> decode(std::vector<int>& encoded) { \n std::vector<int> perm(n, 0);",
+    "std::vector<int> function(std::vector<int>& encoded) { \n std::vector<int> perm(n, 0);",
         "const int n = encoded.size() + 1; \n int x = 0, e=0",
         "for ( int i = 1; i <= n; ++i )",
-            "x ^= i;",
-        "for ( int i = 1; i < encoded.size(); i += 2 )",
+            "x ^= i;\nfor ( int i = 1; i < encoded.size(); i += 2 )",
             "e ^= encoded[i];",
         "int po = x ^ e;",
 	"perm[0] = po;",
@@ -1135,7 +1095,8 @@ easy 54
 
 -----------------------------------------------------------------------------
 hard 55
-
+ q 52
+52
 "int function(vector<vector<int>>& grid) {",
     "int n = grid.size(); \n vector<int> zeros(n, 0); \n int ans = 0;",
     "if(n == 0)",
@@ -1160,47 +1121,36 @@ hard 55
 -----------------------------------------------------------------------------
 
 hard 56
-
-"int function(vector<vector<int>>& grid) {",   
-        "int r=grid.size(); \n int c=grid[0].size(); \n int down[r][c]; \n  int right[r][c]; \n int k=min(r,c);",
-        "for(int j=0;j<c;j++){",
-            "int p=0;",
-            "for(int i=r-1;i>=0;i--){",
-                "if(grid[i][j])",
-                   "p++;",
-                "else",
-                    "p=0;",
-                "down[i][j]=p; \n } \n }",
-        "for(int i=0;i<r;i++){ \n int p=0;",
-            "for(int j=c-1;j>=0;j--){ \n if(grid[i][j]) \n p++;",
-                "else \n p=0; \n right[i][j]=p; \n } \n }",
-        "while(k>0){",
-            "for(int i=0;i<=r-k;i++)",
-                "for(int j=0;j<=c-k;j++)",
-                    "if(down[i][j]>=k and down[i][j+k-1]>=k and right[i][j]>=k and right[i+k-1][j]>=k)",
-                        "return k*k;",
-            "k--; \n }",
-        "return 0;",
-"}",
+ q 3
+53
+    "setInterval(() => {",
+        "counter++;",
+        "var minutesTimeSpan = counter * 1000;",
+        "currentDate = new Date();",
+        "currentDate.setTime(currentDate.getTime() + minutesTimeSpan);",
+        "countDownDate = currentDate.getTime();",
+        "refreshTime();",
+   " }, 1000);",
 
 
 -----------------------------------------------------
 
 hard 57
-
-"typedef struct SearchBuff {",
+ q 59
+54
+"typedef struct func {",
     "uint8_t s1Cnt; \n uint8_t s2Cnt; \n uint8_t s3Cnt;",
-    "SearchBuff(uint8_t s1C, uint8_t s2C, uint8_t s3C) {",
+    "func(uint8_t s1C, uint8_t s2C, uint8_t s3C) {",
         "s1Cnt = s1C; \n s2Cnt = s2C; \n s3Cnt = s3C; \n }",
-"} SearchBuff;",
+"} func;",
 "class Ques {",
 "public:",
     "bool function(string s1, string s2, string s3) {",
         "uint8_t s1Size = s1.size(); \n uint8_t s2Size = s2.size(); \n uint8_t s3Size = s3.size();",
-        "vector<vector<bool>> memo (s1Size + 1, vector<bool>(s2Size + 1)); \n stack<SearchBuff> buffStk;",
-        "buffStk.push(SearchBuff(0, 0, 0));",
+        "vector<vector<bool>> memo (s1Size + 1, vector<bool>(s2Size + 1)); \n stack<func> buffStk;",
+        "buffStk.push(func(0, 0, 0));",
         "while (!buffStk.empty()) {",
-            "SearchBuff currBuff = buffStk.top();",
+            "func currBuff = buffStk.top();",
             "buffStk.pop();",
             "uint8_t currS1Cnt = currBuff.s1Cnt; \n uint8_t currS2Cnt = currBuff.s2Cnt;",
 	    "uint8_t currS3Cnt = currBuff.s3Cnt; \n if (currS1Cnt == s1Size && currS2Cnt == s2Size && currS3Cnt == s3Size)",
@@ -1208,19 +1158,20 @@ hard 57
             "if (memo[currS1Cnt][currS2Cnt]) \n continue;",
             "memo[currS1Cnt][currS2Cnt] = true;",
             "if (currS1Cnt < s1Size && s1[currS1Cnt] == s3[currS3Cnt]) {",
-                "buffStk.push(SearchBuff(",
+                "buffStk.push(func(",
                     "currS1Cnt + 1,",
                     "currS2Cnt,",
                     "currS3Cnt + 1",
                 ")); \n } \n if (currS2Cnt < s2Size && s2[currS2Cnt] == s3[currS3Cnt]) {",
-                "buffStk.push(SearchBuff(currS1Cnt, currS2Cnt + 1, \n currS3Cnt + 1)); \n }",
+                "buffStk.push(func(currS1Cnt, currS2Cnt + 1, \n currS3Cnt + 1)); \n }",
         "} \n return false; \n }",
 "};",
 
 --------------------------------------------------------------------
 
 hard 58
-
+ q 56
+55
 
 "class Ques {",
     "public int function(int[][] grid) {",
@@ -1244,7 +1195,8 @@ hard 58
 
 -----------------------------------------------------------------------
 hard 59
-
+q 51
+56
 "class Ques {",
 "public:",
     "int function(vector<vector<int>>& grid) {",
@@ -1268,7 +1220,8 @@ hard 59
 
 -----------------------------------------------------------------------
 hard 60
-
+q 26
+57
 "vector<int> DIR = {0, 1, 0, -1, 0};",
     "int function(vector<vector<int>>& grid) {",
         "int m = grid.size(), \n n = grid[0].size(), \n count=-1, \n f=0; \n queue<pair<int, int>> q;",
@@ -1299,6 +1252,68 @@ hard 60
  	"return -1;",
         "return max(0,count); \n }",
    ---------------------------------------------------------------
+q 48
+
+   "int function(int arr[], int n)\n{",
+      "int m,count=0;",
+      "for(int i=0;i<n;i++){",
+          "if(i==0){",
+              "m=arr[i];\ncount=1;",
+          "}\nelse if (m==arr[i]){",
+             " count++; }",
+          "else",
+              "count--;",
+      "}\ncount = 0;",
+    "for (int i = 0; i < n; i++) {\nif (arr[i] == m) ",
+        "count++;\n}",
+    "if (count > n / 2)",
+      "return m;",
+    "else\nreturn -1;\n}",
+
+    ---------------------------------------------------------
+
+    q 50
+    
+       "func function(n uint, fp float64) *c {",
+	"b := uint(4)",
+	"f := fingerprintLength(b, fp)",
+	"m := nextPower(n / f * 8)",
+	"buckets := make([]bucket, m)",
+	"for i := uint(0); i < m; i++ {",
+		"buckets[i] = make(bucket, b)",
+	"}\nreturn &c{",
+		"buckets: buckets,\nm:       m,\nb: b,\nf:   f\nn:       n,",
+	"}\n}",
+
+    --------------------------------------------------
+
+    q 53
+
+    "class Node{",
+    "public :\nNode *left;\nNode *right;\nint data;\nbool rightThread;",
+     "Node(int data){",
+       " this->data = data;\nrightThread = false;",
+        "this->left = nullptr ;\nthis->right = nullptr ;\n},
+"} ;\n Node* leftMostNode(Node *node){",
+        "if(node==nullptr) \n return nullptr;"
+        "else{\nwhile(node->left!=nullptr)",
+        "{\nnode = node->left;\n}",
+            "return node;\n}\n}",
+
+"class bst {\npublic :",
+
+    "bst(){\n}",
+        "void inorder(Node *root, Node *previous){",
+
+        "if(root==nullptr)\nreturn;",
+        "else{\n inorder(root->right, previous);",
+           " if(root->right==nullptr &&  previous!=nullptr){",
+               " root->right = previous;",
+                "root->rightThread=true;",
+           " }\ninorder(root->left, root);",
+        "}\nvoid convert(Node *root){",
+        "inorder(root, nullptr);\n}\n  } ;",
+
 
 
 
