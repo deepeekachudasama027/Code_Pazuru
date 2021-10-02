@@ -16,6 +16,7 @@
   margin: 0rem 1rem;
   right: 0;
 }
+
 .nav__toggle svg {
   width: 1.5rem;
   fill: #2a324b;
@@ -35,21 +36,24 @@
   gap: 5rem;
   align-items: center;
   margin: 1rem;
+  color: rgb(0, 0, 0);
 }
 .nav__menu li {
   list-style: none;
   display: none;
 }
+
 .nav__menu li:first-child {
   margin-right: auto;
   display: block;
 }
 .nav__menu a {
   text-decoration: none;
-  color: inherit;
+  color: rgb(0, 0, 0);
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 .nav__menu svg {
   width: 1.5rem;
   fill: #2a324b;
