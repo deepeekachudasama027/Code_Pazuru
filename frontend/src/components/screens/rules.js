@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import  event_logo from "./event_logo.png";
+import event_logo from "./event_logo.png";
 require("./preloader.css");
 require("./navbar.css");
 require("./rules.css");
-
-
 
 class rules extends Component {
   constructor(props) {
@@ -94,7 +92,7 @@ class rules extends Component {
             <ul className="nav__menu">
               <li>
                 <a href="./game">
-                <img src={event_logo} alt="" width="70" height="70"/> 
+                  <img src={event_logo} alt="" width="70" height="70" />
                 </a>
               </li>
               <li>
@@ -125,16 +123,17 @@ class rules extends Component {
               There will be two rounds, first round will be held on 9th oct,
               2021 and second on 10th oct, 2021
               <br />
-              <br /> 1. Any attempt of attack on-site is intolerable. The player
-              will be blacklisted and will not be able to participate in any
-              other events. <br />
-              2. In this game, the player has to arrange the shuffled code in
+              <br />
+              1. In this game, the player has to arrange the shuffled code in
               the correct order. There will be codes belonging to different
               languages, and by analyzing the code, you have to arrange it in
               the correct order.
               <br />
-              3. To drag an element, use the top-down icon that's there on
+              2. To drag an element, use the top-down icon that's there on
               rightmost side of each element.
+              <br />
+              3. The order of function definition is same as the order in which
+              they are invoked.
               <br />
               4. Each player will be given 400 coins in the beginning; use them
               wisely.
@@ -151,13 +150,24 @@ class rules extends Component {
               again to play on the second day as every player will get a daily
               streak of 50 coins.
               <br />
-              7. While doing the registration, do remember your password in
+              7. Use the standard methodology while arranging the code. <br />
+              For eg, Variables are declared at the beginning of the function
+              definition.
+              <br />
+              <br />
+              GENERAL RULES:
+              <br />
+              <br />
+              1. Any attempt of attack on-site is intolerable. The player will
+              be blacklisted and will not be able to participate in any other
+              events. <br />
+              2. While doing the registration, do remember your password in
               order to login to your account as there is no functionality of
               "forget password".
               <br />
-              8. It is advisable to play using laptop, to use all the featured
+              3. It is advisable to play using laptop, to use all the featured
               effectively.
-              <br /> 9. The winners will be announced at the closing ceremony of
+              <br /> 4. The winners will be announced at the closing ceremony of
               version'21.
               <div>
                 <a href="/game">
