@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import  event_logo from "./event_logo.png";
+import event_logo from "./event_logo.png";
 
 require("./preloader.css");
 require("./navbar.css");
@@ -66,7 +66,7 @@ class start_page extends Component {
           <div className="loader-section section-right"></div>
         </div>
       );
-    } //game is locked page i.e. when game is not live yet 
+    } //game is locked page i.e. when game is not live yet
     else {
       return (
         <div className="backgroundset">
@@ -97,7 +97,7 @@ class start_page extends Component {
             <ul className="nav__menu">
               <li>
                 <a href="./game">
-                <img src={event_logo} alt="" width="70" height="70"/> 
+                  <img src={event_logo} alt="" width="70" height="70" />
                 </a>
               </li>
               <li>
@@ -122,11 +122,8 @@ class start_page extends Component {
           <div></div>
           <div className="ccontainer">
             <div className="ccontainer1">
-              <h1 style={{ textTransform: "uppercase" }}>
-                {" "}
-                Heyy!! {username}{" "}
-              </h1>
-              This game is locked right now...
+              <h1> Heyy! {username} </h1>
+              This game is locked right now
               <br />
             </div>
           </div>

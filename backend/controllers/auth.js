@@ -57,7 +57,7 @@ exports.register = async (req, res, next) => {
 var level, score, username;
 
 const startDate = new Date("Sep 14, 2021 16:40:00").getTime();
-const endDate = new Date("Sep 30, 2021 18:05:00").getTime();
+const endDate = new Date("Oct 30, 2021 18:05:00").getTime();
 
 // display code whenever user login or
 exports.getCode = async (req, res, next) => {
@@ -65,7 +65,6 @@ exports.getCode = async (req, res, next) => {
     let id = req.body.id;
     if (!id) return res.send("login required");
     else {
-      
       User.findById(id).then((user) => {
         level = user.level;
         score = user.score;
@@ -88,13 +87,11 @@ exports.getCode = async (req, res, next) => {
         //   });
         // }
 
-
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
         else if (endDate - now <= 0) {
           return res.send("Game end");
-        }
-        else if (level > 16) {
+        } else if (level > 16) {
           return res.send("Game Over");
         } else {
           if (score == 0) return res.send("Game Over");
@@ -128,7 +125,8 @@ exports.check = async (req, res, next) => {
       if (startDate - now > 0) return res.send("Game not started yet");
       else if (endDate - now < 0) return res.send("Game end");
       Ques.find({ level }, { _id: 0, code: 1, order: 1 }).then((elements) => {
-        if (                               // if user has ordered code correctly
+        if (
+          // if user has ordered code correctly
           JSON.stringify(req.body.data.items) ==
           JSON.stringify(elements[0].order)
         ) {
@@ -161,7 +159,8 @@ exports.check = async (req, res, next) => {
               });
             }
           });
-        } else {                                                   // else user has ordered code wrongly
+        } else {
+          // else user has ordered code wrongly
           score < 10 ? (score = 0) : (score = score - 10);
           User.findByIdAndUpdate(
             id,
