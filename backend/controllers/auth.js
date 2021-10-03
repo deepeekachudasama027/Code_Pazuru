@@ -83,7 +83,7 @@ exports.getCode = async (req, res, next) => {
         //     "if [ $sum -gt 400 ]; then",
         //     "else\necho 'B'",
         //     "echo 'Total marks : $sum '",
-        //     "if [ $sum -gt 50 ]; then",
+        //     "if [ $sum -gt 450 ]; then",
         //     "fi\nelse\necho 'F'",
         //     "if [ $sum -gt 350 ]; then",
         //     "if [ $sum -gt 200 ]; then",
@@ -115,11 +115,11 @@ exports.getCode = async (req, res, next) => {
 
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
-        else if (endDate - now <= 0) {
+        else if (endDate - now <= 0) 
           return res.send("Game end");
-        } else if (level > 5) {
+         else if (level > 5) 
           return res.send("Game Over");
-        } else {
+        else {
           if (score == 0) return res.send("Game Over");
           ele = {
             items: items,
@@ -172,9 +172,9 @@ exports.check = async (req, res, next) => {
               { new: true }
             ).then((user) => {
               level = user.level;
-              if (level > 5) {
+              if (level > 5) 
                 return res.send("Game Over");
-              } else {
+              else {
                 Ques.find({ level, day }, { _id: 0, code: 1 }).then(
                   (element) => {
                     var items = element[0].code;
@@ -249,9 +249,9 @@ exports.skip = async (req, res, next) => {
           { new: true }
         ).then((user) => {
           level = user.level;
-          if (level > 5) {
+          if (level > 5) 
             return res.send("Game Over");
-          } else {
+           else {
             Ques.find({ level, day }, { _id: 0, code: 1 }).then(
               (element) => {
                 var items = element[0].code;
