@@ -119,10 +119,18 @@ class rules extends Component {
             <div className="container1">
               RULES
               <br />
+              <br/>
+              Participation Rules: <br />
               <br />
-              There will be two rounds, first round will be held on 9th oct,
-              2021 and second on 10th oct, 2021
+              1. The contest is open only for MCA students of India.<br/>
+              2. Only individual participation is allowed.
               <br />
+              <br/>
+              Game Rules:
+              <br />
+              <br />
+              There will be two rounds, first round will be held on 23rd Oct,
+              2021 and second on 24th Oct, 2021
               <br />
               1. In this game, the player has to arrange the shuffled code in
               the correct order. There will be codes belonging to different
@@ -155,7 +163,7 @@ class rules extends Component {
               definition.
               <br />
               <br />
-              GENERAL RULES:
+              General Rules:
               <br />
               <br />
               1. Any attempt of attack on-site is intolerable. The player will
