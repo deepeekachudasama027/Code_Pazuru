@@ -7,6 +7,7 @@ import image1 from "./version_logo.png";
 
 const RegisterScreen = ({ history }) => {
   const [username, setUsername] = useState("");
+  const [institute, setInstitute] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
@@ -37,6 +38,7 @@ const RegisterScreen = ({ history }) => {
         "/api/auth/register",
         {
           username,
+          institute,
           email,
           password,
         },
@@ -74,6 +76,17 @@ const RegisterScreen = ({ history }) => {
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                required
+                id="institute"
+                autoComplete="true"
+                placeholder="Institute"
+                value={institute}
+                onChange={(e) => setInstitute(e.target.value)}
               />
             </div>
             <div className="form-group">

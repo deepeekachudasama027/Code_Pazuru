@@ -19,7 +19,7 @@
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   background: black;
   border-radius: 30px;
-  height: 480px;
+  height: 520px;
 }
 
 .register-screen__title {
@@ -58,7 +58,7 @@
   border: 3px solid #37d5d6;
 }
 
-#name {
+#name,#institute {
   width: 300px;
   border-radius: 30px;
   font-family: Ubuntu-Bold;

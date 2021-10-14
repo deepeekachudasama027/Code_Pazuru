@@ -122,7 +122,7 @@ class error_page extends Component {
               <h1 style={{ textTransform: "uppercase" }}> OOPS {username}! </h1>
               We can't seem to find the page you're looking for <br />
               Nothing to see here! <br />
-              let's Go back! Press the button
+              Let's Go back! Press the button
               <br />
               <div>
                 <a href="/game">
