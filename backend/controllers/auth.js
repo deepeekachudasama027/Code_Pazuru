@@ -62,9 +62,6 @@ var level, score, username;
 // const startDate =  new Date("2021-10-14T10:30:00Z").getTime();
 // const endDate =  new Date("2021-10-14T12:30:00Z").getTime();
 
-const startDate = new Date("Oct 14, 2021 17:15:00").getTime();
-const endDate = new Date("Sep 17, 2021 17:30:00").getTime();
-
 // const startDate =  new Date("2021-10-14T08:00:00Z").getTime();
 // const endDate =  new Date("2021-10-14T09:00:00Z").getTime();
 
