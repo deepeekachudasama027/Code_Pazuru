@@ -59,11 +59,11 @@ exports.register = async (req, res, next) => {
 
 var level, score, username;
 
-// const startDate =  new Date("2021-10-14T10:30:00Z").getTime();
-// const endDate =  new Date("2021-10-14T12:30:00Z").getTime();
+const startDate =  new Date("2021-10-23T10:30:00Z").getTime();
+const endDate =  new Date("2021-10-23T12:30:00Z").getTime();
 
-// const startDate =  new Date("2021-10-14T08:00:00Z").getTime();
-// const endDate =  new Date("2021-10-14T09:00:00Z").getTime();
+// const startDate =  new Date("2021-10-22T18:00:00Z").getTime();
+// const endDate =  new Date("2021-10-22T18:59:00Z").getTime();
 
 // display code whenever user login or
 exports.getCode = async (req, res, next) => {

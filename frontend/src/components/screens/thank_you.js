@@ -126,7 +126,7 @@ class thankyou extends Component {
               <div className="container">
                 <h1> Thank You {username}! </h1>
                 <p className="mess">
-               Comeback on 15th Oct, 2021 at 4:00 pm (IST) to play again !  <br />
+               Comeback on 24th Oct, 2021 at 4:00 pm (IST) to play again !  <br />
                   Total Score : {score}
                   <br />
                   Hope you have enjoyed the game <br />
