@@ -59,16 +59,17 @@ exports.register = async (req, res, next) => {
 
 var level, score, username;
 
-const startDate =  new Date("2021-10-23T10:30:00Z").getTime();
-const endDate =  new Date("2021-10-23T12:30:00Z").getTime();
+// const startDate =  new Date("2021-10-24T10:30:00Z").getTime();
+// const endDate =  new Date("2021-10-24T12:30:00Z").getTime();
 
-// const startDate =  new Date("2021-10-22T18:00:00Z").getTime();
-// const endDate =  new Date("2021-10-22T18:59:00Z").getTime();
+const startDate =  new Date("2021-10-23T06:30:00Z").getTime();
+const endDate =  new Date("2021-10-23T07:30:00Z").getTime();
 
 // display code whenever user login or
 exports.getCode = async (req, res, next) => {
   try {
     let id = req.body.id;
+    console.log(id)
     if (!id) return res.send("login required");
     else {
       User.findById(id).then((user) => {
@@ -80,44 +81,44 @@ exports.getCode = async (req, res, next) => {
 
         // //for second day
 
-        // flag = user.flag;
-        // if (flag === 0) {
-        //   score = score + 50;
-        //   level = 1;
-        //   (items = [
-        //     "fi",
-        //     "if [ $sum -gt 400 ]; then",
-        //     "else\necho 'B'",
-        //     "echo 'Total marks : $sum '",
-        //     "if [ $sum -gt 450 ]; then",
-        //     "fi\nelse\necho 'F'",
-        //     "if [ $sum -gt 350 ]; then",
-        //     "if [ $sum -gt 200 ]; then",
-        //     "if [ $sum -gt 250 ]; then",
-        //     "echo 'Grade : '",
-        //     "echo 'S'",
-        //     "fi\nelse\necho 'D'",
-        //     "if [ $sum -gt 450 ]; then",
-        //     "echo 'A'\nfi",
-        //     "echo 'C'",
-        //     "fi\nelse",
-        //     "fi\nelse\necho 'E'",
-        //     "else",
-        //   ]),
-        //     User.findByIdAndUpdate(
-        //       id,
-        //       {
-        //         score: score,
-        //         level: level,
-        //         items: items,
-        //         updation_date: new Date(),
-        //         flag: 1,
-        //       },
-        //       { new: true }
-        //     ).then((users) => {
-        //       return res.send("updated successfully");
-        //     });
-        // }
+        flag = user.flag;
+        if (flag === 0) {
+          score = score + 50;
+          level = 1;
+          (items = [
+            "fi",
+            "if [ $sum -gt 400 ]; then",
+            "else\necho 'B'",
+            "echo 'Total marks : $sum '",
+            "if [ $sum -gt 450 ]; then",
+            "fi\nelse\necho 'F'",
+            "if [ $sum -gt 350 ]; then",
+            "if [ $sum -gt 200 ]; then",
+            "if [ $sum -gt 250 ]; then",
+            "echo 'Grade : '",
+            "echo 'S'",
+            "fi\nelse\necho 'D'",
+            "if [ $sum -gt 450 ]; then",
+            "echo 'A'\nfi",
+            "echo 'C'",
+            "fi\nelse",
+            "fi\nelse\necho 'E'",
+            "else",
+          ]),
+            User.findByIdAndUpdate(
+              id,
+              {
+                score: score,
+                level: level,
+                items: items,
+                updation_date: new Date(),
+                flag: 1,
+              },
+              { new: true }
+            ).then((users) => {
+              return res.send("updated successfully");
+            });
+        }
 
         var now = new Date().getTime();
         if (startDate - now > 0) return res.send("Game not started yet");
@@ -154,7 +155,7 @@ exports.check = async (req, res, next) => {
       score = user.score;
       correct_count = user.correct_count;
       username = user.username;
-      day = 1;
+      day = 2;
       if (startDate - now > 0) return res.send("Game not started yet");
       else if (endDate - now < 0) return res.send("Game end");
       Ques.find({ level, day }, { _id: 0, code: 1, order: 1 }).then(
@@ -223,10 +224,10 @@ exports.skip = async (req, res, next) => {
     else if (startDate - now > 0) return res.send("Game not started yet");
     else if (endDate - now < 0) return res.send("Game end");
     else {
-      day = 1;
+      day = 2;
       User.findById(id).then((user) => {
         level = user.level;
-        // score = user.score;
+        score = user.score;
         username = user.username;
         level++;
         score < 20 ? (score = 0) : (score = score - 20);

@@ -124,7 +124,7 @@ class start_page extends Component {
             <div className="ccontainer1">
               <h1> Heyy! {username} </h1>
               Code Pazuru is locked right now ! <br/>
-              It will be unlocked on 23rd Oct, 2021 at 5:30 pm (IST) <br/>
+              It will be unlocked on 24th Oct, 2021 at 4:00 pm (IST) <br/>
               
               <br />
             </div>
